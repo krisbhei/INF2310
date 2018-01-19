@@ -1,6 +1,9 @@
 TITLE: INF2310 - Digital bildebehandling
 
-=== Om siden ===
+TOC: on
+
+!split
+======= Om siden =======
 Her kan du finne diverse materiale som har blitt gjennomgått i gruppetimene.
 
 Gruppetimene vil foregå i _Fortress_ (3.etg og ganske nærme T-banen) kl. _08:15 - 10:00_.
@@ -9,4 +12,12 @@ Siden vil bli oppdatert gjennom semesteret.
 
 Ta gjerne kontakt på _krisbhei@ifi.uio.no_  hvis du har noen spørsmål eller forslag til hvordan gruppetimene eller denne siden kan forbedres.
 
-## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=monokai --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:18px;
+======= Programmering =======
+I emnet vil du stå fritt til å velge mellom Matlab eller Python.
+Du kan gjerne programmere i et annet språk, om du vil, men det kan hende at det blir vanskelig å få hjelp.
+
+
+Her kan du finne en introduksjon til programmering i
+* Matlab
+* Python
+## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=monokai --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:16px;
