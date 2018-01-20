@@ -1,0 +1,175 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Introduksjon i Python">
+
+<title>Introduksjon i Python</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Oversikt',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Installasjon', 1, None, '___sec0'),
+              ('Anaconda', 2, None, '___sec1'),
+              ('Programmering', 1, None, '___sec2'),
+              ('Grunnleggende', 2, None, '___sec3'),
+              ('Bildebehandling', 2, None, '___sec4')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="programmering_python.html">Introduksjon i Python</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Innhold <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;"><b>Oversikt</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;"><b>Installasjon</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Anaconda</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;"><b>Programmering</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Grunnleggende</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Bildebehandling</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>Introduksjon i Python</h1></center>  <!-- document title -->
+
+<p>
+<em>En kort innf&#248;ring i installasjon og programmering i bildebehandling.</em>
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Oversikt</h2>
+
+<p>
+<a href="#___sec0"> Installasjon </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec1"> Anaconda </a><br>
+<a href="#___sec2"> Programmering </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec3"> Grunnleggende </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec4"> Bildebehandling  </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Installasjon </h1>
+Det er vanlig at Python er allerede inkludert p&#229; de fleste MacOS og Linux systemene.
+
+<p>
+Men det er anbefalt &#229; installere Anaconda. Ved &#229; installere Anaconda, f&#229;r man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til &#229; ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan v&#230;re til nytte i andre emner &#243;g.
+
+<p>
+Installering av nye pakker er ogs&#229; lettere ved &#229; bruke Anaconda.
+
+<h2 id="___sec1" class="anchor">Anaconda </h2>
+Det finnes versjoner av Anaconda til Mac, Linux og Windows.
+
+<p>
+Her kan du finne nedlastingssiden: <a href="https://www.anaconda.com/download/#linux" target="_self">Installasjon av Anaconda</a>
+
+<p>
+Alle programmene er skrevet i Python 3.6, s&#229; det anbefales &#229; laste ned Python 3.6 - versjonen.
+
+<p>
+Her kan du finne installasjonsguide til det operativsystemet du bruker: <a href="https://docs.anaconda.com/anaconda/install/" target="_self">Installasjonsguide</a>
+
+<p>
+For &#229; teste om Anaconda har blitt installert og brukes av systemet, kan en skrive
+<p>
+
+<!-- code=text typeset with pygments style "monokai" -->
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>conda list
+</pre></div>
+<p>
+i kommandovinduet.
+Ved en suksessful installasjon, vil man se en liste over diverse pakker som har blitt installert.
+
+<h1 id="___sec2" class="anchor">Programmering </h1>
+
+<h2 id="___sec3" class="anchor">Grunnleggende </h2>
+
+<h2 id="___sec4" class="anchor">Bildebehandling  </h2>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+</body>
+</html>
+    
+
