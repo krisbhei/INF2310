@@ -17,8 +17,6 @@ Automatically generated HTML file from DocOnce source
 -->
 
 <style type="text/css">
-/* Let inline verbatim have the same color as the surroundings */
-code { color: inherit; background-color: transparent; }
 
 /* Add scrollbar to dropdown menus in bootstrap navigation bar */
 .dropdown-menu {
@@ -44,7 +42,7 @@ body { font-size:16px; }
 
 <!-- tocinfo
 {'highest level': 1,
- 'sections': [('Oversikt',
+ 'sections': [('Table of contents',
                1,
                'table_of_contents',
                'table_of_contents'),
@@ -52,7 +50,16 @@ body { font-size:16px; }
               ('Anaconda', 2, None, '___sec1'),
               ('Programmering', 1, None, '___sec2'),
               ('Grunnleggende', 2, None, '___sec3'),
-              ('Bildebehandling', 2, None, '___sec4')]}
+              ('Matematikk', 3, None, '___sec4'),
+              ('Løkker', 3, None, '___sec5'),
+              ('Lister', 3, None, '___sec6'),
+              ('Numpymodulen og arrays', 2, None, '___sec7'),
+              ('Arrays', 3, None, '___sec8'),
+              ('Nyttige(?) metoder', 3, None, '___sec9'),
+              ('Bildebehandling', 2, None, '___sec10'),
+              ('Innlesing og lagring av bilde', 3, None, '___sec11'),
+              ('Fremvising av bilde', 3, None, '___sec12'),
+              ('En liten demonstrasjon', 3, None, '___sec13')]}
 end of tocinfo -->
 
 <body>
@@ -72,14 +79,23 @@ end of tocinfo -->
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Innhold <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;"><b>Oversikt</b></a></li>
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;"><b>Installasjon</b></a></li>
      <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Anaconda</a></li>
      <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;"><b>Programmering</b></a></li>
      <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Grunnleggende</a></li>
-     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Bildebehandling</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matematikk</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec5" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Løkker</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec6" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lister</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec7" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Numpymodulen og arrays</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arrays</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec9" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nyttige(?) metoder</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec10" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Bildebehandling</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec11" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Innlesing og lagring av bilde</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec12" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fremvising av bilde</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec13" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En liten demonstrasjon</a></li>
 
         </ul>
       </li>
@@ -105,32 +121,26 @@ end of tocinfo -->
 <p>
 </div> <!-- end jumbotron -->
 
-<h1 id="table_of_contents">Oversikt</h2>
+<h1 id="table_of_contents">Table of contents</h2>
 
 <p>
 <a href="#___sec0"> Installasjon </a><br>
 &nbsp; &nbsp; &nbsp; <a href="#___sec1"> Anaconda </a><br>
 <a href="#___sec2"> Programmering </a><br>
 &nbsp; &nbsp; &nbsp; <a href="#___sec3"> Grunnleggende </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec4"> Bildebehandling  </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec7"> Numpymodulen og arrays </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec10"> Bildebehandling  </a><br>
 </p>
 <p>
 <!-- !split -->
 
 <h1 id="___sec0" class="anchor">Installasjon </h1>
 Det er vanlig at Python er allerede inkludert p&#229; de fleste MacOS og Linux systemene.
-
-<p>
-Men det er anbefalt &#229; installere Anaconda. Ved &#229; installere Anaconda, f&#229;r man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til &#229; ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan v&#230;re til nytte i andre emner &#243;g.
-
-<p>
+Men det er anbefalt &#229; installere Anaconda. Anaconda er gratis &#229; laste ned. Ved &#229; installere Anaconda, f&#229;r man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til &#229; ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan v&#230;re til nytte i andre emner eller annen programmering.
 Installering av nye pakker er ogs&#229; lettere ved &#229; bruke Anaconda.
 
 <h2 id="___sec1" class="anchor">Anaconda </h2>
-Det finnes versjoner av Anaconda til Mac, Linux og Windows.
-
-<p>
-Her kan du finne nedlastingssiden: <a href="https://www.anaconda.com/download/#linux" target="_self">Installasjon av Anaconda</a>
+Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: <a href="https://www.anaconda.com/download/#linux" target="_self">Installasjon av Anaconda</a>
 
 <p>
 Alle programmene er skrevet i Python 3.6, s&#229; det anbefales &#229; laste ned Python 3.6 - versjonen.
@@ -139,21 +149,108 @@ Alle programmene er skrevet i Python 3.6, s&#229; det anbefales &#229; laste ned
 Her kan du finne installasjonsguide til det operativsystemet du bruker: <a href="https://docs.anaconda.com/anaconda/install/" target="_self">Installasjonsguide</a>
 
 <p>
-For &#229; teste om Anaconda har blitt installert og brukes av systemet, kan en skrive
+For &#229; teste om Anaconda har blitt installert og brukes av systemet, kan man skrive
 <p>
 
-<!-- code=text typeset with pygments style "monokai" -->
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>conda list
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>conda list
 </pre></div>
 <p>
 i kommandovinduet.
-Ved en suksessful installasjon, vil man se en liste over diverse pakker som har blitt installert.
+Ved en suksessful installasjon vil en liste over diverse pakker som har blitt installert dukke opp i kommandovinduet.
 
 <h1 id="___sec2" class="anchor">Programmering </h1>
+Her kan du finne demonstrasjoner av syntaksen som brukes i Python, samt et eksempel p&#229; hvordan et program i Python kan utf&#248;re operasjoner p&#229; et bilde.
 
 <h2 id="___sec3" class="anchor">Grunnleggende </h2>
+Python er et h&#248;ytniv&#229;spr&#229;k - hvilket som betyr at Python er ment for &#229; v&#230;re lett &#229; lese.
 
-<h2 id="___sec4" class="anchor">Bildebehandling  </h2>
+<p>
+Et program i Python har filendingen .py, og kj&#248;res i kommandovinduet ved &#229; skrive
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>python &lt;navn på programmet ditt&gt;.py
+</pre></div>
+<p>
+For at programmet skal skrive ut noe til skjerm, brukes funksjonen print.
+Et eksempel p&#229; hvordan print kan brukes, er:
+
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;Hello,world!&quot;</span>)
+</pre></div>
+<p>
+Programmet vil da skrive til skjerm <em>Hello,world!</em>.
+
+<p>
+Det er ogs&#229; mulig &#229; skrive ut verdien til variabler ved &#229; bruke <em>printf</em>-formattering:
+
+<p>
+
+<!-- code=text (!bc vrb) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>x = 1
+y = -1
+print(&quot;(x,y) = (%g,%g)&quot;%(x,y))
+</pre></div>
+<p>
+Programmet vil skrive ut <em>(1,-1)</em>. Prosenttegnet etterfulgt av bokstaven <em>g</em> bestemmer hvordan verdien av variabelen skrives til skjerm.
+I dette tilfellet vil formatteringen av verdien bestemmes ettersom hvor mange desimaler tallverdien har.
+
+<p>
+Det finnes en oversikt <a href="https://docs.python.org/2/library/stdtypes.html#string-formatting" target="_self">her</a> over hvordan man kan bestemme utskriften av en verdi.
+
+<h3 id="___sec4" class="anchor">Matematikk </h3>
+
+Vi kommer til &#229; bruke en del aritmetiske operasjoner (dvs addering,subtrahering,divisjon og multiplikasjon) etterhvert, og da kan det v&#230;re fint &#229; kjenne til dem.
+Syntaksen for aritmetiske operasjoner er noks&#229; lik som i Java/C/C++/Matlab.
+
+<p>
+Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg noks&#229; ut fra de nevnte spr&#229;kene.
+
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>a <span style="color: #666666">=</span> <span style="color: #666666">-</span><span style="color: #40a070">2</span>
+b <span style="color: #666666">=</span> <span style="color: #40a070">3</span>
+
+<span style="color: #60a0b0; font-style: italic"># Addisjon:</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;a + b =&quot;</span>, a<span style="color: #666666">+</span>b)
+
+<span style="color: #60a0b0; font-style: italic"># Subtraksjon</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;a - b =&quot;</span>, a<span style="color: #666666">-</span>b)
+
+<span style="color: #60a0b0; font-style: italic"># Multiplikasjon</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;a * b =&quot;</span>, a<span style="color: #666666">*</span>b)
+
+<span style="color: #60a0b0; font-style: italic"># Divisjon</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;a / b =&quot;</span>, a<span style="color: #666666">/</span>b)
+
+<span style="color: #60a0b0; font-style: italic"># Opphøying</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;a opphøyd i b = a**b = &quot;</span>,a<span style="color: #666666">**</span>b)
+
+<span style="color: #60a0b0; font-style: italic"># Abolutterdi</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;|a| = abs(a)&quot;</span>,<span style="color: #007020">abs</span>(a))
+</pre></div>
+
+<h3 id="___sec5" class="anchor">L&#248;kker </h3>
+
+<h3 id="___sec6" class="anchor">Lister </h3>
+
+<h2 id="___sec7" class="anchor">Numpymodulen og arrays </h2>
+
+<h3 id="___sec8" class="anchor">Arrays </h3>
+
+<h3 id="___sec9" class="anchor">Nyttige(?) metoder </h3>
+
+<h2 id="___sec10" class="anchor">Bildebehandling  </h2>
+
+<h3 id="___sec11" class="anchor">Innlesing og lagring av bilde </h3>
+
+<h3 id="___sec12" class="anchor">Fremvising av bilde </h3>
+
+<h3 id="___sec13" class="anchor">En liten demonstrasjon </h3>
 
 <!-- ------------------- end of main content --------------- -->
 

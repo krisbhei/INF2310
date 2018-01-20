@@ -1,5 +1,6 @@
 TITLE: Introduksjon i Python
 
+
 *En kort innføring i installasjon og programmering i bildebehandling.*
 
 
@@ -8,35 +9,85 @@ TOC: on
 !split
 ======= Installasjon =======
 Det er vanlig at Python er allerede inkludert på de fleste MacOS og Linux systemene.
-
-Men det er anbefalt å installere Anaconda. Ved å installere Anaconda, får man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til å ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan være til nytte i andre emner óg.
-
+Men det er anbefalt å installere Anaconda. Anaconda er gratis å laste ned. Ved å installere Anaconda, får man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til å ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan være til nytte i andre emner eller annen programmering.
 Installering av nye pakker er også lettere ved å bruke Anaconda.
 
 ===== Anaconda =====
-Det finnes versjoner av Anaconda til Mac, Linux og Windows.
-
-Her kan du finne nedlastingssiden: "Installasjon av Anaconda":"https://www.anaconda.com/download/#linux"
+Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: "Installasjon av Anaconda":"https://www.anaconda.com/download/#linux"
 
 Alle programmene er skrevet i Python 3.6, så det anbefales å laste ned Python 3.6 - versjonen.
 
 Her kan du finne installasjonsguide til det operativsystemet du bruker: "Installasjonsguide":"https://docs.anaconda.com/anaconda/install/"
 
-For å teste om Anaconda har blitt installert og brukes av systemet, kan en skrive
+For å teste om Anaconda har blitt installert og brukes av systemet, kan man skrive
 !bc
 conda list
 !ec
 i kommandovinduet.
-Ved en suksessful installasjon, vil man se en liste over diverse pakker som har blitt installert.
+Ved en suksessful installasjon vil en liste over diverse pakker som har blitt installert dukke opp i kommandovinduet.
 
 ======= Programmering =======
+Her kan du finne demonstrasjoner av syntaksen som brukes i Python, samt et eksempel på hvordan et program i Python kan utføre operasjoner på et bilde.
 
 ===== Grunnleggende =====
+Python er et høytnivåspråk - hvilket som betyr at Python er ment for å være lett å lese.
 
+Et program i Python har filendingen .py, og kjøres i kommandovinduet ved å skrive
+!bc
+python <navn på programmet ditt>.py
+!ec
+
+For at programmet skal skrive ut noe til skjerm, brukes funksjonen print.
+Et eksempel på hvordan print kan brukes, er:
+
+!bc pycod
+print("Hello,world!")
+!ec
+
+Programmet vil da skrive til skjerm *Hello,world!*.
+
+Det er også mulig å skrive ut verdien til variabler ved å bruke *printf*-formattering:
+
+!bc vrb
+x = 1
+y = -1
+print("(x,y) = (%g,%g)"%(x,y))
+!ec
+
+Programmet vil skrive ut *(1,-1)*. Prosenttegnet etterfulgt av bokstaven *g* bestemmer hvordan verdien av variabelen skrives til skjerm.
+I dette tilfellet vil formatteringen av verdien bestemmes ettersom hvor mange desimaler tallverdien har.
+
+Det finnes en oversikt "her":"https://docs.python.org/2/library/stdtypes.html#string-formatting" over hvordan man kan bestemme utskriften av en verdi.
+## Kanskje legge til en egen tabell?
+
+
+=== Matematikk ===
+Vi kommer til å bruke en del aritmetiske operasjoner (dvs addering,subtrahering,divisjon og multiplikasjon) etterhvert, og da kan det være fint å kjenne til dem.
+Syntaksen for aritmetiske operasjoner er nokså lik som i Java/C/C++/Matlab.
+
+
+Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg nokså ut fra de nevnte språkene.
+
+@@@CODE aritmetikk.py
+
+=== Løkker ===
+
+=== Lister ===
+
+
+===== Numpymodulen og arrays =====
+=== Arrays ===
+
+=== Nyttige(?) metoder ===
 
 
 ===== Bildebehandling  =====
 
+=== Innlesing og lagring av bilde ===
+
+=== Fremvising av bilde ===
+
+=== En liten demonstrasjon ===
 
 ## doconce format html programmering_python.do.txt --html_style=bootswatch_yeti --pygments_html_style=monokai --html_admon=bootstrap_panel --html_output=programmering_python  --html_code_style=inherit --html_body_style=font-size:16px;
 ## doconce replace 'Table of contents' 'Oversikt' programmering_python.html
