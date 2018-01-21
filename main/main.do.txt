@@ -19,7 +19,7 @@ Du kan gjerne programmere i et annet språk, om du vil, men det kan hende at det
 
 Her kan du finne en introduksjon til programmering i
 * _Python:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Python/programmering_python.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Python/programmering_python.pdf". Det er også skrevet en god introduksjon til Python "fra i fjor":"https://ojskrede.github.io/inf2310/notes/python_intro/" (engelsk).
-* _Matlab:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Matlab/programmering_matlab.html"
+* _Matlab:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Matlab/programmering_matlab.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Matlab/programmering_matlab.pdf". Det er mange gode ressurser der ute, og spesielt er "dette heftet som brukes i MAT1110":"http://www.uio.no/studier/emner/matnat/math/MAT1110/v16/fvlabokkort.pdf" godt skrevet. 
 
 
 ## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
