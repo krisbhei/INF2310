@@ -15,7 +15,7 @@ Som student ved UiO har man tilgang til en lisens som gjør det mulig å laste n
 ===== Nedlastning til egen PC =====
 
 * 1) Gå inn på "mathworks":"https://se.mathworks.com/login" og registrer en bruker med din UiO-mail som brukernavn.
-* 2) Trykk _Associato to license_ og skriv inn *13796-65616-24271-45993-03655*.
+* 2) Trykk _Associate to license_ og skriv inn *13796-65616-24271-45993-03655*.
 * 3) Nå kan du laste ned Matlab ved å trykke på _Download Your Products now_ og følge de gitte instruksjonene for den platformen du laster ned på.
 
 <linebreak>
@@ -215,7 +215,7 @@ God programmering!
 ## doconce format html programmering_matlab.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=programmering_matlab  --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
 ## doconce replace 'Table of contents' 'Oversikt' programmering_python.html
 ## doconce replace 'Contents' 'Innhold' programmering_python.html
-## doconce format pdflatex programmering_python --latex_font=palatino --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue
+## doconce format pdflatex programmering_matlab --latex_font=palatino --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue
 ##        --latex_admon=yellowicon '--latex_admon_color=yellow!5'
 ##        --latex_fancy_header --latex_code_style=pyg
 ##        --latex_section_headings=blue --latex_colored_table_rows=blue
