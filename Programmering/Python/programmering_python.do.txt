@@ -1,6 +1,6 @@
-TITLE: Introduksjon i Python
-
-
+TITLE: Introduksjon til Python
+## AUTHOR: Kristine B. Hein
+## DATE: today
 *En kort innføring i installasjon og programmering i bildebehandling.*
 
 
@@ -15,7 +15,7 @@ Installering av nye pakker er også lettere ved å bruke Anaconda.
 ===== Anaconda =====
 Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: "Installasjon av Anaconda":"https://www.anaconda.com/download/#linux"
 
-Alle programmene er skrevet i Python 3.6, så det anbefales å laste ned Python 3.6 - versjonen.
+Alle programmene på siden er skrevet i Python 3.6, så det anbefales å laste ned Python 3.6 - versjonen.
 
 Her kan du finne installasjonsguide til det operativsystemet du bruker: "Installasjonsguide":"https://docs.anaconda.com/anaconda/install/"
 
@@ -38,7 +38,7 @@ python
 !ec
 
 Shell-et gjør det mulig å utføre all kode som skrives inn *med én gang* etter å ha trykket på Enter-tasten. Det er også mulig å se direkte verdien til variabler ved å simpelthen skrive inn variabelnavnet som skal vises frem.
-Det er altså rom for testing av funksjoner og se direkte konsekvenser av dem uten å skrive en egen fil - lagre - så kjøre. Fra egen erfaring, har bruk av shellet for å teste funksjoner/ideer o.l redusert betraktelig lumske bugs!
+Det er altså rom for testing av funksjoner og se direkte konsekvenser av dem uten å skrive en egen fil - lagre - så kjøre. Fra egen erfaring, har bruk av shellet for å teste funksjoner/ideer o.l redusert betraktelig antallet lumske bugs!
 
 For å komme ut av shell-et, kan man utføre *exit()*. Det er også viktig å huske på at ingenting av deklarasjoner, definisjoner o.l blir lagret.
 ===== Grunnleggende =====
@@ -100,7 +100,7 @@ print(liste1)
 !ec
 Kjører men programmet, vil man se at det skriver ut *[10,12]*.
 
-
+<linebreak>
 For å lage en liste med noen elementer, brukes klammeparantes rundt elementene som er separert med komma:
 
 !bc pycod
@@ -121,7 +121,9 @@ print(liste2[2]) # skriver ut "hei"
 === Løkker ===
 Løkker har noenlunde lik syntaks som de typiske programmeringsspråkene.
 
+<linebreak>
 __For-løkker:__
+<linebreak>
 Hensikten bak en for-løkke er å utføre en kodesnutt et bestemt antall ganger.
 
 For-løkker er kanskje én av de viktigste redskapene som kommer til å bli brukt i emnet.
@@ -135,13 +137,13 @@ for <element-navn> in <liste over verdier>:
 
 I *<element-navn>* bestemmer du hvilket variabelnavn som skal tilordnes hvert element som hentes ut fra listen spesifisert i *<liste over verdier>*.
 Det er viktig å passe på å ha et inntrykk etter for-linjen er skrevet.
-
+<linebreak>
 En svært nyttig konstruksjon av en liste-lignende objekt er range, og ofte viser seg til å være svært nyttig i for-løkker,
 Funksjonen range gjøre det mulig at man kan hente heltall fra et gitt intervall ved en gitt steglengde:
 !bc pycod
 for <element-navn> in range(start,stopp,steg)
 !ec
-Her vil *<element-navn>* være alle heltall innenfor intervallet [*start*,*stopp*-*steg*] (merk sluttverdien i intervallet!) med *steg* mellomrom. Hvis du ønsker at *start* skal være lik 0 samtidig som *steg* skal være lik 1, er
+Her vil *<element-navn>* være alle heltall innenfor intervallet fra og med *start* til og med *stopp* minus *steg* (merk sluttverdien i intervallet!) med *steg* mellomrom. Hvis du ønsker at *start* skal være lik 0 samtidig som *steg* skal være lik 1, er
 det mulig å droppe å skrive 0 som *start* og 1 som *steg*, og heller skrive *range(stopp)*.
 
 En demonstrasjon til hvordan et program kan skrive ut alle partall mellom 10 og 20 ved å bruke for-løkke og range:
@@ -160,8 +162,9 @@ eller:
 for listeelement in liste1:
     print(listeelement)
 !ec
-
+<linebreak>
 __While-løkker:__
+<linebreak>
 Det hender også at man ikke vet på forhånd hvor mange ganger en kodesnutt skal utføres av programmet. Dette kan f.eks være ved fjerning av piksler som vi ikke ønsker i bildet og søk etter noe i bildet.
 
 En while-løkke er konstruert slik:
@@ -200,6 +203,7 @@ Det finnes mange metoder i numpy som er nyttige for arrays - og ikke bare av ren
 En god del av funksjonene er også implementert mtp effektivitet og kan gjøre programmet betraktelig raskere ved riktig bruk.
 Enkelte funksjoner er også skrevet slik at man reduserer linjer i koden - og derav kan gjøre koden lettere å lese.
 
+<linebreak>
 Noen metoder som, av erfaring, har vært til nytte i bildebehandling:
 * _np.array:_ Konverterer en liste til array
 * _np.dot:_ Matematisk matrisemultiplikasjon
@@ -219,6 +223,7 @@ Innlesing av bilde er ikke implementert i numpy. Men det finnes heldigvis andre 
 Det går også an å lese inn bilde fra matplotlib.pyplot, som ofte brukes ved plotting og framvising av bilde, men den har ingen metode implementert som kan konvertere et fargebilde til gråtonebilde.
 Det er hovedsakelig gråtonebilder det blir fokusert på i emnet, og derav er det kjekt å kunne konvertere et fargebilde.
 
+<linebreak>
 En modul som har implementert funksojner for innlesing og gråtonekonvertering av bilder, er *scipy.misc*.
 Funksjonen for innlesing heter *imread*. For å lese inn et bilde, f.eks "houses.png":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/houses.png", kan man bruke *imread* slik:
 !bc pycod
@@ -251,12 +256,37 @@ FIGURE: [Figure_2.svg] Bilde av det andre vinduet.
 Her kan du se at det første bilde ikke er gråtone - selvom det er tenkt et gråtonebilde. Dette skjer fordi *matplotlib.pyplot* har en standard, predefinert måte å fremvise tallverdier som farger på.
 Det må spesifiseres at en ønsker å framvise bildet som faktisk gråtone. Dette gjøres med å spesifisere et *colormap* ved å sende inn som argument *cmap=<ønsket colormap>*. Det finnes flere colormaps, hvis en ønsker å bruke det.
 
-Dete er også viktig å bruke _figure()_ hvis man ikke ønsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til *imshow*.
+Dette er også viktig å bruke _figure()_ hvis man ikke ønsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til *imshow*.
 
+<linebreak>
+Det kan også hende at etter noen operasjoner at de matrisene en jobber med, har verdier som er større enn det et bilde bør ha. Et 8-bit bilde har verdier fra 0 til og med 255.
+Ved fremvising, tilpasser matplotlib seg etter de verdiene som den innsendte matrisen har. Dette kan føre til at vi ikke ser resultatene etter å ha utført noen operasjoner.
+For å sørge for at matplotlib viser bildet som om den har verdier mellom 0 og 255, må en bruke *vmin* og *vmax*:
+!bc pycod
+plt.imshow(img,vmin=0,vmax=255)
+!ec
+
+<linebreak>
+Noen ganger kan bildet se lite ut i vinduet. Det er mulig at matplotlib skalerer bildet slik at det fyller hele vinduet. Det gjøres slik:
+!bc pycod
+plt.imshow(<bilde og andre argumenter>, aspect='auto')
+!ec
 === En liten demonstrasjon ===
 label{subsec:demo}
+Denne demonstrasjonen oppsummerer det som har vært beskrevet i denne innledningen. Dette er kanskje en av de funksjonskallene som vil bli brukt i programmene, og som er ganske nyttige
+for å se hvordan et bilde forandrer seg i løpet av et program.
 
+Bildebehandling er et fag der eksperimentering er viktig, og da er det nyttig å vise fram og presentere resultatene programmet har fått.
 
-## doconce format html programmering_python.do.txt --html_style=bootswatch_yeti --pygments_html_style=monokai --html_admon=bootstrap_panel --html_output=programmering_python  --html_code_style=inherit --html_body_style=font-size:16px;
+@@@CODE demo.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/demo.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+
+God programmering!
+
+## doconce format html programmering_python.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=programmering_python  --html_code_style=inherit --html_body_style=font-size:16px;
 ## doconce replace 'Table of contents' 'Oversikt' programmering_python.html
 ## doconce replace 'Contents' 'Innhold' programmering_python.html
+## doconce format pdflatex programmering_python --latex_font=palatino --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue
+##        --latex_admon=yellowicon '--latex_admon_color=yellow!5'
+##        --latex_fancy_header --latex_code_style=pyg
+##        --latex_section_headings=blue --latex_colored_table_rows=blue

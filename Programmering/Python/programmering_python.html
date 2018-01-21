@@ -6,9 +6,9 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
-<meta name="description" content="Introduksjon i Python">
+<meta name="description" content="Introduksjon til Python">
 
-<title>Introduksjon i Python</title>
+<title>Introduksjon til Python</title>
 
 <!-- Bootstrap style: bootswatch_yeti -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,8 @@ Automatically generated HTML file from DocOnce source
 -->
 
 <style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
 
 /* Add scrollbar to dropdown menus in bootstrap navigation bar */
 .dropdown-menu {
@@ -74,7 +76,7 @@ end of tocinfo -->
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="programmering_python.html">Introduksjon i Python</a>
+    <a class="navbar-brand" href="programmering_python.html">Introduksjon til Python</a>
   </div>
 
   <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -115,9 +117,8 @@ end of tocinfo -->
 
 
 <div class="jumbotron">
-<center><h1>Introduksjon i Python</h1></center>  <!-- document title -->
+<center><h1>Introduksjon til Python</h1></center>  <!-- document title -->
 
-<p>
 <em>En kort innf&#248;ring i installasjon og programmering i bildebehandling.</em>
 
 <p>
@@ -146,7 +147,7 @@ Installering av nye pakker er ogs&#229; lettere ved &#229; bruke Anaconda.
 Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: <a href="https://www.anaconda.com/download/#linux" target="_self">Installasjon av Anaconda</a>
 
 <p>
-Alle programmene er skrevet i Python 3.6, s&#229; det anbefales &#229; laste ned Python 3.6 - versjonen.
+Alle programmene p&#229; siden er skrevet i Python 3.6, s&#229; det anbefales &#229; laste ned Python 3.6 - versjonen.
 
 <p>
 Her kan du finne installasjonsguide til det operativsystemet du bruker: <a href="https://docs.anaconda.com/anaconda/install/" target="_self">Installasjonsguide</a>
@@ -177,7 +178,7 @@ Da er det ofte behjelpelig &#229; bruke Python shell-et. Den aktiveres i kommand
 </pre></div>
 <p>
 Shell-et gj&#248;r det mulig &#229; utf&#248;re all kode som skrives inn <em>med &#233;n gang</em> etter &#229; ha trykket p&#229; Enter-tasten. Det er ogs&#229; mulig &#229; se direkte verdien til variabler ved &#229; simpelthen skrive inn variabelnavnet som skal vises frem.
-Det er alts&#229; rom for testing av funksjoner og se direkte konsekvenser av dem uten &#229; skrive en egen fil - lagre - s&#229; kj&#248;re. Fra egen erfaring, har bruk av shellet for &#229; teste funksjoner/ideer o.l redusert betraktelig lumske bugs!
+Det er alts&#229; rom for testing av funksjoner og se direkte konsekvenser av dem uten &#229; skrive en egen fil - lagre - s&#229; kj&#248;re. Fra egen erfaring, har bruk av shellet for &#229; teste funksjoner/ideer o.l redusert betraktelig antallet lumske bugs!
 
 <p>
 For &#229; komme ut av shell-et, kan man utf&#248;re <em>exit()</em>. Det er ogs&#229; viktig &#229; huske p&#229; at ingenting av deklarasjoner, definisjoner o.l blir lagret.
@@ -278,6 +279,7 @@ liste1<span style="color: #666666">.</span>append(<span style="color: #40a070">1
 Kj&#248;rer men programmet, vil man se at det skriver ut <em>[10,12]</em>.
 
 <p>
+<br />
 For &#229; lage en liste med noen elementer, brukes klammeparantes rundt elementene som er separert med komma:
 
 <p>
@@ -304,7 +306,9 @@ For &#229; hente ut et element fra en liste, skriver vi f&#248;rst navnet til va
 L&#248;kker har noenlunde lik syntaks som de typiske programmeringsspr&#229;kene.
 
 <p>
+<br />
 <b>For-l&#248;kker:</b>
+<br />
 Hensikten bak en for-l&#248;kke er &#229; utf&#248;re en kodesnutt et bestemt antall ganger.
 
 <p>
@@ -322,8 +326,7 @@ Konstruksjonen av en for-l&#248;kke er:
 <p>
 I <em><element-navn></em> bestemmer du hvilket variabelnavn som skal tilordnes hvert element som hentes ut fra listen spesifisert i <em><liste over verdier></em>.
 Det er viktig &#229; passe p&#229; &#229; ha et inntrykk etter for-linjen er skrevet.
-
-<p>
+<br />
 En sv&#230;rt nyttig konstruksjon av en liste-lignende objekt er range, og ofte viser seg til &#229; v&#230;re sv&#230;rt nyttig i for-l&#248;kker,
 Funksjonen range gj&#248;re det mulig at man kan hente heltall fra et gitt intervall ved en gitt steglengde:
 <p>
@@ -332,7 +335,7 @@ Funksjonen range gj&#248;re det mulig at man kan hente heltall fra et gitt inter
 <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">&lt;</span>element<span style="color: #666666">-</span>navn<span style="color: #666666">&gt;</span> <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(start,stopp,steg)
 </pre></div>
 <p>
-Her vil <em><element-navn></em> v&#230;re alle heltall innenfor intervallet [*start*,*stopp*-*steg*] (merk sluttverdien i intervallet!) med <em>steg</em> mellomrom. Hvis du &#248;nsker at <em>start</em> skal v&#230;re lik 0 samtidig som <em>steg</em> skal v&#230;re lik 1, er
+Her vil <em><element-navn></em> v&#230;re alle heltall innenfor intervallet fra og med <em>start</em> til og med <em>stopp</em> minus <em>steg</em> (merk sluttverdien i intervallet!) med <em>steg</em> mellomrom. Hvis du &#248;nsker at <em>start</em> skal v&#230;re lik 0 samtidig som <em>steg</em> skal v&#230;re lik 1, er
 det mulig &#229; droppe &#229; skrive 0 som <em>start</em> og 1 som <em>steg</em>, og heller skrive <em>range(stopp)</em>.
 
 <p>
@@ -360,7 +363,9 @@ eller:
     <span style="color: #007020; font-weight: bold">print</span>(listeelement)
 </pre></div>
 <p>
+<br />
 <b>While-l&#248;kker:</b>
+<br />
 Det hender ogs&#229; at man ikke vet p&#229; forh&#229;nd hvor mange ganger en kodesnutt skal utf&#248;res av programmet. Dette kan f.eks v&#230;re ved fjerning av piksler som vi ikke &#248;nsker i bildet og s&#248;k etter noe i bildet.
 
 <p>
@@ -448,6 +453,7 @@ En god del av funksjonene er ogs&#229; implementert mtp effektivitet og kan gj&#
 Enkelte funksjoner er ogs&#229; skrevet slik at man reduserer linjer i koden - og derav kan gj&#248;re koden lettere &#229; lese.
 
 <p>
+<br />
 Noen metoder som, av erfaring, har v&#230;rt til nytte i bildebehandling:
 
 <ul>
@@ -473,6 +479,7 @@ Det g&#229;r ogs&#229; an &#229; lese inn bilde fra matplotlib.pyplot, som ofte 
 Det er hovedsakelig gr&#229;tonebilder det blir fokusert p&#229; i emnet, og derav er det kjekt &#229; kunne konvertere et fargebilde.
 
 <p>
+<br />
 En modul som har implementert funksojner for innlesing og gr&#229;tonekonvertering av bilder, er <em>scipy.misc</em>.
 Funksjonen for innlesing heter <em>imread</em>. For &#229; lese inn et bilde, f.eks <a href="https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/houses.png" target="_self">houses.png</a>, kan man bruke <em>imread</em> slik:
 <p>
@@ -507,7 +514,7 @@ Programmet under demonstrer hvordan et program kan lese inn et bilde og vise det
 <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 
-img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>) <span style="color: #60a0b0; font-style: italic"># flatten=True gjør et fargebilde til gråtonebilde</span>
 
 plt<span style="color: #666666">.</span>imshow(img)
 plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Et gråtonebilde?&quot;</span>)
@@ -544,9 +551,70 @@ Her kan du se at det f&#248;rste bilde ikke er gr&#229;tone - selvom det er tenk
 Det m&#229; spesifiseres at en &#248;nsker &#229; framvise bildet som faktisk gr&#229;tone. Dette gj&#248;res med &#229; spesifisere et <em>colormap</em> ved &#229; sende inn som argument <em>cmap=<&#248;nsket colormap></em>. Det finnes flere colormaps, hvis en &#248;nsker &#229; bruke det.
 
 <p>
-Dete er ogs&#229; viktig &#229; bruke <b>figure()</b> hvis man ikke &#248;nsker at det nye bildet som fremvises overlapper det bildet som tidligere har blitt sendt inn til <em>imshow</em>.
+Dette er ogs&#229; viktig &#229; bruke <b>figure()</b> hvis man ikke &#248;nsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til <em>imshow</em>.
+
+<p>
+<br />
+Det kan ogs&#229; hende at etter noen operasjoner at de matrisene en jobber med, har verdier som er st&#248;rre enn det et bilde b&#248;r ha. Et 8-bit bilde har verdier fra 0 til og med 255.
+Ved fremvising, tilpasser matplotlib seg etter de verdiene som den innsendte matrisen har. Dette kan f&#248;re til at vi ikke ser resultatene etter &#229; ha utf&#248;rt noen operasjoner.
+For &#229; s&#248;rge for at matplotlib viser bildet som om den har verdier mellom 0 og 255, m&#229; en bruke <em>vmin</em> og <em>vmax</em>:
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>plt<span style="color: #666666">.</span>imshow(img,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
+</pre></div>
+<p>
+<br />
+Noen ganger kan bildet se lite ut i vinduet. Det er mulig at matplotlib skalerer bildet slik at det fyller hele vinduet. Det gj&#248;res slik:
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>plt<span style="color: #666666">.</span>imshow(<span style="color: #666666">&lt;</span>bilde og andre argumenter<span style="color: #666666">&gt;</span>, aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+</pre></div>
 
 <h3 id="subsec:demo" class="anchor">En liten demonstrasjon</h3>
+
+Denne demonstrasjonen oppsummerer det som har v&#230;rt beskrevet i denne innledningen. Dette er kanskje en av de funksjonskallene som vil bli brukt i programmene, og som er ganske nyttige
+for &#229; se hvordan et bilde forandrer seg i l&#248;pet av et program.
+
+<p>
+Bildebehandling er et fag der eksperimentering er viktig, og da er det nyttig &#229; vise fram og presentere resultatene programmet har f&#229;tt.
+
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Originalbilde&quot;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># Øke kontrast</span>
+img_increased_contrast <span style="color: #666666">=</span> img<span style="color: #666666">*</span><span style="color: #40a070">1.5</span>
+
+<span style="color: #60a0b0; font-style: italic"># Gjøre bildet lysere</span>
+img_brighter <span style="color: #666666">=</span> img <span style="color: #666666">+</span> <span style="color: #40a070">100</span>
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">1</span>) <span style="color: #60a0b0; font-style: italic"># subplot deler et vindu i flere delplott.</span>
+plt<span style="color: #666666">.</span>imshow(img_increased_contrast,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Økt kontrast&quot;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(img_brighter,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Økt lyshet&quot;</span>)
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/demo.py" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<p>
+God programmering!
 
 <!-- ------------------- end of main content --------------- -->
 
