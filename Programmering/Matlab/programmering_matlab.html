@@ -1,0 +1,514 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Introduksjon til Matlab">
+
+<title>Introduksjon til Matlab</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Installasjon', 1, None, '___sec0'),
+              ('Nedlastning til egen PC', 2, None, '___sec1'),
+              ('Programmering', 1, None, '___sec2'),
+              ('Grunnleggende', 2, None, '___sec3'),
+              ('Matematikk', 3, None, '___sec4'),
+              ('Cell arrays', 3, None, '___sec5'),
+              ('Løkker', 3, None, '___sec6'),
+              ('Matriser', 3, None, '___sec7'),
+              ('Bildebehandling', 2, None, '___sec8'),
+              ('Innlesing og lagring av bilde', 3, None, '___sec9'),
+              ('Fremvising av bilde', 3, None, '___sec10'),
+              ('En liten demonstrasjon', 3, 'subsec:demo', 'subsec:demo')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="programmering_matlab.html">Introduksjon til Matlab</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;"><b>Installasjon</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Nedlastning til egen PC</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;"><b>Programmering</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Grunnleggende</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matematikk</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec5" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cell arrays</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec6" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Løkker</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec7" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matriser</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Bildebehandling</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec9" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Innlesing og lagring av bilde</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec10" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fremvising av bilde</a></li>
+     <!-- navigation toc: --> <li><a href="#subsec:demo" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En liten demonstrasjon</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>Introduksjon til Matlab</h1></center>  <!-- document title -->
+
+<!-- AUTHOR: Kristine B. Hein -->
+<!-- DATE: today -->
+<em>En kort innf&#248;ring i installasjon og programmering i bildebehandling.</em>
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#___sec0"> Installasjon </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec1"> Nedlastning til egen PC </a><br>
+<a href="#___sec2"> Programmering </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec3"> Grunnleggende </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec8"> Bildebehandling  </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Installasjon </h1>
+Matlab krever en lisens for &#229; kj&#248;res (som koster svimlende 18500kr!).
+Som student ved UiO har man tilgang til en lisens som gj&#248;r det mulig &#229; laste ned Matlab p&#229; egen PC, eller bruke Matlab gjennom UiOs <a href="http://www.uio.no/tjenester/it/maskin/programvare/programkiosk/" target="_self">programkiosk</a>.
+
+<h2 id="___sec1" class="anchor">Nedlastning til egen PC </h2>
+
+<ul>
+<li> 1) G&#229; inn p&#229; <a href="https://se.mathworks.com/login" target="_self">mathworks</a> og registrer en bruker med din UiO-mail som brukernavn.</li>
+<li> 2) Trykk <b>Associato to license</b> og skriv inn <em>13796-65616-24271-45993-03655</em>.</li>
+<li> 3) N&#229; kan du laste ned Matlab ved &#229; trykke p&#229; <b>Download Your Products now</b> og f&#248;lge de gitte instruksjonene for den platformen du laster ned p&#229;.</li>
+</ul>
+
+<br />
+Tips til Linux-brukere: Det kan hende Matlab har en keybinding som minner om Emacs. Det vil si, at typiske kommandoer som f.eks Ctrl+S for lagring, Ctrl+C og Ctrl+V for hhv. kopiering og lagring gj&#248;r noe annet enn det man kanskje er vant til.
+For &#229; endre denne keybindingen, g&#229;r man p&#229; <b>Preferences</b> -> <b>Keyboard</b> -> <b>Shortcuts</b>. Under <b>Active settings</b> kan du finne en drop-down meny med mulighetene for <em>Emacs Default Set</em> eller <em>Windows Default Set</em>. Ved &#229; bruke <em>Windows Default Set</em>, vil det v&#230;re mulig &#229; bruke de typiske kommandoene som Ctrl+C, Ctrl+V osv.
+
+<h1 id="___sec2" class="anchor">Programmering </h1>
+Her kan du finne demonstrasjoner av syntaksen som brukes i Matlab, samt et eksempel p&#229; hvordan et program kan utf&#248;re operasjoner p&#229; et bilde.
+
+<h2 id="___sec3" class="anchor">Grunnleggende </h2>
+Matlab er et h&#248;ytniv&#229;spr&#229;k - hvilket som betyr at Matlab er ment for &#229; v&#230;re lett &#229; lese.
+
+<p>
+Mye av semantikken i Matlab bygger ogs&#229; p&#229; at man jobber med matriser. Bilder er i bunn og grunn matriser - hvilket som gj&#248;r Matlab ganske naturlig egnet til &#229; jobbe med bilder i.
+
+<p>
+Et program i Matlab har filendingen .m, og kj&#248;res i kommandovinduet ("Command Window") ved &#229; skrive
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>&lt;navn på programmet ditt&gt;
+</pre></div>
+<p>
+I alle Matlab-program er det viktig &#229; huske et semikolon (;) i slutten av hver linje som du ikke &#248;nsker &#229; se verdien til.
+Det kan fort bli mye utskrift, spesielt ved store matriser. Er man uheldig og glemmer et semikolon, kan man avslutte utskriften ved &#229; trykke Ctrl+C.
+
+<h3 id="___sec4" class="anchor">Matematikk </h3>
+
+Vi kommer til &#229; bruke en del aritmetiske operasjoner (dvs addering,subtrahering,divisjon og multiplikasjon) etterhvert, og da kan det v&#230;re fint &#229; kjenne til dem.
+Syntaksen for aritmetiske operasjoner er noks&#229; lik som i Java/C/C++/Matlab.
+
+<p>
+Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg noks&#229; ut fra de nevnte spr&#229;kene.
+
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>a = <span style="color: #666666">-</span><span style="color: #40a070">2</span>;
+b = <span style="color: #40a070">3</span>;
+
+<span style="color: #60a0b0; font-style: italic">% Addisjon:</span>
+a<span style="color: #666666">+</span>b
+
+<span style="color: #60a0b0; font-style: italic">% Subtraksjon</span>
+a<span style="color: #666666">-</span>b
+
+<span style="color: #60a0b0; font-style: italic">% Multiplikasjon</span>
+a<span style="color: #666666">*</span>b
+
+<span style="color: #60a0b0; font-style: italic">% Divisjon</span>
+a<span style="color: #666666">/</span>b
+
+<span style="color: #60a0b0; font-style: italic">% Opphøying</span>
+a^b
+</pre></div>
+
+<h3 id="___sec5" class="anchor">Cell arrays </h3>
+
+Cell arrays er en samling av elementer. Det som gj&#248;r cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at arrays-ene kan inneholde elementer av ulik type.
+Det vil si at &#233;n og samme cell-array i Matlab kan inneholde datatyper som strings, ints og floats og andre ting som for eksempel funksjonspekere og andre objekter.
+
+<p>
+For &#229; lage en tom cell, brukes kr&#248;llparantes:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>cell1 = {}
+</pre></div>
+<p>
+Man kan utvide <em>cell1</em> ved &#229; spesifisere p&#229; hvilken plass et nytt element skal settes inn.
+Husk at Matlab begynner indekseringen fra 1, og bruker kr&#248;llparantes!
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>cell1{<span style="color: #40a070">1</span>} = <span style="color: #40a070">10</span>; <span style="color: #60a0b0; font-style: italic">% Nå har liste kun ett element - nemlig 10</span>
+cell1{<span style="color: #40a070">2</span>} = <span style="color: #40a070">12</span>; <span style="color: #60a0b0; font-style: italic">% Elementet 12 er nå plassert bak 10</span>
+</pre></div>
+<p>
+<br />
+For &#229; lage en cell arrays som inneholder gitte elementer, brukes kr&#248;llparantes rundt elementene separert med komma:
+
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>a = <span style="color: #40a070">1</span>
+b = @sum <span style="color: #60a0b0; font-style: italic">% alpha-tegnet sørger for at b er en funksjonspeker til den innebygde funksjonen sum</span>
+c = <span style="color: #4070a0">&#39;hei&#39;</span>
+
+cell2 = {a,b,c}
+</pre></div>
+<p>
+N&#229;r man skal hente ut elementer fra en cell array, er det viktig &#229; huske at f&#248;rste element ligger p&#229; 1-te plass (i motsetning til Python der f&#248;rste element ligger p&#229; 0-te plass).
+For &#229; hente ut et element fra en cell array, skriver vi f&#248;rst navnet til variabelen knyttet til array-et, og deretter kr&#248;llparantes med et tall inni som forteller fra hvilken plass programmet skal hente elementet fra.
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>cell1{<span style="color: #40a070">1</span>} <span style="color: #60a0b0; font-style: italic">% viser 10 i kommandovinduet</span>
+cell2{<span style="color: #40a070">3</span>} <span style="color: #60a0b0; font-style: italic">% viser &#39;hei&#39; i kommandovinduet</span>
+</pre></div>
+
+<h3 id="___sec6" class="anchor">L&#248;kker </h3>
+
+L&#248;kker har noenlunde lik syntaks som de typiske programmeringsspr&#229;kene.
+
+<p>
+<br />
+<b>For-l&#248;kker:</b>
+<br />
+Hensikten bak en for-l&#248;kke er &#229; utf&#248;re en kodesnutt et bestemt antall ganger.
+
+<p>
+For-l&#248;kker er kanskje &#233;n av de viktigste redskapene som kommer til &#229; bli brukt i emnet.
+Derfor, er det viktig &#229; ha god kjennskap til hvordan den kan brukes og <em>spesielt</em> indekseringen!
+
+<p>
+Konstruksjonen av en for-l&#248;kke er:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">&lt;</span>variabel<span style="color: #666666">&gt;</span> = <span style="color: #666666">&lt;</span>startverdi<span style="color: #666666">&gt;</span>:<span style="color: #666666">&lt;</span>steg<span style="color: #666666">&gt;</span>:<span style="color: #666666">&lt;</span>sluttverdi<span style="color: #666666">&gt;</span>
+<span style="color: #60a0b0; font-style: italic">% Kode som skal utføres</span>
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+Det som er viktig &#229; huske p&#229;, er end. Den brukes ogs&#229; for &#229; markere slutten av if-tester og funksjonsdefinisjoner.
+Det er ogs&#229; mulig &#229; droppe &#229; spesifisere <em>steg</em> hvis man &#248;nsker at det skal v&#230;re lik 1. Syntaksten blir da
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">for</span> <span style="color: #666666">&lt;</span>variabel<span style="color: #666666">&gt;</span> = <span style="color: #666666">&lt;</span>startverdi<span style="color: #666666">&gt;</span>:<span style="color: #666666">&lt;</span>sluttverdi<span style="color: #666666">&gt;</span>
+<span style="color: #60a0b0; font-style: italic">% Kode som skal utføres</span>
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+<b>While-l&#248;kker:</b>
+<br />
+Det hender ogs&#229; at man ikke vet p&#229; forh&#229;nd hvor mange ganger en kodesnutt skal utf&#248;res av programmet. Dette kan f.eks v&#230;re ved fjerning av piksler som vi ikke &#248;nsker i bildet og s&#248;k etter noe i bildet.
+
+<p>
+En while-l&#248;kke er konstruert slik:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">while</span> <span style="color: #666666">&lt;</span>en betingelse er  evaluert til True<span style="color: #666666">&gt;</span>
+<span style="color: #60a0b0; font-style: italic">% kodesnutt som skal utføres</span>
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+En betingelse kan v&#230;re en sjekk p&#229; om ett tall er st&#248;rre enn en gitt verdi, om en variabel har endret seg osv.
+
+<h3 id="___sec7" class="anchor">Matriser </h3>
+
+<p>
+En matrise konstrueres radvis, og inni klammeparanteser. En rad er definert som en rekke av verdier sperarert av mellomrom.
+For &#229; indikere slutt av en rad, brukes semikolon. Et eksempel p&#229; konstruksjon av en 3 x 2 - matrise:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>matrise1 = [<span style="color: #40a070">1</span> <span style="color: #40a070">2</span> <span style="color: #40a070">3</span>; <span style="color: #40a070">4</span> <span style="color: #40a070">5</span> <span style="color: #40a070">6</span>];
+</pre></div>
+<p>
+som ser ut slik i kommandovinduet:
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>matrise1 =
+
+     1     2     3
+     4     5     6
+</pre></div>
+<p>
+Merk at for at matrisen skal v&#230;re veldefinert, m&#229; radene v&#230;re like lange (alts&#229; best&#229; av like mange verdier).
+
+<p>
+Programmet under viser grunnleggende operasjoner man kan gj&#248;re med en matrise:
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>A = [<span style="color: #40a070">1</span> <span style="color: #40a070">2</span> <span style="color: #40a070">3</span>; <span style="color: #40a070">4</span> <span style="color: #40a070">5</span> <span style="color: #40a070">6</span>];
+a = <span style="color: #40a070">3</span>;
+
+<span style="color: #60a0b0; font-style: italic">% Addér hvert element i A med a</span>
+A <span style="color: #666666">+</span> a
+
+<span style="color: #60a0b0; font-style: italic">% Subtrahér hvert element i A med a</span>
+A <span style="color: #666666">-</span> a
+
+<span style="color: #60a0b0; font-style: italic">% Multiplisér hvert element i A med a</span>
+A<span style="color: #666666">.*</span>a
+
+<span style="color: #60a0b0; font-style: italic">% Del hvert element i A på a</span>
+A<span style="color: #666666">./</span>a
+
+<span style="color: #60a0b0; font-style: italic">% Opphøy hvert element i A med a</span>
+A<span style="color: #666666">.^</span>a
+
+<span style="color: #60a0b0; font-style: italic">% Transponér A (dvs, gjøre om radene i A til kolonner)</span>
+A.<span style="color: #666666">&#39;</span>
+
+B = [<span style="color: #40a070">10</span> <span style="color: #40a070">11</span>;<span style="color: #40a070">12</span> <span style="color: #40a070">13</span>;<span style="color: #40a070">14</span> <span style="color: #40a070">15</span>];
+
+<span style="color: #60a0b0; font-style: italic">% Matrisemultiplikasjon</span>
+A<span style="color: #666666">*</span>B
+</pre></div>
+
+<h2 id="___sec8" class="anchor">Bildebehandling  </h2>
+Det er mange ulike teknikker en kan bruke for &#229; arbeide med bilder. Her vil det presenteres &#233;n metode &#229; arbeide med bilder p&#229;, men
+du st&#229;r selvf&#248;gelig fritt til &#229; bruke teknikkene som passer deg best.
+
+<h3 id="___sec9" class="anchor">Innlesing og lagring av bilde </h3>
+
+Innlesing av bilde,  f.eks <a href="https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/houses.png" target="_self">houses.png</a>, i Matlab gj&#248;res ved &#229; bruke funksjonen <em>imread</em>:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #4070a0">&#39;houses.png&#39;</span>)
+</pre></div>
+<p>
+I emnet kommer vi til &#229; jobbe hovedsakelig med gr&#229;tonebilder. Det hender at de bildene som gis, er farge eller leses av som om de har farge.
+For &#229; v&#230;re p&#229; den sikre siden, kan man inkludere dette i programmet f&#248;r man jobber videre med det:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #666666">&lt;</span>filnavn til ditt bilde<span style="color: #666666">&gt;</span>)
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #007020">ndims</span>(img) <span style="color: #666666">==</span> <span style="color: #40a070">3</span>    <span style="color: #60a0b0; font-style: italic">% det innleste bildet er et fargebilde</span>
+  img = rgb2gray(img) <span style="color: #60a0b0; font-style: italic">% konvertér til gråtonebilde</span>
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+If-testen sjekker om antall dimensjoner i det innleste bildet er 3. Fargebilder er 3-dimensjonale, mens gr&#229;tonebilder er 2-dimensjonale. Vet programmet at bildet har 3 dimensjoner, s&#229; betyr det alts&#229; at bildet er et fargebilde.
+
+<p>
+Det er ogs&#229; <em>veldig</em> viktig &#229; passe p&#229; at bildet programmet jobber med, er av riktig datatype. De innleste bildene er av typen <em>uint8</em>, som betyr at verdiene er alltids heltall.
+Det kan gi store numeriske feilberegninger siden verdiene blir rundet til heltall mellom 0 og 255. Derfor er det en god vane i &#229; konvertere det til f.eks <em>double</em> f&#248;r man utf&#248;rer matematiske operasjoner p&#229; bildet:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = double(img)
+</pre></div>
+
+<h3 id="___sec10" class="anchor">Fremvising av bilde </h3>
+
+N&#229; som et bilde har blitt innlest, er det fint &#229; f&#229; se det ogs&#229;. Dette kommer til &#229; v&#230;re <em>sv&#230;rt</em> nyttig for &#229; se hvordan diverse operasjoner p&#229;virker et bilde.
+
+<p>
+Det finnes ulike funksjoner i Matlab for fremvising av bilde. En funksjon som kan brukes er <em>imshow</em>:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>imshowc(img,[])
+</pre></div>
+<p>
+De tomme klammeparantesene forteller at Matlabs fremvising av verdier er begrenset av innbildets minste og st&#248;rste verdi.
+Etter noen operasjoner p&#229; bildet (og gitt at bildet er konvertert til double), kan det hende den har erdier st&#248;rre enn 255 (som et typisk bilde har). For at resultatet av operasjonen skal vises tydelig frem, kan en bruke
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>imshow(img,[<span style="color: #40a070">0</span> <span style="color: #40a070">255</span>])
+</pre></div>
+<p>
+for at Matlab framviser bildet som om det har verdier mellom 0 og 255.
+
+<p>
+Noen ganger kan det hende at det framviste bildet er liten i forhold til vinduet. Da kan man bruke et ekstra argument, <em>InitialMagnification</em> slik:
+<p>
+
+<!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>imshow(img,[<span style="color: #40a070">0</span> <span style="color: #40a070">255</span>],<span style="color: #4070a0">&#39;InitialMagnification&#39;</span>,<span style="color: #4070a0">&#39;fit&#39;</span>)
+</pre></div>
+<p>
+Da vil bildet skaleres opp i forhold til vinduets st&#248;rrelse.
+
+<p>
+Programmet under demonstrer det som har blitt beskrevet til n&#229;:
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #4070a0">&#39;houses.png&#39;</span>);
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #007020">ndims</span>(img) <span style="color: #666666">==</span> <span style="color: #40a070">3</span>
+    img = rgb2gray(img);
+<span style="color: #007020; font-weight: bold">end</span>
+img = double(img);
+
+img_constrast = img<span style="color: #666666">.*</span><span style="color: #40a070">1.5</span>;
+
+imshow(img_constrast,[],<span style="color: #4070a0">&#39;InitialMagnification&#39;</span>,<span style="color: #4070a0">&#39;fit&#39;</span>)
+title(<span style="color: #4070a0">&#39;Et gråtonebilde med økt kontrast?&#39;</span>)
+
+figure() <span style="color: #60a0b0; font-style: italic">% For å lage et nytt vindu</span>
+imshow(img_constrast,[<span style="color: #40a070">0</span> <span style="color: #40a070">255</span>],<span style="color: #4070a0">&#39;InitialMagnification&#39;</span>,<span style="color: #4070a0">&#39;fit&#39;</span>)
+title(<span style="color: #4070a0">&#39;Et gråtonebilde med økt kontrast&#39;</span>)
+</pre></div>
+<p>
+som gir disse bildene:
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 1:  Bilde av det f&#248;rste vinduet. </p></center>
+<p><img src="figur1.svg" align="bottom" ></p>
+</center>
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 2:  Bilde av det andre vinduet. </p></center>
+<p><img src="figur2.svg" align="bottom" ></p>
+</center>
+
+<p>
+Dette er ogs&#229; viktig &#229; bruke <b>figure()</b> hvis man ikke &#248;nsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til <em>imshow</em>.
+
+<h3 id="subsec:demo" class="anchor">En liten demonstrasjon</h3>
+
+Denne demonstrasjonen oppsummerer det som har v&#230;rt beskrevet i denne innledningen. Dette er kanskje en av de funksjonskallene som ofte vil bli brukt i programmene, og som er ganske nyttige
+for &#229; se hvordan et bilde forandrer seg i l&#248;pet av et program.
+
+<p>
+Bildebehandling er et fag der eksperimentering er viktig, og da er det nyttig &#229; vise fram og presentere resultatene programmet har f&#229;tt.
+
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #4070a0">&#39;houses.png&#39;</span>);
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #007020">ndims</span>(img) <span style="color: #666666">==</span> <span style="color: #40a070">3</span>
+    img = rgb2gray(img);
+<span style="color: #007020; font-weight: bold">end</span>
+img = double(img);
+
+<span style="color: #60a0b0; font-style: italic">% Øke kontrast</span>
+img_increased_contrast = img<span style="color: #666666">*</span><span style="color: #40a070">1.5</span>;
+
+<span style="color: #60a0b0; font-style: italic">% Gjøre bildet lysere</span>
+img_brighter = img <span style="color: #666666">+</span> <span style="color: #40a070">100</span>;
+
+figure()
+subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">1</span>) <span style="color: #60a0b0; font-style: italic">% subplot deler et vindu i flere delplott.</span>
+imshow(img_increased_contrast,[<span style="color: #40a070">0</span> <span style="color: #40a070">255</span>],<span style="color: #4070a0">&#39;InitialMagnification&#39;</span>,<span style="color: #4070a0">&#39;fit&#39;</span>)
+title(<span style="color: #4070a0">&#39;Økt kontrast&#39;</span>)
+
+subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>)
+imshow(img_brighter,[<span style="color: #40a070">0</span> <span style="color: #40a070">255</span>],<span style="color: #4070a0">&#39;InitialMagnification&#39;</span>,<span style="color: #4070a0">&#39;fit&#39;</span>)
+title(<span style="color: #4070a0">&#39;Økt lyshet&#39;</span>)
+</pre></div>
+<p>
+God programmering!
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+
