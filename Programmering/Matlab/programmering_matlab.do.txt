@@ -42,45 +42,43 @@ Det kan fort bli mye utskrift, spesielt ved store matriser. Er man uheldig og gl
 Vi kommer til å bruke en del aritmetiske operasjoner (dvs addering,subtrahering,divisjon og multiplikasjon) etterhvert, og da kan det være fint å kjenne til dem.
 Syntaksen for aritmetiske operasjoner er nokså lik som i Java/C/C++/Matlab.
 
-
 Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg nokså ut fra de nevnte språkene.
 
-@@@CODE aritmetikk.py
-Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/aritmetikk.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+@@@CODE aritmetikk.m
+## Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/aritmetikk.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
-=== Lister ===
-Lister er en samling av elementer. Det som gjør lister spesielt i Python sammenlignet med Java eller C/C++, er at listene kan inneholde elementer av ulik type.
-Det vil si at én og samme liste i Python kan inneholde datatyper som strings, ints og floats og andre ting som for eksempel funksjonspekere og andre objekter.
+=== Cell arrays ===
+Cell arrays er en samling av elementer. Det som gjør cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at arrays-ene kan inneholde elementer av ulik type.
+Det vil si at én og samme cell-array i Matlab kan inneholde datatyper som strings, ints og floats og andre ting som for eksempel funksjonspekere og andre objekter.
 
-For å lage en tom liste, brukes klammeparantes:
-!bc  pycod
-liste1 = []
+For å lage en tom cell, brukes krøllparantes:
+!bc matlab
+cell1 = {}
 !ec
 
-Man kan utvide *liste1* ved å bruke append. Funksjonen append legger til et element bakover i listen:
-!bc pycod
-liste1.append(10) # Nå har liste kun ett element - nemlig 10
-liste1.append(12) # Elementet 12 er nå plassert bak 10
-print(liste1)
+Man kan utvide *cell1* ved å spesifisere på hvilken plass et nytt element skal settes inn.
+Husk at Matlab begynner indekseringen fra 1, og bruker krøllparantes!
+!bc matlab
+cell1{1} = 10; # Nå har liste kun ett element - nemlig 10
+cell1{2} = 12; # Elementet 12 er nå plassert bak 10
 !ec
-Kjører men programmet, vil man se at det skriver ut *[10,12]*.
 
 <linebreak>
-For å lage en liste med noen elementer, brukes klammeparantes rundt elementene som er separert med komma:
+For å lage en cell arrays som inneholder gitte elementer, brukes krøllparantes rundt elementene separert med komma:
 
-!bc pycod
+!bc matlab
 a = 1
-b = sum # nå er b en funksjon - nemlig den innebygde funksjonen sum.
-c = "hei"
+b = @sum # alpha-tegnet sørger for at b er en funksjonspeker til den innebygde funksjonen sum
+c = 'hei'
 
-liste2 = [a,b,c]
+cell2 = {a,b,c}
 !ec
 
-Når man skal hente ut elementer fra en liste, er det viktig å huske at første element ligger på 0-te plass (i motsetning til Matlab der første element ligger på 1-te plass).
-For å hente ut et element fra en liste, skriver vi først navnet til variabelen knyttet til listen, og deretter klammeparantes med et tall inni som forteller fra hvilken plass programmet skal hente elementet fra.
-!bc pycod
-print(liste1[0]) # skriver ut 10
-print(liste2[2]) # skriver ut "hei"
+Når man skal hente ut elementer fra en cell array, er det viktig å huske at første element ligger på 1-te plass (i motsetning til Python der første element ligger på 0-te plass).
+For å hente ut et element fra en cell array, skriver vi først navnet til variabelen knyttet til array-et, og deretter krøllparantes med et tall inni som forteller fra hvilken plass programmet skal hente elementet fra.
+!bc matlab
+cell1{1} # viser 10 i kommandovinduet
+cell2{3} # viser 'hei' i kommandovinduet
 !ec
 
 === Løkker ===
@@ -95,79 +93,56 @@ For-løkker er kanskje én av de viktigste redskapene som kommer til å bli bruk
 Derfor, er det viktig å ha god kjennskap til hvordan den kan brukes og *spesielt* indekseringen!
 
 Konstruksjonen av en for-løkke er:
-!bc pycod
-for <element-navn> in <liste over verdier>:
-    # kode som bruker liste-elementene
+!bc matlab
+for <variabel> = <startverdi>:<steg>:<sluttverdi>
+% Kode som skal utføres
+end
 !ec
 
-I *<element-navn>* bestemmer du hvilket variabelnavn som skal tilordnes hvert element som hentes ut fra listen spesifisert i *<liste over verdier>*.
-Det er viktig å passe på å ha et inntrykk etter for-linjen er skrevet.
-<linebreak>
-En svært nyttig konstruksjon av en liste-lignende objekt er range, og ofte viser seg til å være svært nyttig i for-løkker,
-Funksjonen range gjøre det mulig at man kan hente heltall fra et gitt intervall ved en gitt steglengde:
-!bc pycod
-for <element-navn> in range(start,stopp,steg)
-!ec
-Her vil *<element-navn>* være alle heltall innenfor intervallet fra og med *start* til og med *stopp* minus *steg* (merk sluttverdien i intervallet!) med *steg* mellomrom. Hvis du ønsker at *start* skal være lik 0 samtidig som *steg* skal være lik 1, er
-det mulig å droppe å skrive 0 som *start* og 1 som *steg*, og heller skrive *range(stopp)*.
-
-En demonstrasjon til hvordan et program kan skrive ut alle partall mellom 10 og 20 ved å bruke for-løkke og range:
-!bc pycod
-for i in range(10,22,2)
-    print(i)
+Det som er viktig å huske på, er end. Den brukes også for å markere slutten av if-tester og funksjonsdefinisjoner.
+Det er også mulig å droppe å spesifisere *steg* hvis man ønsker at det skal være lik 1. Syntaksten blir da
+!bc matlab
+for <variabel> = <startverdi>:<sluttverdi>
+% Kode som skal utføres
+end
 !ec
 
-Man kan også hente ut hvert enkelt listeelement:
-!bc pycod
-for i in range(len(liste1)): # funksjonen len finner antall elementer i liste1
-    print(liste1[i])
-!ec
-eller:
-!bc pycod
-for listeelement in liste1:
-    print(listeelement)
-!ec
-<linebreak>
 __While-løkker:__
 <linebreak>
 Det hender også at man ikke vet på forhånd hvor mange ganger en kodesnutt skal utføres av programmet. Dette kan f.eks være ved fjerning av piksler som vi ikke ønsker i bildet og søk etter noe i bildet.
 
 En while-løkke er konstruert slik:
-!bc pycod
-while <en betingelse er  evaluert til True>:
-    # kodesnutt som skal utføres
+!bc matlab
+while <en betingelse er  evaluert til True>
+% kodesnutt som skal utføres
+end
 !ec
 
 En betingelse kan være en sjekk på om ett tall er større enn en gitt verdi, om en variabel har endret seg osv.
 
-===== Numpymodulen og arrays =====
+=== Matriser ===
 
-Numpy er en modul som kommer med en svært nyttig type å jobbe med, nemlig arrays.
-En array er en matrise, og minner veldig om Pythons lister. Det som er veldig fint med arrays, er at man kan utføre
-matriseoperasjoner som er både effektive og nyttige i bildebhandling. Arrays kan utføre langt mer enn det Pythons innebygde lister kan mtp matriseoperasjoner.
-Det er også vanlig at bilder som leses inn i Python-programmer
-er av typen array siden bilder er i bunn og grunn matriser.
-
-=== Bruke numpy ===
-For å ha kunne bruke arrays fra numpy, må numpy-modulen importeres først.
-Det er mange måter å importere en modul på.
-Den som kommer til å brukes mest på denne siden, er
-!bc pycod
-import numpy as np
+En matrise konstrueres radvis, og inni klammeparanteser. En rad er definert som en rekke av verdier sperarert av mellomrom.
+For å indikere slutt av en rad, brukes semikolon. Et eksempel på konstruksjon av en 3 x 2 - matrise:
+!bc matlab
+matrise1 = [1 2 3; 4 5 6];
 !ec
-Her importeres numpy, men med navnet *np*. For å bruke funksjoner fra numpy ved denne formen for importering, må vi
-skrive foran hver funksjon fra numpy dets ''navn'' for at programmet skal forstå fra hvilken modul funksjonen hentes fra.
+som ser ut slik i kommandovinduet:
+!bc
+matrise1 =
 
-Det som gjør numpy spesielt nyttig å bruke, er at *elementvis* aritmetikk er implementert hos vektorer (en vektor sees på som en 1 x n - matrise) og :
-@@@CODE aritmetikk_numpy.py
-Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/aritmetikk_numpy.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+     1     2     3
+     4     5     6
+!ec
+Merk at for at matrisen skal være veldefinert, må radene være like lange (altså bestå av like mange verdier).
+
+Programmet under viser grunnleggende operasjoner man kan gjøre med en matrise:
+@@@CODE matrise_operasjoner.m
+## Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/aritmetikk.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
 
-=== Nyttige(?) metoder ===
-Det finnes mange metoder i numpy som er nyttige for arrays - og ikke bare av ren matrise-matematisk art.
-En god del av funksjonene er også implementert mtp effektivitet og kan gjøre programmet betraktelig raskere ved riktig bruk.
-Enkelte funksjoner er også skrevet slik at man reduserer linjer i koden - og derav kan gjøre koden lettere å lese.
-
+=== Nyttige(?) funksjoner ===
+Det finnes uttallige mange funksjoner i Matlab som er nyttig i
 <linebreak>
 Noen metoder som, av erfaring, har vært til nytte i bildebehandling:
 * _np.array:_ Konverterer en liste til array
