@@ -45,7 +45,7 @@ Syntaksen for aritmetiske operasjoner er nokså lik som i Java/C/C++/Matlab.
 Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg nokså ut fra de nevnte språkene.
 
 @@@CODE aritmetikk.m
-## Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/aritmetikk.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Matlab/aritmetikk.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
 === Cell arrays ===
 Cell arrays er en samling av elementer. Det som gjør cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at arrays-ene kan inneholde elementer av ulik type.
@@ -138,14 +138,14 @@ Merk at for at matrisen skal være veldefinert, må radene være like lange (alt
 
 Programmet under viser grunnleggende operasjoner man kan gjøre med en matrise:
 @@@CODE matrise_operasjoner.m
-## Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/aritmetikk.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Matlab/matrise_operasjoner.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
 ===== Bildebehandling  =====
 Det er mange ulike teknikker en kan bruke for å arbeide med bilder. Her vil det presenteres én metode å arbeide med bilder på, men
 du står selvføgelig fritt til å bruke teknikkene som passer deg best.
 
 === Innlesing og lagring av bilde ===
-Innlesing av bilde,  f.eks "houses.png":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/houses.png", i Matlab gjøres ved å bruke funksjonen *imread*:
+Innlesing av bilde,  f.eks "houses.png":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Matlab/houses.png", i Matlab gjøres ved å bruke funksjonen *imread*:
 !bc matlab
 img = imread('houses.png')
 !ec
@@ -190,7 +190,7 @@ Da vil bildet skaleres opp i forhold til vinduets størrelse.
 
 Programmet under demonstrer det som har blitt beskrevet til nå:
 @@@CODE fremvisning.m
-## Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/fremvising.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Matlab/fremvising.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
 som gir disse bildene:
 
@@ -208,7 +208,7 @@ for å se hvordan et bilde forandrer seg i løpet av et program.
 Bildebehandling er et fag der eksperimentering er viktig, og da er det nyttig å vise fram og presentere resultatene programmet har fått.
 
 @@@CODE demo.m
-## Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/demo.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Matlab/demo.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
 God programmering!
 
