@@ -1,6 +1,6 @@
 TITLE: Introduksjon til Python
-## AUTHOR: Kristine B. Hein
-## DATE: today
+AUTHOR: Kristine B. Hein
+DATE: today
 *En kort innføring i installasjon og programmering i bildebehandling.*
 
 
