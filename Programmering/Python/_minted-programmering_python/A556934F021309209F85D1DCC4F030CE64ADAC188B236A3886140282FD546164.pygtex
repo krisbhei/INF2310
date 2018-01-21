@@ -1,0 +1,37 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{} vektorer \PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Lage to 1 x 3 matriser:}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{])}
+\PYG{n}{b} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{11}\PYG{p}{,}\PYG{l+m+mi}{12}\PYG{p}{,}\PYG{l+m+mi}{13}\PYG{p}{])}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}a =\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}b =\PYGZdq{}}\PYG{p}{,}\PYG{n}{b}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} elementvis addisjon mellom vektorene}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}a+b =\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{o}{+}\PYG{n}{b}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} elementvis multiplikasjon mellom vektorene}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}a*b =\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{o}{*}\PYG{n}{b}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} elementvis addisjon mellom en skalar og vektor}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}3 addert med hvert element i a:\PYGZdq{}}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{o}{+}\PYG{n}{a}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} elementvis multiplasjon mellom en skalar og vektor}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}3 multiplisert med hvert element i a:\PYGZdq{}}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{a}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZhy{} matriser \PYGZhy{}\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Lage to 2 x 2 matriser:}
+\PYG{n}{a} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{],[}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{]])} \PYG{c+c1}{\PYGZsh{} [1,2] er nå 0\PYGZhy{}te rad, [3,4] er 1\PYGZhy{}te rad}
+\PYG{n}{b} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([[}\PYG{l+m+mi}{11}\PYG{p}{,}\PYG{l+m+mi}{12}\PYG{p}{],[}\PYG{l+m+mi}{13}\PYG{p}{,}\PYG{l+m+mi}{14}\PYG{p}{]])}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}a =\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}b =\PYGZdq{}}\PYG{p}{,}\PYG{n}{b}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} elementvis addisjon mellom matrisene}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}a+b =\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{o}{+}\PYG{n}{b}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} elementvis multiplikasjon mellom matrisene}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}a*b =\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{o}{*}\PYG{n}{b}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kn}{from} \PYG{n+nn}{scipy.misc} \PYG{k+kn}{import} \PYG{n}{imread}
+\PYG{n}{img} \PYG{o}{=} \PYG{n}{imread}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}houses.png\PYGZdq{}}\PYG{p}{,}\PYG{n}{flatten}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+\end{Verbatim}

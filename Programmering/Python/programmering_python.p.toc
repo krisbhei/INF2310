@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Installasjon}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Anaconda}{1}{subsection.1.1}
+\contentsline {section}{\numberline {2}Programmering}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Testing underveis}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Grunnleggende}{2}{subsection.2.2}
+\contentsline {paragraph}{Matematikk.}{3}{section*.2}
+\contentsline {paragraph}{Lister.}{3}{section*.3}
+\contentsline {paragraph}{L\IeC {\o }kker.}{3}{section*.4}
+\contentsline {paragraph}{For-l\IeC {\o }kker:}{3}{section*.5}
+\contentsline {paragraph}{While-l\IeC {\o }kker:}{4}{section*.6}
+\contentsline {subsection}{\numberline {2.3}Numpymodulen og arrays}{4}{subsection.2.3}
+\contentsline {paragraph}{Bruke numpy.}{4}{section*.7}
+\contentsline {paragraph}{Nyttige(?) metoder.}{5}{section*.8}
+\contentsline {subsection}{\numberline {2.4}Bildebehandling}{5}{subsection.2.4}
+\contentsline {paragraph}{Innlesing og lagring av bilde.}{6}{section*.9}
+\contentsline {paragraph}{Fremvising av bilde.}{6}{section*.10}
+\contentsline {paragraph}{En liten demonstrasjon.}{6}{section*.11}

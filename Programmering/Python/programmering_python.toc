@@ -1,0 +1,18 @@
+\select@language {norsk}
+\contentsline {section}{\numberline {1}Installasjon}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Anaconda}{1}{subsection.1.1}
+\contentsline {section}{\numberline {2}Programmering}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Testing underveis}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Grunnleggende}{2}{subsection.2.2}
+\contentsline {paragraph}{Matematikk.}{3}{subsection.2.2}
+\contentsline {paragraph}{Lister.}{3}{subsection.2.2}
+\contentsline {paragraph}{L\IeC {\o }kker.}{4}{subsection.2.2}
+\contentsline {paragraph}{\textit {For-l\IeC {\o }kker:}}{4}{subsection.2.2}
+\contentsline {paragraph}{\textit {While-l\IeC {\o }kker:}}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Numpymodulen og arrays}{5}{subsection.2.3}
+\contentsline {paragraph}{Bruke numpy.}{6}{subsection.2.3}
+\contentsline {paragraph}{Nyttige(?) metoder.}{7}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Bildebehandling}{7}{subsection.2.4}
+\contentsline {paragraph}{Innlesing og lagring av bilde.}{7}{subsection.2.4}
+\contentsline {paragraph}{Fremvising av bilde.}{8}{subsection.2.4}
+\contentsline {paragraph}{En liten demonstrasjon.}{10}{figure.2}

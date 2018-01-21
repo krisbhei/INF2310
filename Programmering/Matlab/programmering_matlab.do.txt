@@ -1,6 +1,6 @@
 TITLE: Introduksjon til Python
-## AUTHOR: Kristine B. Hein
-## DATE: today
+# AUTHOR: Kristine B. Hein
+# DATE: today
 *En kort innføring i installasjon og programmering i bildebehandling.*
 
 
@@ -8,70 +8,35 @@ TOC: on
 
 !split
 ======= Installasjon =======
-Det er vanlig at Python er allerede inkludert på de fleste MacOS og Linux systemene.
-Men det er anbefalt å installere Anaconda. Anaconda er gratis å laste ned. Ved å installere Anaconda, får man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til å ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan være til nytte i andre emner eller annen programmering.
-Installering av nye pakker er også lettere ved å bruke Anaconda.
+Matlab krever en lisens for å kjøres (som koster svimlende 18500kr!).
+Som student ved UiO har man tilgang til en lisens som gjør det mulig å laste ned Matlab på egen PC, eller bruke Matlab gjennom UiOs "programkiosk":"http://www.uio.no/tjenester/it/maskin/programvare/programkiosk/".
 
-===== Anaconda =====
-Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: "Installasjon av Anaconda":"https://www.anaconda.com/download/#linux"
 
-Alle programmene på siden er skrevet i Python 3.6, så det anbefales å laste ned Python 3.6 - versjonen.
+===== Nedlastning til egen PC =====
 
-Her kan du finne installasjonsguide til det operativsystemet du bruker: "Installasjonsguide":"https://docs.anaconda.com/anaconda/install/"
+* 1) Gå inn på "mathworks":"https://se.mathworks.com/login" og registrer en bruker med din UiO-mail som brukernavn.
+* 2) Trykk _Associato to license_ og skriv inn *13796-65616-24271-45993-03655*.
+* 3) Nå kan du laste ned Matlab ved å trykke på _Download Your Products now_ og følge de gitte instruksjonene for den platformen du laster ned på.
 
-For å teste om Anaconda har blitt installert og brukes av systemet, kan man skrive
-!bc
-conda list
-!ec
-i kommandovinduet.
-Ved en suksessful installasjon vil en liste over diverse pakker som har blitt installert dukke opp i kommandovinduet.
+<linebreak>
+Tips til Linux-brukere: Det kan hende Matlab har en keybinding som minner om Emacs. Det vil si, at typiske kommandoer som f.eks Ctrl+S for lagring, Ctrl+C og Ctrl+V for hhv. kopiering og lagring gjør noe annet enn det man kanskje er vant til.
+For å endre denne keybindingen, går man på _Preferences_ -> _Keyboard_ -> _Shortcuts_. Under _Active settings_ kan du finne en drop-down meny med mulighetene for *Emacs Default Set* eller *Windows Default Set*. Ved å bruke *Windows Default Set*, vil det være mulig å bruke de typiske kommandoene som Ctrl+C, Ctrl+V osv.
 
 ======= Programmering =======
-Her kan du finne demonstrasjoner av syntaksen som brukes i Python, samt et eksempel på hvordan et program i Python kan utføre operasjoner på et bilde.
+Her kan du finne demonstrasjoner av syntaksen som brukes i Matlab, samt et eksempel på hvordan et program kan utføre operasjoner på et bilde.
 
-===== Testing underveis =====
-En måte for å redusere sannsyneligheten for lumske bugs i programmet, er å teste funksjoner/semantikken til Python underveis.
-
-Da er det ofte behjelpelig å bruke Python shell-et. Den aktiveres i kommandovinduet ved å skrive inn
-!bc
-python
-!ec
-
-Shell-et gjør det mulig å utføre all kode som skrives inn *med én gang* etter å ha trykket på Enter-tasten. Det er også mulig å se direkte verdien til variabler ved å simpelthen skrive inn variabelnavnet som skal vises frem.
-Det er altså rom for testing av funksjoner og se direkte konsekvenser av dem uten å skrive en egen fil - lagre - så kjøre. Fra egen erfaring, har bruk av shellet for å teste funksjoner/ideer o.l redusert betraktelig antallet lumske bugs!
-
-For å komme ut av shell-et, kan man utføre *exit()*. Det er også viktig å huske på at ingenting av deklarasjoner, definisjoner o.l blir lagret.
 ===== Grunnleggende =====
-Python er et høytnivåspråk - hvilket som betyr at Python er ment for å være lett å lese.
+Matlab er et høytnivåspråk - hvilket som betyr at Matlab er ment for å være lett å lese.
 
-Et program i Python har filendingen .py, og kjøres i kommandovinduet ved å skrive
+Mye av semantikken i Matlab bygger også på at man jobber med matriser. Bilder er i bunn og grunn matriser - hvilket som gjør Matlab ganske naturlig egnet til å jobbe med bilder i.
+
+Et program i Matlab har filendingen .m, og kjøres i kommandovinduet ("Command Window") ved å skrive
 !bc
-python <navn på programmet ditt>.py
+<navn på programmet ditt>
 !ec
 
-For at programmet skal skrive ut noe til skjerm, brukes funksjonen print.
-Et eksempel på hvordan print kan brukes, er:
-
-!bc pycod
-print("Hello,world!")
-!ec
-
-Programmet vil da skrive til skjerm *Hello,world!*.
-
-Det er også mulig å skrive ut verdien til variabler ved å bruke *printf*-formattering:
-
-!bc pycod
-x = 1
-y = -1
-print("(x,y) = (%g,%g)"%(x,y))
-!ec
-
-Programmet vil skrive ut *(1,-1)*. Prosenttegnet etterfulgt av bokstaven *g* bestemmer hvordan verdien av variabelen skrives til skjerm.
-I dette tilfellet vil formatteringen av verdien bestemmes ettersom hvor mange desimaler tallverdien har.
-
-Det finnes en oversikt "her":"https://docs.python.org/2/library/stdtypes.html#string-formatting" over hvordan man kan bestemme utskriften av en verdi.
-## Kanskje legge til en egen tabell?
-
+I alle Matlab-program er det viktig å huske et semikolon (;) i slutten av hver linje som du ikke ønsker å se verdien til.
+Det kan fort bli mye utskrift, spesielt ved store matriser. Er man uheldig og glemmer et semikolon, kan man avslutte utskriften ved å trykke Ctrl+C.
 
 === Matematikk ===
 Vi kommer til å bruke en del aritmetiske operasjoner (dvs addering,subtrahering,divisjon og multiplikasjon) etterhvert, og da kan det være fint å kjenne til dem.

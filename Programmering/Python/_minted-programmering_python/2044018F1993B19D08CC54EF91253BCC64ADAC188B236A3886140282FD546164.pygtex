@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{x} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{y} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}(x,y) = (}\PYG{l+s+si}{\PYGZpc{}g}\PYG{l+s+s2}{,}\PYG{l+s+si}{\PYGZpc{}g}\PYG{l+s+s2}{)\PYGZdq{}}\PYG{o}{\PYGZpc{}}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{))}
+\end{Verbatim}

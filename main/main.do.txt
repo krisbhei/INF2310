@@ -19,7 +19,7 @@ Du kan gjerne programmere i et annet språk, om du vil, men det kan hende at det
 
 Her kan du finne en introduksjon til programmering i
 * _Python:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Python/programmering_python.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Python/programmering_python.pdf"
-* Matlab
+* _Matlab:_
 
 
 ## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:16px;

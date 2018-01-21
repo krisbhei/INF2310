@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{b} \PYG{o}{=} \PYG{n+nb}{sum} \PYG{c+c1}{\PYGZsh{} nå er b en funksjon \PYGZhy{} nemlig den innebygde funksjonen sum.}
+\PYG{n}{c} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}hei\PYGZdq{}}
+
+\PYG{n}{liste2} \PYG{o}{=} \PYG{p}{[}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{c}\PYG{p}{]}
+\end{Verbatim}
