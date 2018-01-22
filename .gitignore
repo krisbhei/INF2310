@@ -3,7 +3,7 @@
 *.html.old~~
 *.idx
 *.log
-*.log
+*.out
 *.aux
 *.toc
 _minted*

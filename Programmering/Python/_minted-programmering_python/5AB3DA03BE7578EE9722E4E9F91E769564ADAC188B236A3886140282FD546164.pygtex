@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{k}{print}\PYG{p}{(}\PYG{n}{liste1}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])} \PYG{c+c1}{\PYGZsh{} skriver ut 10}
-\PYG{k}{print}\PYG{p}{(}\PYG{n}{liste2}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{])} \PYG{c+c1}{\PYGZsh{} skriver ut \PYGZdq{}hei\PYGZdq{}}
-\end{Verbatim}

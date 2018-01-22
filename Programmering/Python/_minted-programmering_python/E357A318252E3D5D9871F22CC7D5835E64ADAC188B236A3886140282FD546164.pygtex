@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{k}{for} \PYG{o}{\PYGZlt{}}\PYG{n}{element}\PYG{o}{\PYGZhy{}}\PYG{n}{navn}\PYG{o}{\PYGZgt{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{start}\PYG{p}{,}\PYG{n}{stopp}\PYG{p}{,}\PYG{n}{steg}\PYG{p}{)}
-\end{Verbatim}

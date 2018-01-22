@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
-\PYG{n}{liste1}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Nå har liste kun ett element \PYGZhy{} nemlig 10}
-\PYG{n}{liste1}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{l+m+mi}{12}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Elementet 12 er nå plassert bak 10}
-\PYG{k}{print}\PYG{p}{(}\PYG{n}{liste1}\PYG{p}{)}
-\end{Verbatim}
