@@ -6,3 +6,4 @@
 *.log
 *.aux
 *.toc
+_minted*
