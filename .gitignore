@@ -7,3 +7,4 @@
 *.aux
 *.toc
 _minted*
+*.copyright
