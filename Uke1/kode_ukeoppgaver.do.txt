@@ -1,0 +1,22 @@
+TITLE: Kode i ukeoppgavene oversatt til Python
+
+TOC: on
+
+!split
+======= Oppgave 1 - Komme i gang med pikselmanipulasjon i Python =======
+@@@CODE kode/oppgave1.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Uke1/kode/oppgave1.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+
+<linebreak>
+Merk at også det er også beskrevet flere metoder "her":"https://krisbhei.github.io/INF2310/Programmering/Python/programmering_python.html"
+
+======= Oppgave 4 - Kvantisering =======
+@@@CODE kode/oppgave4.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Uke1/kode/oppgave4.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+
+Her er det nyttig å bruke heltallsdivisjon // siden innleste bilder fra scipy.misc er i utgangspunktet av typen float - i motsetning til matlab der innleste bilder er av typen uint8.
+Siden vi antar bildet er 8-bit (som er ganske vanlig for bilder), vil verdiene til bildet være mellom 0 og 2**(8)-1.
+Ved å finne  f//2**(8-bit), får en at utbildet vil ha verdier mellom 0 og 2**(8)/2**(8-bit) = 2**(bit).
+
+======= (Ekstraoppgave) Oppgave 8 - Dithering =======
+@@@CODE kode/oppgave8.py
