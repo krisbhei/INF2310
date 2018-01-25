@@ -4,7 +4,7 @@ import numpy as np
 
 f = imread('lena.png',flatten=True)
 
-bit = 8
+bit = 8 # bit heltall mellom 1 og 8
 
 quantized = f//2**(8-bit)
 
