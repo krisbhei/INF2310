@@ -20,3 +20,5 @@ Ved å finne  f//2**(8-bit), får en at utbildet vil ha verdier mellom 0 og 2**(
 
 ======= (Ekstraoppgave) Oppgave 8 - Dithering =======
 @@@CODE kode/oppgave8.py
+
+## doconce format html kode_ukeoppgaver.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=kode_ukeoppgaver --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
