@@ -1,0 +1,7 @@
+TITLE: Løsningsforslag til Uke 1
+
+TOC:on
+
+!split
+======= Oppgave 1 =======
+@@@CODE oppgave1.py
