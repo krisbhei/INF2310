@@ -5,28 +5,28 @@ lmb = 500*1e-9 # m
 
 # a)
 y = s*1.22*lmb/D
-print("y =",y)
+print("deloppgave a: y =",y,'\n')
 
 # b)
 y_ = y*f/(s-f)
-print("y' =",y_)
+print("deloppgave b: y' =",y_,'\n')
 
 # c)
 T_o = y_
 f_o = 1/T_o
-print("T_o = %g, f_o = 1/T_o = %g"%(T_o,f_o))
+print("deloppgave c: T_o = %g, f_o = 1/T_o = %g\n"%(T_o,f_o))
 
 # d)
 grense = T_o/2
-print("minste avstand mellom samplingselementer: %g"%grense)
+print("deloppgave d: minste avstand mellom samplingselementer: %g\n"%grense)
 
 # e)
 b = 16*1e-3 # m
 l = 24*1e-3 # m
-print("antall elementer for å oppfylle samplingsteoremet: %g x %g"%(b/grense,l/grense))
+print("deloppgave e: antall elementer for å oppfylle samplingsteoremet: %g x %g \n"%(b/grense,l/grense))
 
 # f)
-print("b): y' doblet\nc): T_o doblet,f_o halvparten\nd): doblet minste avstand")
+print("deloppgave f: \nb): y' doblet\nc): T_o doblet,f_o halvparten\nd): doblet minste avstand\n")
 
 # g)
-print("bedre fordi minste avstand for å skille to punkter vil bli mindre")
+print("deloppgave g: bedre fordi minste avstand for å skille to punkter vil bli mindre")
