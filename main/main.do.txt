@@ -24,7 +24,13 @@ Her kan du finne en introduksjon til programmering i
 ======= Uke 1 - Sampling og kvantisering =======
 
 * "Her":"https://krisbhei.github.io/INF2310/Uke1/kode_ukeoppgaver.html" kan du finne kode fra "ukeoppgavene":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/ukeoppgaver/ukeoppgaver_1.html" oversatt til Python.
-* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" Kan du finne løsningsforslag til programmeringsoppgavene skrevet i Python. 
+* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i Python.
+
+======= Uke 2 - Geometriske operasjoner =======
+
+* "Her":"https://krisbhei.github.io/INF2310/Uke2/lf.html" kan du finne løsningsforslag til programmeringsoppgavenen 3, samt oppgave 1 demonstrert i Python. Det er også skrevet en forklaring hvorfor "den praktiske algoritmen" fra slide 19 i "lysarket om geometriske operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf" ser ut som den gjør.
+
+
 ## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
 
 ## doconce replace 'Table of contents' 'Oversikt' main.html
