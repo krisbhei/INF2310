@@ -31,6 +31,7 @@ translasjon_mat_tilbake = np.array([[1,0,-x],[0,1,-y],[0,0,1]]) # for å sette s
 transform = translasjon_mat_sentrere @ rotasjon_mat @ translasjon_mat_tilbake
 # Det samme som: transform = np.matmul(translasjon_mat_sentrere,np.matmul(rotasjon_mat,translasjon_mat_tilbake))
 
+
 ## Nå har vi transformkoeffsientene - gir de mening?
 ## Dette kan man sjekke ved inspeksjon ved å bruke forlengs- eller baklengs-mapping:
 img = imread('mona.png',flatten=True)
@@ -48,7 +49,7 @@ plt.figure()
 img_baklengs = baklengs_mapping(img,transform)
 plt.imshow(img_baklengs,cmap='gray',vmin=0,vmax=255)
 plt.title("Baklengs mapping")
-plt.savefig("mona_rotert_baklengs.svg") # for å lagre bildet i samme mappe
+plt.savefig("mona_rotert_baklengs.svg")
 
 
 plt.figure()
@@ -56,7 +57,7 @@ plt.figure()
 img_baklengs = baklengs_mapping(img,transform,True)
 plt.imshow(img_baklengs,cmap='gray',vmin=0,vmax=255)
 plt.title("Baklengs mapping med bilineær interpolasjon")
-plt.savefig("mona_rotert_baklengs_bilin.svg") # for å lagre bildet i samme mappe
+plt.savefig("mona_rotert_baklengs_bilin.svg") 
 
 plt.show()
  # ...og bildet ser rotert ut - hurra! For å teste om den faktisk roterer den vinkelen som den skal, er det bare å teste med
