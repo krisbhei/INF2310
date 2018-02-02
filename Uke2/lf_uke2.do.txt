@@ -28,6 +28,8 @@ f(x,y) \approx f(x,y_0)\cdot\frac{y_1 - y}{y_1 - y_0} + f(x,y_1)\cdot\frac{y - y
 p = f(x,y_0) \approx f(x_0,y_0)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_0)\cdot\frac{x - x_0}{x_1 - x_0} \\
 q = f(x,y_1) \approx f(x_0,y_1)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_1)\cdot\frac{x - x_0}{x_1 - x_0} \\ \\
 !et
+,der f står for innbildetsverdier. I utgangspunktet kjenner vi bare bildeverdiene f(x0,y0),f(x1,y0), f(x0,y1) og f(x1,y1).
+<linebreak>
 Det algoritmen gjør, er å hente ut bildeverdiene fra de nærmeste punktene (det er også mulig å velge punkter lengre unna om man vil, men det holder oftest å velge de nærmeste punktene man kan bruke).
 I dette tilfellet, er de nærmeste punktene med 1 piksel avstand mellom x- og y-koordinatene. Dette betyr at
 !bt
@@ -60,4 +62,5 @@ og deretter
 !bt
 f(x,y) \approx p + (q - p)\cdot \Delta y
 !et
+som er algoritmen beskrevet på slide 19 i "lysark om geometriske operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf".
 ## doconce format html lf_uke2.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
