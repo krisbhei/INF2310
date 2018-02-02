@@ -233,16 +233,12 @@ Bildene som programmet gir, er:
     resultat <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((N,M))
 
     <span style="color: #007020; font-weight: bold">for</span> x_ <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(N):
-
         <span style="color: #007020; font-weight: bold">for</span> y_ <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(M):
-
             x <span style="color: #666666">=</span> a0<span style="color: #666666">*</span>x_ <span style="color: #666666">+</span> a1<span style="color: #666666">*</span>y_ <span style="color: #666666">+</span> a2
             y <span style="color: #666666">=</span> b0<span style="color: #666666">*</span>x_ <span style="color: #666666">+</span> b1<span style="color: #666666">*</span>y_ <span style="color: #666666">+</span> b2
-
-            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> x <span style="color: #666666">&lt;=</span> N<span style="color: #666666">-</span><span style="color: #40a070">1</span> <span style="color: #007020; font-weight: bold">and</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> y <span style="color: #666666">&lt;=</span> M<span style="color: #666666">-</span><span style="color: #40a070">1</span>: <span style="color: #60a0b0; font-style: italic"># hvis vi skal i det hele tatt bruke disse koordinatene</span>
-
-                <span style="color: #007020; font-weight: bold">if</span> bilinear: <span style="color: #60a0b0; font-style: italic"># bilineær interpolasjon - se slide 19</span>
-
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> x <span style="color: #666666">&lt;=</span> N<span style="color: #666666">-</span><span style="color: #40a070">1</span> <span style="color: #007020; font-weight: bold">and</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> y <span style="color: #666666">&lt;=</span> M<span style="color: #666666">-</span><span style="color: #40a070">1</span>: <span style="color: #60a0b0; font-style: italic"># for å sjekke om koordinatene kan i det hele tatt brukes</span>
+                <span style="color: #007020; font-weight: bold">if</span> bilinear: <span style="color: #60a0b0; font-style: italic"># bilineær interpolasjon - se slide 19. Her velges det koordinater slik at avstanden mellom koordinatene er på én piksel.</span>
+                             <span style="color: #60a0b0; font-style: italic"># Hvis man tenker på den generelle formen, vil x1 - x0 = 1 (og y1 - y0 = 1), så vi trenger ikke å tenke på deling.</span>
                     x0 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>floor(x)); x1 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>ceil(x))
                     y0 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>floor(y)); y1 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>ceil(y))
                     dx <span style="color: #666666">=</span> x <span style="color: #666666">-</span> x0
