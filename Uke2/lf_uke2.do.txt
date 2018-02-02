@@ -7,7 +7,7 @@ TITLE: Løsningshint til uke 2 - Geometriske operasjoner
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py".
 <linebreak>
 _Kommentar til syntaksen:_ Alfakrøllen, @, betyr at programmet skal utføre en matrisemultiplikasjon mellom array-ene.
-Dette er helt det samme som å bruke f.eks *np.matmult* eller *np.dot* (introdusert i Python 3).    
+Dette er helt det samme som å bruke f.eks *np.matmult* eller *np.dot* (introdusert i Python 3).
 
 Programmet ser også på hvordan det roterte bildet av Mona ser ut etter forlengs- og baklengs mapping (med og uten interpolasjon).
 Dette stod det ikke om i oppgaveteksten, men gjort her for å demonstrere resultatene etter forlengs- og baklengs-mapping.
@@ -23,7 +23,7 @@ FIGURE: [mona_rotert_baklengs_bilin.svg, width=800] Mona med baklengs-mapping av
 @@@CODE oppgave3.py
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave3.py".
 
-I kommentaren i programmet nevnes det et generelt uttrykk for bilineær interpolasjon. Dette uttrykket er:
+Bilineær interpolasjon er definert ved:
 !bt
 f(x,y) \approx f(x,y_0)\cdot\frac{y_1 - y}{y_1 - y_0} + f(x,y_1)\cdot\frac{y - y_0}{y_1 - y_0} \\
 !et
