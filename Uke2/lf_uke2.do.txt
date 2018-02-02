@@ -5,6 +5,7 @@ TITLE: Løsningshint til uke 2 - Geometriske operasjoner
 ======= Oppgave 1 =======
 @@@CODE oppgave1.py
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py".
+<linebreak>
 Programmet ser også på hvordan det roterte bildet av Mona ser ut etter forlengs- og baklengs mapping (med og uten interpolasjon).
 Dette stod det ikke om i oppgaveteksten, men gjort her for å demonstrere resultatene etter forlengs- og baklengs-mapping.
 Bildene som programmet gir, er:
