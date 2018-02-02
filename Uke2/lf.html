@@ -50,6 +50,22 @@ end of tocinfo -->
 
 <body>
 
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
     
 <!-- Bootstrap navigation bar -->
 <div class="navbar navbar-default navbar-fixed-top">
@@ -166,7 +182,7 @@ plt<span style="color: #666666">.</span>show()
  <span style="color: #60a0b0; font-style: italic"># For å sjekke om den faktisk roterer om et gitt punkt, kan man f.eks prøve å rotere om N/2 og M/2.</span>
 </pre></div>
 <p>
-Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py" target="_self">her</a>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py" target="_self">her</a>.
 Programmet ser ogs&#229; p&#229; hvordan det roterte bildet av Mona ser ut etter forlengs- og baklengs mapping (med og uten interpolasjon).
 Dette stod det ikke om i oppgaveteksten, men gjort her for &#229; demonstrere resultatene etter forlengs- og baklengs-mapping.
 Bildene som programmet gir, er:
@@ -260,7 +276,57 @@ Bildene som programmet gir, er:
     <span style="color: #007020; font-weight: bold">return</span> resultat
 </pre></div>
 <p>
-Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave3.py" target="_self">her</a>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave3.py" target="_self">her</a>.
+
+<p>
+I kommentaren i programmet nevnes det et generelt uttrykk for biline&#230;r interpolasjon. Dette uttrykket er:
+$$
+f(x,y) \approx f(x,y_0)\cdot\frac{y_1 - y}{y_1 - y_0} + f(x,y_1)\cdot\frac{y - y_0}{y_1 - y_0} \\
+$$
+
+
+$$
+p = f(x,y_0) \approx f(x_0,y_0)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_0)\cdot\frac{x - x_0}{x_1 - x_0} \\
+q = f(x,y_1) \approx f(x_0,y_1)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_1)\cdot\frac{x - x_0}{x_1 - x_0} \\ \\
+$$
+
+Det algoritmen gj&#248;r, er &#229; hente ut bildeverdiene fra de n&#230;rmeste punktene (det er ogs&#229; mulig &#229; velge punkter lengre unna om man vil, men det holder oftest &#229; velge de n&#230;rmeste punktene man kan bruke).
+I dette tilfellet, er de n&#230;rmeste punktene med 1 piksel avstand mellom x- og y-koordinatene. Dette betyr at
+$$
+x_1 - x_0 = 1 \\
+y_1 - y_0 = 1
+$$
+
+<em>i denne algoritmen der man henter ut bildeverdier fra de n&#230;rmeste punktene</em>.
+Hvis man setter dette inn i uttrykket for biline&#230;r interpolasjon som beskrevet over og setter
+$$
+\Delta x = x - x_0 \Leftrightarrow \Delta x + x_0 = x \\
+\Delta y = y - y_0 \Leftrightarrow \Delta y + y_0 = y
+$$
+
+f&#229;r man:
+$$
+\begin{align*}
+p &= f(x_0,y_0)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_0)\cdot\frac{x - x_0}{x_1 - x_0} \\
+  &= f(x_0,y_0)\cdot(x_1 - x) + f(x_1,y_0)\cdot(x - x_0) \\
+  &= f(x_0,y_0)\cdot(x_1 - (\Delta x + x_0)) + f(x_1,y_0)\cdot( (\Delta x + x_0) - x_0) \\
+  &= f(x_0,y_0)\cdot(x_1 - x_0 - \Delta x) + f(x_1,y_0)\cdot(\Delta x + x_0 - x_0) \\
+  &= f(x_0,y_0)\cdot(1 - \Delta x) + f(x_1,y_0)\cdot \Delta x \\
+  &= f(x_0,y_0) - f(x_0,y_0)\cdot \Delta x + f(x_1,y_0)\cdot \Delta x \\
+  &= f(x_0,y_0)  + (f(x_1,y_0) - f(x_0,y_0))\cdot \Delta x\\
+\end{align*}
+$$
+
+P&#229; akkurat samme vis kan man vise at
+$$
+q = f(x_0,y_1)  + (f(x_1,y_1) - f(x_0,y_1))\cdot \Delta x\\
+$$
+
+og deretter
+$$
+f(x,y) \approx p + (p - q)\cdot \Delta y
+$$
+
 
 <!-- ------------------- end of main content --------------- -->
 

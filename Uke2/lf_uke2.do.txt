@@ -4,7 +4,7 @@ TITLE: Løsningshint til uke 2 - Geometriske operasjoner i Python
 
 ======= Oppgave 1 =======
 @@@CODE oppgave1.py
-Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py"
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py".
 Programmet ser også på hvordan det roterte bildet av Mona ser ut etter forlengs- og baklengs mapping (med og uten interpolasjon).
 Dette stod det ikke om i oppgaveteksten, men gjort her for å demonstrere resultatene etter forlengs- og baklengs-mapping.
 Bildene som programmet gir, er:
@@ -17,6 +17,47 @@ FIGURE: [mona_rotert_baklengs_bilin.svg, width=800] Mona med baklengs-mapping av
 
 ======= Oppgave 3 =======
 @@@CODE oppgave3.py
-Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave3.py"
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave3.py".
 
+I kommentaren i programmet nevnes det et generelt uttrykk for bilineær interpolasjon. Dette uttrykket er:
+!bt
+f(x,y) \approx f(x,y_0)\cdot\frac{y_1 - y}{y_1 - y_0} + f(x,y_1)\cdot\frac{y - y_0}{y_1 - y_0} \\
+!et
+
+!bt
+p = f(x,y_0) \approx f(x_0,y_0)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_0)\cdot\frac{x - x_0}{x_1 - x_0} \\
+q = f(x,y_1) \approx f(x_0,y_1)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_1)\cdot\frac{x - x_0}{x_1 - x_0} \\ \\
+!et
+Det algoritmen gjør, er å hente ut bildeverdiene fra de nærmeste punktene (det er også mulig å velge punkter lengre unna om man vil, men det holder oftest å velge de nærmeste punktene man kan bruke).
+I dette tilfellet, er de nærmeste punktene med 1 piksel avstand mellom x- og y-koordinatene. Dette betyr at
+!bt
+x_1 - x_0 = 1 \\
+y_1 - y_0 = 1
+!et
+*i denne algoritmen der man henter ut bildeverdier fra de nærmeste punktene*.
+Hvis man setter dette inn i uttrykket for bilineær interpolasjon som beskrevet over og setter
+!bt
+\Delta x = x - x_0 \Leftrightarrow \Delta x + x_0 = x \\
+\Delta y = y - y_0 \Leftrightarrow \Delta y + y_0 = y
+!et
+får man:
+!bt
+\begin{align*}
+p &= f(x_0,y_0)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_0)\cdot\frac{x - x_0}{x_1 - x_0} \\
+  &= f(x_0,y_0)\cdot(x_1 - x) + f(x_1,y_0)\cdot(x - x_0) \\
+  &= f(x_0,y_0)\cdot(x_1 - (\Delta x + x_0)) + f(x_1,y_0)\cdot( (\Delta x + x_0) - x_0) \\
+  &= f(x_0,y_0)\cdot(x_1 - x_0 - \Delta x) + f(x_1,y_0)\cdot(\Delta x + x_0 - x_0) \\
+  &= f(x_0,y_0)\cdot(1 - \Delta x) + f(x_1,y_0)\cdot \Delta x \\
+  &= f(x_0,y_0) - f(x_0,y_0)\cdot \Delta x + f(x_1,y_0)\cdot \Delta x \\
+  &= f(x_0,y_0)  + (f(x_1,y_0) - f(x_0,y_0))\cdot \Delta x\\
+\end{align*}
+!et
+På akkurat samme vis kan man vise at
+!bt
+q = f(x_0,y_1)  + (f(x_1,y_1) - f(x_0,y_1))\cdot \Delta x\\
+!et
+og deretter
+!bt
+f(x,y) \approx p + (p - q)\cdot \Delta y
+!et
 ## doconce format html lf_uke2.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
