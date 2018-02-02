@@ -24,8 +24,8 @@ rotasjon_mat = np.array([[a0,a1,a2],[b0,b1,b2],[0,0,1]])
 x = 207
 y = 421
 
-translasjon_mat_sentrere = np.array([[1,0,x],[0,1,y],[0,0,1]]) # for å sette senter til bildet lik (x,y)
-translasjon_mat_tilbake = np.array([[1,0,-x],[0,1,-y],[0,0,1]]) # for å sette senter tilbake til (0,0)
+translasjon_mat_tilbake = np.array([[1,0,x],[0,1,y],[0,0,1]]) # for å sette senter til bildet lik (x,y)
+translasjon_mat_sentrere = np.array([[1,0,-x],[0,1,-y],[0,0,1]]) # for å sette senter tilbake til (0,0)
 
 # 3 - multiplisér matrisene for å finne koeffsientene:-
 transform = translasjon_mat_sentrere @ rotasjon_mat @ translasjon_mat_tilbake
