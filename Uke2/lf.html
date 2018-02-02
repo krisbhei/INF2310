@@ -1,0 +1,215 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Løsningshint til uke 2 - Geometriske operasjoner i Python">
+
+<title>Løsningshint til uke 2 - Geometriske operasjoner i Python</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1, 'sections': [('Oppgave 1', 1, None, '___sec0')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="lf.html">Løsningshint til uke 2 - Geometriske operasjoner i Python</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Oppgave 1</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>L&#248;sningshint til uke 2 - Geometriske operasjoner i Python</h1></center>  <!-- document title -->
+
+<p>
+<em>Her legges det ut l&#248;sningsforslag til programmeringsoppgavene, skrevet i Python</em>
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="___sec0" class="anchor">Oppgave 1 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span> <span style="color: #60a0b0; font-style: italic"># Her kan man også bruke math-modulen</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">oppgave3</span> <span style="color: #007020; font-weight: bold">import</span> forlengs_mapping,baklengs_mapping <span style="color: #60a0b0; font-style: italic"># for å kunne bruke transformkoeffsientene</span>
+
+th <span style="color: #666666">=</span> <span style="color: #40a070">33</span>               <span style="color: #60a0b0; font-style: italic"># grader</span>
+th_rad <span style="color: #666666">=</span> th<span style="color: #666666">*</span>np<span style="color: #666666">.</span>pi<span style="color: #666666">/</span><span style="color: #40a070">180</span> <span style="color: #60a0b0; font-style: italic"># radianer - husk at trigonometrise funksjoner antar vinkler i radianer!</span>
+
+<span style="color: #60a0b0; font-style: italic">## Finne transformkoeffsientene:</span>
+
+<span style="color: #60a0b0; font-style: italic"># 1 - sett opp rotasjonsmatrisen:</span>
+a0 <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cos(th_rad)
+a1 <span style="color: #666666">=</span> <span style="color: #666666">-</span>np<span style="color: #666666">.</span>sin(th_rad)
+a2 <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+
+b0 <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sin(th_rad)
+b1 <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cos(th_rad)
+b2 <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+
+rotasjon_mat <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[a0,a1,a2],[b0,b1,b2],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]])
+
+<span style="color: #60a0b0; font-style: italic"># 2 - sett opp translasjonsmatrisen:</span>
+x <span style="color: #666666">=</span> <span style="color: #40a070">207</span>
+y <span style="color: #666666">=</span> <span style="color: #40a070">421</span>
+
+translasjon_mat_sentrere <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter til bildet lik (x,y)</span>
+translasjon_mat_tilbake <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,<span style="color: #666666">-</span>x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,<span style="color: #666666">-</span>y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter tilbake til (0,0)</span>
+
+<span style="color: #60a0b0; font-style: italic"># 3 - multiplisér matrisene for å finne koeffsientene:-</span>
+transform <span style="color: #666666">=</span> translasjon_mat_sentrere @ rotasjon_mat @ translasjon_mat_tilbake
+<span style="color: #60a0b0; font-style: italic"># Det samme som: transform = np.matmul(translasjon_mat_sentrere,np.matmul(rotasjon_mat,translasjon_mat_tilbake))</span>
+
+
+<span style="color: #60a0b0; font-style: italic">## Nå har vi transformkoeffsientene - gir de mening?</span>
+<span style="color: #60a0b0; font-style: italic">## Dette kan man sjekke ved inspeksjon ved å bruke forlengs- eller baklengs-mapping:</span>
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+plt<span style="color: #666666">.</span>figure()
+
+img_forlengs <span style="color: #666666">=</span> forlengs_mapping(img,transform)
+plt<span style="color: #666666">.</span>imshow(img_forlengs,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Forlengs mapping&quot;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_forlengs.svg&quot;</span>) <span style="color: #60a0b0; font-style: italic"># for å lagre bildet i samme mappe</span>
+
+
+plt<span style="color: #666666">.</span>figure()
+
+img_baklengs <span style="color: #666666">=</span> baklengs_mapping(img,transform)
+plt<span style="color: #666666">.</span>imshow(img_baklengs,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Baklengs mapping&quot;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_baklengs.svg&quot;</span>)
+
+
+plt<span style="color: #666666">.</span>figure()
+
+img_baklengs <span style="color: #666666">=</span> baklengs_mapping(img,transform,<span style="color: #007020">True</span>)
+plt<span style="color: #666666">.</span>imshow(img_baklengs,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Baklengs mapping med bilineær interpolasjon&quot;</span>)
+plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_baklengs_bilin.svg&quot;</span>) 
+
+plt<span style="color: #666666">.</span>show()
+ <span style="color: #60a0b0; font-style: italic"># ...og bildet ser rotert ut - hurra! For å teste om den faktisk roterer den vinkelen som den skal, er det bare å teste med</span>
+ <span style="color: #60a0b0; font-style: italic"># andre verdier for th som du kan tenke på forhånd hvordan bildet vil se ut.</span>
+ <span style="color: #60a0b0; font-style: italic"># For å sjekke om den faktisk roterer om et gitt punkt, kan man f.eks prøve å rotere om N/2 og M/2.</span>
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py" target="_self">her</a>
+Programmet ser ogs&#229; p&#229; hvordan det roterte bildet av Mona ser ut etter forlengs- og baklengs mapping (med og uten interpolasjon).
+Dette stod det ikke om i oppgaveteksten, men gjort her for &#229; demonstrere resultatene etter forlengs- og baklengs-mapping.
+Bildene som programmet gir, er:
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 1:  Mona med forlengs-mapping av transformkoeffsientene. </p></center>
+<p><img src="mona_rotert_forlengs.svg" align="bottom" width=800></p>
+</center>
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 2:  Mona med baklengs-mapping av transformkoeffsientene. </p></center>
+<p><img src="mona_rotert_baklengs.svg" align="bottom" width=800></p>
+</center>
+
+<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center><p class="caption">Figure 3:  Mona med baklengsmapping av transformkoeffsientene og biline&#230;r interpolasjon. </p></center>
+<p><img src="mona_rotert_baklengs_bilin.svg" align="bottom" width=800></p>
+</center>
+
+<p>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+

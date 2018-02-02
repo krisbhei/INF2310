@@ -1,0 +1,18 @@
+TITLE: Løsningshint til uke 2 - Geometriske operasjoner i Python
+
+*Her legges det ut løsningsforslag til programmeringsoppgavene, skrevet i Python*
+
+======= Oppgave 1 =======
+@@@CODE oppgave1.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave1.py"
+Programmet ser også på hvordan det roterte bildet av Mona ser ut etter forlengs- og baklengs mapping (med og uten interpolasjon).
+Dette stod det ikke om i oppgaveteksten, men gjort her for å demonstrere resultatene etter forlengs- og baklengs-mapping.
+Bildene som programmet gir, er:
+
+FIGURE: [mona_rotert_forlengs.svg, width=800] Mona med forlengs-mapping av transformkoeffsientene.
+
+FIGURE: [mona_rotert_baklengs.svg, width=800] Mona med baklengs-mapping av transformkoeffsientene.
+
+FIGURE: [mona_rotert_baklengs_bilin.svg, width=800] Mona med baklengsmapping av transformkoeffsientene og bilineær interpolasjon.
+
+## doconce format html lf_uke2.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
