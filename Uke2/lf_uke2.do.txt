@@ -58,6 +58,6 @@ q = f(x_0,y_1)  + (f(x_1,y_1) - f(x_0,y_1))\cdot \Delta x\\
 !et
 og deretter
 !bt
-f(x,y) \approx p + (p - q)\cdot \Delta y
+f(x,y) \approx p + (q - p)\cdot \Delta y
 !et
 ## doconce format html lf_uke2.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
