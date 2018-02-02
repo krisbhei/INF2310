@@ -1,4 +1,4 @@
-TITLE: Løsningshint til uke 2 - Geometriske operasjoner i Python
+TITLE: Løsningshint til uke 2 - Geometriske operasjoner 
 
 *Her legges det ut løsningsforslag til programmeringsoppgavene skrevet i Python*
 
