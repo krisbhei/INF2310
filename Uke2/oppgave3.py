@@ -39,8 +39,7 @@ def baklengs_mapping(img,transform,bilinear=False):
             x = a0*x_ + a1*y_ + a2
             y = b0*x_ + b1*y_ + b2
             if 0 <= x <= N-1 and 0 <= y <= M-1: # for å sjekke om koordinatene kan i det hele tatt brukes
-                if bilinear: # bilineær interpolasjon - se slide 19. Her velges det koordinater slik at avstanden mellom koordinatene er på én piksel.
-                             # Hvis man tenker på den generelle formen, vil x1 - x0 = 1 (og y1 - y0 = 1), så vi trenger ikke å tenke på deling.
+                if bilinear: # bilineær interpolasjon - se slide 19. 
                     x0 = int(np.floor(x)); x1 = int(np.ceil(x))
                     y0 = int(np.floor(y)); y1 = int(np.ceil(y))
                     dx = x - x0
