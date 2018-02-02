@@ -41,7 +41,8 @@ plt.figure()
 img_forlengs = forlengs_mapping(img,transform)
 plt.imshow(img_forlengs,cmap='gray',vmin=0,vmax=255)
 plt.title("Forlengs mapping")
-plt.savefig("mona_rotert_forlengs.svg") # for å lagre bildet i samme mappe
+plt.savefig("mona_rotert_forlengs.svg") # for å lagre bildet i samme mappe.
+# Filformatet .svg har bare blitt brukt for å være kompatibel med generingen av html-koden for denne siden. Det går helt fint å bruke andre filformater.
 
 
 plt.figure()
@@ -57,7 +58,7 @@ plt.figure()
 img_baklengs = baklengs_mapping(img,transform,True)
 plt.imshow(img_baklengs,cmap='gray',vmin=0,vmax=255)
 plt.title("Baklengs mapping med bilineær interpolasjon")
-plt.savefig("mona_rotert_baklengs_bilin.svg") 
+plt.savefig("mona_rotert_baklengs_bilin.svg")
 
 plt.show()
  # ...og bildet ser rotert ut - hurra! For å teste om den faktisk roterer den vinkelen som den skal, er det bare å teste med
