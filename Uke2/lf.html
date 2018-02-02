@@ -43,7 +43,9 @@ body { font-size:16px; }
 </head>
 
 <!-- tocinfo
-{'highest level': 1, 'sections': [('Oppgave 1', 1, None, '___sec0')]}
+{'highest level': 1,
+ 'sections': [('Oppgave 1', 1, None, '___sec0'),
+              ('Oppgave 3', 1, None, '___sec1')]}
 end of tocinfo -->
 
 <body>
@@ -66,6 +68,7 @@ end of tocinfo -->
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Oppgave 1</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">Oppgave 3</a></li>
 
         </ul>
       </li>
@@ -86,7 +89,7 @@ end of tocinfo -->
 <center><h1>L&#248;sningshint til uke 2 - Geometriske operasjoner i Python</h1></center>  <!-- document title -->
 
 <p>
-<em>Her legges det ut l&#248;sningsforslag til programmeringsoppgavene, skrevet i Python</em>
+<em>Her legges det ut l&#248;sningsforslag til programmeringsoppgavene skrevet i Python</em>
 
 <p>
 </div> <!-- end jumbotron -->
@@ -138,7 +141,8 @@ plt<span style="color: #666666">.</span>figure()
 img_forlengs <span style="color: #666666">=</span> forlengs_mapping(img,transform)
 plt<span style="color: #666666">.</span>imshow(img_forlengs,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
 plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Forlengs mapping&quot;</span>)
-plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_forlengs.svg&quot;</span>) <span style="color: #60a0b0; font-style: italic"># for å lagre bildet i samme mappe</span>
+plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_forlengs.svg&quot;</span>) <span style="color: #60a0b0; font-style: italic"># for å lagre bildet i samme mappe.</span>
+<span style="color: #60a0b0; font-style: italic"># Filformatet .svg har bare blitt brukt for å være kompatibel med generingen av html-koden for denne siden. Det går helt fint å bruke andre filformater.</span>
 
 
 plt<span style="color: #666666">.</span>figure()
@@ -154,7 +158,7 @@ plt<span style="color: #666666">.</span>figure()
 img_baklengs <span style="color: #666666">=</span> baklengs_mapping(img,transform,<span style="color: #007020">True</span>)
 plt<span style="color: #666666">.</span>imshow(img_baklengs,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
 plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Baklengs mapping med bilineær interpolasjon&quot;</span>)
-plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_baklengs_bilin.svg&quot;</span>) 
+plt<span style="color: #666666">.</span>savefig(<span style="color: #4070a0">&quot;mona_rotert_baklengs_bilin.svg&quot;</span>)
 
 plt<span style="color: #666666">.</span>show()
  <span style="color: #60a0b0; font-style: italic"># ...og bildet ser rotert ut - hurra! For å teste om den faktisk roterer den vinkelen som den skal, er det bare å teste med</span>
@@ -184,11 +188,83 @@ Bildene som programmet gir, er:
 <p>
 <center>  <!-- FIGURE -->
 <hr class="figure">
-<center><p class="caption">Figure 3:  Mona med baklengsmapping av transformkoeffsientene og biline&#230;r interpolasjon. </p></center>
+<center><p class="caption">Figure 3:  Mona med baklengs-mapping av transformkoeffsientene og biline&#230;r interpolasjon. </p></center>
 <p><img src="mona_rotert_baklengs_bilin.svg" align="bottom" width=800></p>
 </center>
 
+<h1 id="___sec1" class="anchor">Oppgave 3 </h1>
 <p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">forlengs_mapping</span>(img,transform):
+    <span style="color: #60a0b0; font-style: italic"># Henter ut koeffsientene fra transformasjonsmatrisen</span>
+    a <span style="color: #666666">=</span> transform[<span style="color: #40a070">0</span>,:]
+    b <span style="color: #666666">=</span> transform[<span style="color: #40a070">1</span>,:]
+
+    a0,a1,a2 <span style="color: #666666">=</span> a
+    b0,b1,b2 <span style="color: #666666">=</span> b
+
+    N,M <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape
+    resultat <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((N,M))
+
+    <span style="color: #007020; font-weight: bold">for</span> x <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(N):
+        <span style="color: #007020; font-weight: bold">for</span> y <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(M):
+            x_ <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>round(a0<span style="color: #666666">*</span>x <span style="color: #666666">+</span> a1<span style="color: #666666">*</span>y <span style="color: #666666">+</span> a2))
+            y_ <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>round(b0<span style="color: #666666">*</span>x <span style="color: #666666">+</span> b1<span style="color: #666666">*</span>y <span style="color: #666666">+</span> b2))
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> x_ <span style="color: #666666">&lt;=</span> N<span style="color: #666666">-</span><span style="color: #40a070">1</span> <span style="color: #007020; font-weight: bold">and</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> y_ <span style="color: #666666">&lt;=</span> M<span style="color: #666666">-</span><span style="color: #40a070">1</span>:
+                resultat[x_,y_] <span style="color: #666666">=</span> img[x,y]
+
+    <span style="color: #007020; font-weight: bold">return</span> resultat
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">baklengs_mapping</span>(img,transform,bilinear<span style="color: #666666">=</span><span style="color: #007020">False</span>):
+    <span style="color: #60a0b0; font-style: italic"># antar transformmatrisen er på formen som i slide 6.</span>
+    <span style="color: #60a0b0; font-style: italic"># Dette betyr at matrisen med koeffsientene må inverteres</span>
+    transform_inv <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linalg<span style="color: #666666">.</span>inv(transform)
+
+    a <span style="color: #666666">=</span> transform_inv[<span style="color: #40a070">0</span>,:]
+    b <span style="color: #666666">=</span> transform_inv[<span style="color: #40a070">1</span>,:]
+
+    a0,a1,a2 <span style="color: #666666">=</span> a
+    b0,b1,b2 <span style="color: #666666">=</span> b
+
+    N,M <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape
+    resultat <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((N,M))
+
+    <span style="color: #007020; font-weight: bold">for</span> x_ <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(N):
+
+        <span style="color: #007020; font-weight: bold">for</span> y_ <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(M):
+
+            x <span style="color: #666666">=</span> a0<span style="color: #666666">*</span>x_ <span style="color: #666666">+</span> a1<span style="color: #666666">*</span>y_ <span style="color: #666666">+</span> a2
+            y <span style="color: #666666">=</span> b0<span style="color: #666666">*</span>x_ <span style="color: #666666">+</span> b1<span style="color: #666666">*</span>y_ <span style="color: #666666">+</span> b2
+
+            <span style="color: #007020; font-weight: bold">if</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> x <span style="color: #666666">&lt;=</span> N<span style="color: #666666">-</span><span style="color: #40a070">1</span> <span style="color: #007020; font-weight: bold">and</span> <span style="color: #40a070">0</span> <span style="color: #666666">&lt;=</span> y <span style="color: #666666">&lt;=</span> M<span style="color: #666666">-</span><span style="color: #40a070">1</span>: <span style="color: #60a0b0; font-style: italic"># hvis vi skal i det hele tatt bruke disse koordinatene</span>
+
+                <span style="color: #007020; font-weight: bold">if</span> bilinear: <span style="color: #60a0b0; font-style: italic"># bilineær interpolasjon - se slide 19</span>
+
+                    x0 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>floor(x)); x1 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>ceil(x))
+                    y0 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>floor(y)); y1 <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>ceil(y))
+                    dx <span style="color: #666666">=</span> x <span style="color: #666666">-</span> x0
+                    dy <span style="color: #666666">=</span> y <span style="color: #666666">-</span> y0
+
+                    p <span style="color: #666666">=</span> img[x0,y0] <span style="color: #666666">+</span> (img[x1,y1] <span style="color: #666666">-</span> img[x0,y0])<span style="color: #666666">*</span>dx
+                    q <span style="color: #666666">=</span> img[x0,y1] <span style="color: #666666">+</span> (img[x1,y1] <span style="color: #666666">-</span> img[x0,y1])<span style="color: #666666">*</span>dx
+
+                    value <span style="color: #666666">=</span> p <span style="color: #666666">+</span> (q<span style="color: #666666">-</span>p)<span style="color: #666666">*</span>dy
+
+                <span style="color: #007020; font-weight: bold">else</span>:
+
+                    x <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>round(x))
+                    y <span style="color: #666666">=</span> <span style="color: #007020">int</span>(np<span style="color: #666666">.</span>round(y))
+                    value <span style="color: #666666">=</span> img[x,y]
+
+                resultat[x_,y_] <span style="color: #666666">=</span> value
+
+    <span style="color: #007020; font-weight: bold">return</span> resultat
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke2/oppgave3.py" target="_self">her</a>
 
 <!-- ------------------- end of main content --------------- -->
 

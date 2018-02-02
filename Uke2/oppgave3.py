@@ -41,7 +41,7 @@ def baklengs_mapping(img,transform,bilinear=False):
             x = a0*x_ + a1*y_ + a2
             y = b0*x_ + b1*y_ + b2
 
-            if 0 <= x <= N-1 and 0 <= y <= M-1: # hvis vi skal i det hele tatt bruke disse koordinatene
+            if 0 <= x <= N-1 and 0 <= y <= M-1: # for å sjekke om koordinatene kan i det hele tatt brukes
 
                 if bilinear: # bilineær interpolasjon - se slide 19
 
