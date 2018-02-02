@@ -28,7 +28,7 @@ translasjon_mat_tilbake = np.array([[1,0,x],[0,1,y],[0,0,1]]) # for å sette sen
 translasjon_mat_sentrere = np.array([[1,0,-x],[0,1,-y],[0,0,1]]) # for å sette senter tilbake til (0,0)
 
 # 3 - multiplisér matrisene for å finne koeffsientene:-
-transform = translasjon_mat_sentrere @ rotasjon_mat @ translasjon_mat_tilbake
+transform = translasjon_mat_tilbake @ rotasjon_mat @ translasjon_mat_sentrere
 # Det samme som: transform = np.matmul(translasjon_mat_sentrere,np.matmul(rotasjon_mat,translasjon_mat_tilbake))
 
 
