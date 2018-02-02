@@ -142,11 +142,11 @@ rotasjon_mat <span style="color: #666666">=</span> np<span style="color: #666666
 x <span style="color: #666666">=</span> <span style="color: #40a070">207</span>
 y <span style="color: #666666">=</span> <span style="color: #40a070">421</span>
 
-translasjon_mat_sentrere <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter til bildet lik (x,y)</span>
-translasjon_mat_tilbake <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,<span style="color: #666666">-</span>x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,<span style="color: #666666">-</span>y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter tilbake til (0,0)</span>
+translasjon_mat_tilbake <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter til bildet lik (x,y)</span>
+translasjon_mat_sentrere <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,<span style="color: #666666">-</span>x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,<span style="color: #666666">-</span>y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter tilbake til (0,0)</span>
 
 <span style="color: #60a0b0; font-style: italic"># 3 - multiplisér matrisene for å finne koeffsientene:-</span>
-transform <span style="color: #666666">=</span> translasjon_mat_sentrere @ rotasjon_mat @ translasjon_mat_tilbake
+transform <span style="color: #666666">=</span> translasjon_mat_tilbake @ rotasjon_mat @ translasjon_mat_sentrere
 <span style="color: #60a0b0; font-style: italic"># Det samme som: transform = np.matmul(translasjon_mat_sentrere,np.matmul(rotasjon_mat,translasjon_mat_tilbake))</span>
 
 
