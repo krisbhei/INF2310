@@ -45,7 +45,8 @@ body { font-size:16px; }
 <!-- tocinfo
 {'highest level': 1,
  'sections': [('Oppgave 1', 1, None, '___sec0'),
-              ('Oppgave 3', 1, None, '___sec1')]}
+              ('Oppgave 3', 1, None, '___sec1'),
+              ('Oppgave 4', 1, None, '___sec2')]}
 end of tocinfo -->
 
 <body>
@@ -85,6 +86,7 @@ MathJax.Hub.Config({
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Oppgave 1</a></li>
      <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">Oppgave 3</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;">Oppgave 4</a></li>
 
         </ul>
       </li>
@@ -102,7 +104,7 @@ MathJax.Hub.Config({
 
 
 <div class="jumbotron">
-<center><h1>L&#248;sningshint til uke 2 - Geometriske operasjoner </h1></center>  <!-- document title -->
+<center><h1>L&#248;sningshint til uke 2 - Geometriske operasjoner</h1></center>  <!-- document title -->
 
 <p>
 <em>Her legges det ut l&#248;sningsforslag til programmeringsoppgavene skrevet i Python</em>
@@ -290,7 +292,7 @@ p = f(x,y_0) \approx f(x_0,y_0)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_0)\cdot\
 q = f(x,y_1) \approx f(x_0,y_1)\cdot\frac{x_1 - x}{x_1 - x_0} + f(x_1,y_1)\cdot\frac{x - x_0}{x_1 - x_0} \\ \\
 $$
 
-,der f st&#229;r for innbildetsverdier. I utgangspunktet kjenner vi bare bildeverdiene f(x0,y0),f(x1,y0), f(x0,y1) og f(x1,y1).
+,der f st&#229;r for innbildetsverdier. I utgangspunktet kjenner vi bare bildeverdiene \( f(x0,y0),f(x1,y0), f(x0,y1) \) og \( f(x1,y1) \).
 <br />
 Det algoritmen gj&#248;r, er &#229; hente ut bildeverdiene fra de n&#230;rmeste punktene (det er ogs&#229; mulig &#229; velge punkter lengre unna om man vil, men det holder oftest &#229; velge de n&#230;rmeste punktene man kan bruke).
 I dette tilfellet, er de n&#230;rmeste punktene med 1 piksel avstand mellom x- og y-koordinatene. Dette betyr at
@@ -330,6 +332,94 @@ f(x,y) \approx p + (q - p)\cdot \Delta y
 $$
 
 som er algoritmen beskrevet p&#229; slide 19 i <a href="http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf" target="_self">lysark om geometriske operasjoner</a>.
+
+<h1 id="___sec2" class="anchor">Oppgave 4 </h1>
+Her f&#229;r vi oppgitt at
+$$
+\begin{align*}
+x &= c_0t + d_0 \\
+y &= c_1t + d_1
+\end{align*}
+$$
+
+For at linjer skal bli bevart etter en affin transformasjon, betyr det at x og y etter transformen kan skrives p&#229; samme form som over, dvs:
+$$
+\begin{align*}
+x' &= c_0't + d_0'\\
+y' &= c_1't + d_1'
+\end{align*}
+$$
+
+for noen konstanter \( c_0',d_0',c_1' \) og \( d_1' \).
+Dette kan man sjekke direkte ved &#229; utf&#248;re den affine transformen:
+$$
+\begin{align*}
+\begin{pmatrix}
+x' \\
+y' \\
+1
+\end{pmatrix}
+&=
+\begin{pmatrix}
+a_0 & a_1 & a_2 \\
+b_0 & b_1 & b_2 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+a_0 & a_1 & a_2 \\
+b_0 & b_1 & b_2 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+c_0t + d_0 \\
+c_1t + d_1 \\
+1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+a_0(c_0t + d_0)+a_1(c_1t + d_1)+a_2 \\
+b_0(c_0t + d_0)+b_1(c_1t + d_1)+ b_2 \\
+1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+(a_0c_0 + a_1c_1)t + a_0d_0 + a_1d_1 + a_2 \\
+(b_0c_0 + b_1c_1)t + b_0d_0 + b_1d_1 + b_2 \\
+1
+\end{pmatrix}
+\end{align*}
+$$
+
+Hvis en stirrer p&#229; uttrykket over, kan en se at det er mulig &#229; sette \( c_0' = a_0c_0 + a_1c_1 \), \( d_0' = a_0d_0 + a_1d_1 + a_2 \), \( c_1' = b_0c_0 + b_1c_1 \) og \( d_1' = b_0d_0 + b_1d_1 + b_2 \).
+
+<p>
+<br />
+
+<p>
+Men da blir:
+$$
+\begin{align*}
+\begin{pmatrix}
+(a_0c_0 + a_1c_1)t + a_0d_0 + a_1d_1 + a_2 \\
+(b_0c_0 + b_1c_1)t + b_0d_0 + b_1d_1 + b_2 \\
+1
+\end{pmatrix}
+&=
+\begin{pmatrix}
+c_0't + d_0'\\
+c_1't + d_1'\\
+1
+\end{pmatrix}
+\end{align*}
+$$
+
+som betyr at transformen har gitt tilbake rette linjer, men bare med andre stigningstall og konstantledd.
 
 <!-- ------------------- end of main content --------------- -->
 
