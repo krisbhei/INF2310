@@ -117,13 +117,13 @@ MathJax.Hub.Config({
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
 <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
-<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span> <span style="color: #60a0b0; font-style: italic"># Her kan man også bruke math-modulen</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span> <span style="color: #60a0b0; font-style: italic"># Her kan man også bruke math-modulen for å hente ut pi og regne ut de trigonometriske funksjonene</span>
 <span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
 
 <span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">oppgave3</span> <span style="color: #007020; font-weight: bold">import</span> forlengs_mapping,baklengs_mapping <span style="color: #60a0b0; font-style: italic"># for å kunne bruke transformkoeffsientene</span>
 
 th <span style="color: #666666">=</span> <span style="color: #40a070">33</span>               <span style="color: #60a0b0; font-style: italic"># grader</span>
-th_rad <span style="color: #666666">=</span> th<span style="color: #666666">*</span>np<span style="color: #666666">.</span>pi<span style="color: #666666">/</span><span style="color: #40a070">180</span> <span style="color: #60a0b0; font-style: italic"># radianer - husk at trigonometrise funksjoner antar vinkler i radianer!</span>
+th_rad <span style="color: #666666">=</span> th<span style="color: #666666">*</span>np<span style="color: #666666">.</span>pi<span style="color: #666666">/</span><span style="color: #40a070">180</span> <span style="color: #60a0b0; font-style: italic"># radianer - husk at trigonometriske funksjoner antar vinkler i radianer!</span>
 
 <span style="color: #60a0b0; font-style: italic">## Finne transformkoeffsientene:</span>
 
@@ -145,7 +145,7 @@ y <span style="color: #666666">=</span> <span style="color: #40a070">421</span>
 translasjon_mat_tilbake <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter til bildet lik (x,y)</span>
 translasjon_mat_sentrere <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([[<span style="color: #40a070">1</span>,<span style="color: #40a070">0</span>,<span style="color: #666666">-</span>x],[<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>,<span style="color: #666666">-</span>y],[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>,<span style="color: #40a070">1</span>]]) <span style="color: #60a0b0; font-style: italic"># for å sette senter tilbake til (0,0)</span>
 
-<span style="color: #60a0b0; font-style: italic"># 3 - multiplisér matrisene for å finne koeffsientene:-</span>
+<span style="color: #60a0b0; font-style: italic"># 3 - multiplisér matrisene for å finne koeffsientene:</span>
 transform <span style="color: #666666">=</span> translasjon_mat_tilbake @ rotasjon_mat @ translasjon_mat_sentrere
 <span style="color: #60a0b0; font-style: italic"># Det samme som: transform = np.matmul(translasjon_mat_sentrere,np.matmul(rotasjon_mat,translasjon_mat_tilbake))</span>
 

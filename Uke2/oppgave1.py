@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-import numpy as np # Her kan man også bruke math-modulen
+import numpy as np # Her kan man også bruke math-modulen for å hente ut pi og regne ut de trigonometriske funksjonene
 from scipy.misc import imread
 
 from oppgave3 import forlengs_mapping,baklengs_mapping # for å kunne bruke transformkoeffsientene
 
 th = 33               # grader
-th_rad = th*np.pi/180 # radianer - husk at trigonometrise funksjoner antar vinkler i radianer!
+th_rad = th*np.pi/180 # radianer - husk at trigonometriske funksjoner antar vinkler i radianer!
 
 ## Finne transformkoeffsientene:
 
@@ -27,7 +27,7 @@ y = 421
 translasjon_mat_tilbake = np.array([[1,0,x],[0,1,y],[0,0,1]]) # for å sette senter til bildet lik (x,y)
 translasjon_mat_sentrere = np.array([[1,0,-x],[0,1,-y],[0,0,1]]) # for å sette senter tilbake til (0,0)
 
-# 3 - multiplisér matrisene for å finne koeffsientene:-
+# 3 - multiplisér matrisene for å finne koeffsientene:
 transform = translasjon_mat_tilbake @ rotasjon_mat @ translasjon_mat_sentrere
 # Det samme som: transform = np.matmul(translasjon_mat_sentrere,np.matmul(rotasjon_mat,translasjon_mat_tilbake))
 
