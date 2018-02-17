@@ -54,7 +54,7 @@ def plot_histogramtilpasning(img,img_T,q,save=False):
     # Finn histogrammene til det histogramtilpassede bildet:
     p_T,c_T = finn_histogram_bilde(img_T)
 
-    # Finn de kumulative histogrammene for plottingen sin del:
+    # Finn det kumulative histogrametil q t for plottingen sin del:
     c_q = np.cumsum(q)
 
     plt.figure()
