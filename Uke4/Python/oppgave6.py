@@ -21,10 +21,7 @@ def histogramtilpasning(img,q):
     c = finn_histogram_bilde(img)[1]
 
     # Finn det kumulative histogrammet til q:
-    cq = np.zeros(256)
-    cq[0] = q[0]
-    for i in range(1,256):
-        cq[i] = cq[i-1] + q[i]
+    cq = np.cumsum(q)
 
     # Transformér innbildet img:
     T = np.zeros(G)
