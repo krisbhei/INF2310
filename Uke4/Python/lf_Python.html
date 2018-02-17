@@ -322,9 +322,7 @@ intensiteter <span style="color: #666666">=</span> np<span style="color: #666666
 
 img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
-<span style="color: #60a0b0; font-style: italic"># Spesifisér ønsket middelverdi og standardavvik til Gauss-en:</span>
 q <span style="color: #666666">=</span> uniform(G)
-q <span style="color: #666666">/=</span> np<span style="color: #666666">.</span>sum(q) <span style="color: #60a0b0; font-style: italic"># For aa soerge for at histogrammet er normalisert</span>
 
 img_T <span style="color: #666666">=</span> histogramtilpasning(img,q)
 
