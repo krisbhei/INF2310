@@ -1,4 +1,6 @@
-from histogramtilpasning import *
+from oppgave6 import *
+import numpy as np
+from scipy.misc import imread
 
 # Definerer et uniformt histogram over G intensiteter.
 # Mulig å også bruke:
