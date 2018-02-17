@@ -20,7 +20,7 @@ q /= np.sum(q) # For aa soerge for at histogrammet er normalisert
 
 img_T = histogramtilpasning(img,q)
 
-# For å sjekke om transformen gir et bilde med samme statiske egenskaper
+# For å sjekke om transformen gir et bilde med samme statistiske egenskaper
 # som den spesifiserte Gaussen:
 print('\nSum av ønsket histogram: ',np.sum(q))
 print('Middelverdi til transformert bilde: ',np.mean(img_T.flatten()))
