@@ -147,10 +147,7 @@ MathJax.Hub.Config({
     c <span style="color: #666666">=</span> finn_histogram_bilde(img)[<span style="color: #40a070">1</span>]
 
     <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogrammet til q:</span>
-    cq <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(<span style="color: #40a070">256</span>)
-    cq[<span style="color: #40a070">0</span>] <span style="color: #666666">=</span> q[<span style="color: #40a070">0</span>]
-    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,<span style="color: #40a070">256</span>):
-        cq[i] <span style="color: #666666">=</span> cq[i<span style="color: #666666">-</span><span style="color: #40a070">1</span>] <span style="color: #666666">+</span> q[i]
+    cq <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
 
     <span style="color: #60a0b0; font-style: italic"># Transformér innbildet img:</span>
     T <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G)
