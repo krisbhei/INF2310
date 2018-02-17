@@ -13,7 +13,7 @@ function img_T = histogramtilpasning(img,q)
     G = 256;
 
     % Finn innbildets histogram og deretter dets kumulative histogram:
-    [~,c] = finn_histogram_bilde(img); %cumsum(histcounts(img,G))./numel(img);
+    [~,c] = finn_histogram_bilde(img);
 
     % Finn det kumulative histogrammet til q:
     cq = cumsum(q);
