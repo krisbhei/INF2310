@@ -245,7 +245,6 @@ img = imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>);
 uniform = @(G) <span style="color: #007020">ones</span>(<span style="color: #40a070">1</span>,G)<span style="color: #666666">./</span>G;
 
 q = uniform(G);
-q = q<span style="color: #666666">./</span>sum(q);
 
 img_T = histogramtilpasning(img,q);
 
