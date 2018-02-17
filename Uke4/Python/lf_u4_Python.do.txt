@@ -1,0 +1,56 @@
+TITLE: Løsningsforslag til implementering av histogramtilpasning
+
+TOC: on
+
+!split
+======= Oppgave 6 =======
+@@@CODE  oppgave6.py
+Koden kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke4/Python/oppgave6.py".
+<linebreak>
+Her er idéen bak algoritmen tatt direkte fra slide 14 i "lysarket om histogrambaserte operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180214_histogrambaserteoperasjoner.pdf".
+
+
+For å sjekke om programmet faktisk utfører en histogramtilpasning, har det blitt skrevet et eksempelprogram:
+@@@CODE  histogramtilpasning_Gauss.py
+som kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke4/Python/histogramtilpasning_Gauss.py".
+
+Programmet tilpasser et gitt bilde, i dette tilfellet av Mona, til et Gaussisk histogram.
+Et Gaussisk histogram ble bare valgt som demonstrasjon, men det er fullt mulig å bruke andre former på det ønskede histogrammet.
+
+Etter en kjøring av programmet med middelverdi = 128 og standardavvik = 20, blir resultatet slik:
+
+FIGURE: [mona_Gauss_tilpasset.svg,width=1000] Mona som har blitt histogramtilpasset en Gauss med middelverdi lik 128 og standardavvik på 20.
+
+Programmet sjekker også om middelverdien og standardavviket i det transformerte bildet er omtrent lik
+middelverdien og standardavviket til Gauss-en:
+
+!bc
+Sum av ønsket histogram:  1.0
+Middelverdi til transformert bilde:  127.767959595
+Standardavvik til transformert bilde:  19.9696095787
+!ec
+Som en kan se, sjekker den også om det ønskede histogrammet er normalisert - altså summeres opp til én. Dette er en ganske viktig forutsetning for at transformen skal være så god som mulig!
+
+
+======= Oppgave 3 =======
+Nå som en funksjon som generell histogramtilpasning har blitt definert i oppgave 6, er det bare å bruke den samme funksjonen for å utføre en histogramutjeving:
+@@@CODE oppgave3.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke4/Python/histogramtilpasning_Gauss.py".
+
+
+Det også er fullt mulig å løse denne oppgaven ved å direkte spesifisere hva uttrykket for det kumulative histogrammet er til et uniformt histogram.
+Uttrykket for det kumulative histogrammet vil bli
+!bt
+\begin{align*}
+c(j) &= \frac{T(j)}{G}\\
+G \cdot c(j) &= T(j)
+\end{align*}
+!et
+Dette betyr at den diskrete transformasjonen blir
+!bt
+T[j] = \text{round}((G-1)\cdot c[j])
+!et
+Da er det mulig å implementere dette uttrykket direkte for å finne transformasjonsarray-et til bildet.
+Dette er beskrevet mer detaljert på slide 8 i "lysarket om histogrambaserte operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180214_histogrambaserteoperasjoner.pdf".
+
+##  doconce format html lf_u4_Python.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf_Python --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
