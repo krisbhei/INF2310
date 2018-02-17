@@ -30,6 +30,9 @@ Her kan du finne en introduksjon til programmering i
 
 * "Her":"https://krisbhei.github.io/INF2310/Uke2/lf.html" kan du finne løsningsforslag til programmeringsoppgavenen 3, samt oppgave 1 demonstrert i Python. Det er også skrevet en forklaring hvorfor "den praktiske algoritmen" fra slide 19 i "lysarket om geometriske operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf" ser ut som den gjør.
 
+======= Uke 4 - Histogrambaserte operasjoner =======
+
+* "Her":"https://krisbhei.github.io/INF2310/Uke4/Python/lf_Python.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i Python, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
 
 ## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
 

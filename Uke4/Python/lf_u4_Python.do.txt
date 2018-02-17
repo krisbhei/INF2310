@@ -1,4 +1,4 @@
-TITLE: Løsningsforslag til implementering av histogramtilpasning
+TITLE: Løsningsforslag til implementering av histogramtilpasning i Python
 
 TOC: on
 
