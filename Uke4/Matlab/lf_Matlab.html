@@ -139,7 +139,7 @@ MathJax.Hub.Config({
     G = <span style="color: #40a070">256</span>;
 
     <span style="color: #60a0b0; font-style: italic">% Finn innbildets histogram og deretter dets kumulative histogram:</span>
-    [<span style="color: #666666">~</span>,c] = finn_histogram_bilde(img); <span style="color: #60a0b0; font-style: italic">%cumsum(histcounts(img,G))./numel(img);</span>
+    [<span style="color: #666666">~</span>,c] = finn_histogram_bilde(img);
 
     <span style="color: #60a0b0; font-style: italic">% Finn det kumulative histogrammet til q:</span>
     cq = cumsum(q);
