@@ -180,7 +180,7 @@ MathJax.Hub.Config({
     <span style="color: #60a0b0; font-style: italic"># Finn histogrammene til det histogramtilpassede bildet:</span>
     p_T,c_T <span style="color: #666666">=</span> finn_histogram_bilde(img_T)
 
-    <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogrametil q t for plottingen sin del:</span>
+    <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogramet til q for plottingen sin del:</span>
     c_q <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
 
     plt<span style="color: #666666">.</span>figure()
@@ -265,7 +265,7 @@ q <span style="color: #666666">/=</span> np<span style="color: #666666">.</span>
 
 img_T <span style="color: #666666">=</span> histogramtilpasning(img,q)
 
-<span style="color: #60a0b0; font-style: italic"># For å sjekke om transformen gir et bilde med samme statiske egenskaper</span>
+<span style="color: #60a0b0; font-style: italic"># For å sjekke om transformen gir et bilde med samme statistiske egenskaper</span>
 <span style="color: #60a0b0; font-style: italic"># som den spesifiserte Gaussen:</span>
 <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&#39;</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">Sum av ønsket histogram: &#39;</span>,np<span style="color: #666666">.</span>sum(q))
 <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&#39;Middelverdi til transformert bilde: &#39;</span>,np<span style="color: #666666">.</span>mean(img_T<span style="color: #666666">.</span>flatten()))
