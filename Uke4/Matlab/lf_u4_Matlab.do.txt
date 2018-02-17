@@ -22,7 +22,7 @@ Etter en kjøring av programmet med middelverdi = 128 og standardavvik = 20, bli
 
 FIGURE: [mona_Gauss_tilpasset_M.svg,width=1000] Mona som har blitt histogramtilpasset en Gauss med middelverdi lik 128 og standardavvik på 20.
 
-Programmet bruker en egen plottefunksjon som kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke4/Matlab/plot_histogramtransformert.m".
+Programmet bruker en egen plottefunksjon (plot_histogramtransformert) som kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke4/Matlab/plot_histogramtransformert.m".
 
 Programmet sjekker også om middelverdien og standardavviket i det transformerte bildet er omtrent lik
 middelverdien og standardavviket til Gauss-en:
