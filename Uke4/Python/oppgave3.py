@@ -11,9 +11,7 @@ intensiteter = np.linspace(0,G-1,G)
 
 img = imread('mona.png',flatten=True)
 
-# Spesifisér ønsket middelverdi og standardavvik til Gauss-en:
 q = uniform(G)
-q /= np.sum(q) # For aa soerge for at histogrammet er normalisert
 
 img_T = histogramtilpasning(img,q)
 
