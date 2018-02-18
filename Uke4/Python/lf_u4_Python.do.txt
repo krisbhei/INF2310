@@ -39,7 +39,7 @@ Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master
 
 Programmet gir dette som resultat:
 
-FIGURE: [mona_utjevnet.svg,width=800] Bilde av Mona som har blitt histogramutjevnet.
+FIGURE: [mona_utjevnet.svg,width=750] Bilde av Mona som har blitt histogramutjevnet.
 
 
 Det også er fullt mulig å løse denne oppgaven ved å direkte spesifisere hva uttrykket for det kumulative histogrammet er til et uniformt histogram.
