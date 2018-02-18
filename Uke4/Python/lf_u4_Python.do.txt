@@ -54,7 +54,8 @@ Dette betyr at den diskrete transformasjonen blir
 !bt
 T[j] = \text{round}((G-1)\cdot c[j])
 !et
-Da er det mulig å implementere dette uttrykket direkte for å finne transformasjonsarray-et til bildet.
+Da er det mulig å implementere dette uttrykket direkte for å finne transformasjonsarray-et til bildet. Idéen er fortsatt den samme som histogramtilpasning utført i oppgave 6, siden
+histogramutjevning er i bunn og grunn en histogramtilpasning. 
 Dette er beskrevet mer detaljert på slide 8 i "lysarket om histogrambaserte operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180214_histogrambaserteoperasjoner.pdf".
 
 ##  doconce format html lf_u4_Python.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf_Python --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
