@@ -18,7 +18,7 @@ N,M = img.shape
 u1,v1 = 40,100
 u2,v2 = 60,196
 
-u1_,v1_ = N-u1,M-v1 # bruker her konjugert symmetri i bildet
+u1_,v1_ = N-u1,M-v1 # bruker at fourier-bildet er konjugert symmetrisk
 u2_,v2_ = N-u2,M-v2
 
 img_fft[[u1,u1_,u2,u2_],[v1,v1_,v2,v2_]] = 0
@@ -37,7 +37,7 @@ plt.title('Rekonstruert bilde')
 
 plt.subplot(1,3,3)
 plt.imshow(img,cmap='gray',aspect='auto')
-plt.title('Originalbilde - lena_periodicNoise')
+plt.title('Originalbilde: lena_periodicNoise')
 
 # c
 img = imread('lena_periodicNoise2.png',flatten=True)
@@ -75,6 +75,6 @@ plt.title('Rekonstruert bilde')
 
 plt.subplot(1,3,3)
 plt.imshow(img,cmap='gray',aspect='auto')
-plt.title('Originalbilde - lena_periodicNoise2')
+plt.title('Originalbilde: lena_periodicNoise2')
 
 plt.show()

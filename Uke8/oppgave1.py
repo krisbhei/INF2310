@@ -44,7 +44,6 @@ plt.figure()
 plt.subplot(3,1,1)
 plt.imshow(sin_img,cmap='gray',aspect='auto')
 plt.title('Sinus med frekvens (u,v) = (%d,%d)'%(u,v))
-plt.xlabel('v'); plt.ylabel('u')
 
 plt.subplot(3,1,2)
 plt.title('Bildet langs horisontal akse')

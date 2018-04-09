@@ -1,0 +1,116 @@
+TITLE: Løsningsforslag til Fourier-transform i Python
+
+TOC: on
+
+!split
+======= Modul brukt til å lage basisbildene =======
+Løsningsforslagene til oppgave 1 og 2 importerer en funksjon fra basisbilder.py:
+@@@CODE basisbilder.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke8/basisbilder.py".
+
+Denne funksjonen er ment for å generere et sinus- eller cosinus- bilde med en spesifisert frekvens (u,v) og
+bildestørrelse $M \times N$.
+======= Oppgave 1 =======
+@@@CODE oppgave1.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave1.py".
+
+===== Resultater =====
+
+=== Deloppgave a) ===
+FIGURE: [1a.svg,width=800]
+
+##  doconce format html lf_u8.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf_u8 --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
+
+=== Deloppgave b) ===
+
+!bc
+img[0,0] = 7.12076e+06
+sum(img) = 7.12076e+06
+!ec
+
+=== Deloppgave c) ===
+FIGURE: [1c.svg,width=500]
+
+Én mulig måte å verifisere at sinus-bildet har de ønskede frekvensene langs aksene, er å
+plotte et "tverrsnitt" av bildet langs den vertikale og horisontale aksen. Da kan en
+se frekvensen til bildet ved å telle antall topper eller bunner.
+
+En annen mulig måte er å telle antall ganger hvit/sort strek forekommer langs
+aksene til å anslå hvilke frekvenser sinus-en har langs aksene.
+
+=== Deloppgave d) ===
+!bc
+sum(img*sin_img) = 3962.86
+imag(F(5,7)) = 3962.86
+!ec
+
+=== Deloppgave e) ===
+!bc
+sum(img*cos_img) = -35160.4
+real(F(5,7)) = -35160.4
+!ec
+
+
+======= Oppgave 2 =======
+@@@CODE oppgave2.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave2.py".
+
+===== Resultater =====
+=== Deloppgave a) ===
+FIGURE: [2a.svg,width=800]
+
+=== Deloppgave b) ===
+!bc
+sum(cos*sin) = 7.77227e-13
+!ec
+=== Deloppgave c) ===
+!bc
+sum(cos2*sin2) = 7.66165e-13
+sum(cos*sin2) = -1.50413e-12
+sum(cos*sin2) = -1.50413e-12
+sum(cos2*sin) = 6.57252e-13
+sum(cos2*sin) = 6.57252e-13
+!ec
+=== Deloppgave d) ===
+FIGURE: [2d.svg,width=900]
+!bc
+sinus med frekvens (10,10) = - sinus med frekvens (246,502)
+cosinus med frekvens (10,10) = cosinus med frekvens (246,502)
+!ec
+=== Deloppgave e) ===
+!bc
+sum(sin*sin) = 65536
+sum(cos*cos) = 65536
+!ec
+
+======= Oppgave 3 =======
+@@@CODE oppgave3.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave3.py".
+
+===== Resultater =====
+Programmet generer seks resultatbilder. Siden det blir ganske mange bilder, vises
+kun tre av dem:
+
+FIGURE: [3-1.svg,width=1000]
+
+FIGURE: [3-2.svg,width=1000]
+
+FIGURE: [3-3.svg,width=1000]
+
+======= Oppgave 4 =======
+@@@CODE oppgave4.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave4.py".
+
+Dette løsningsforslaget avviker litt fra løsningsforslaget til Matlab-versjonen med tanke på utnulling av
+Fourierkoeffsienter. Tanken er derimot den samme, og kan utvides til å nulle ut de samme koeffsientene som
+løsningsforslaget i matlab.
+
+===== Resultater =====
+=== Deloppgave a) ===
+FIGURE: [4a.svg,width=500]
+
+=== Deloppgave b) ===
+FIGURE: [4bb.svg,width=1000]
+
+=== Deloppgave c) ===
+FIGURE: [4cc.svg,width=1000]

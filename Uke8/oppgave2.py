@@ -62,4 +62,4 @@ if np.all(np.abs(cos3_img - cos_img) < 1e-10):
 print("sum(sin*sin) = %g"%np.sum(sin_img*sin_img))
 print("sum(cos*cos) = %g"%np.sum(cos_img*cos_img))
 
-#plt.show()
+plt.show()

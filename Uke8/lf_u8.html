@@ -1,0 +1,618 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Løsningsforslag til Fourier-transform i Python">
+
+<title>Løsningsforslag til Fourier-transform i Python</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Modul brukt til å lage basisbildene', 1, None, '___sec0'),
+              ('Oppgave 1', 1, None, '___sec1'),
+              ('Resultater', 2, None, '___sec2'),
+              ('Deloppgave a)', 3, None, '___sec3'),
+              ('Deloppgave b)', 3, None, '___sec4'),
+              ('Deloppgave c)', 3, None, '___sec5'),
+              ('Deloppgave d)', 3, None, '___sec6'),
+              ('Deloppgave e)', 3, None, '___sec7'),
+              ('Oppgave 2', 1, None, '___sec8'),
+              ('Resultater', 2, None, '___sec9'),
+              ('Deloppgave a)', 3, None, '___sec10'),
+              ('Deloppgave b)', 3, None, '___sec11'),
+              ('Deloppgave c)', 3, None, '___sec12'),
+              ('Deloppgave d)', 3, None, '___sec13'),
+              ('Deloppgave e)', 3, None, '___sec14'),
+              ('Oppgave 3', 1, None, '___sec15'),
+              ('Resultater', 2, None, '___sec16'),
+              ('Oppgave 4', 1, None, '___sec17'),
+              ('Resultater', 2, None, '___sec18'),
+              ('Deloppgave a)', 3, None, '___sec19'),
+              ('Deloppgave b)', 3, None, '___sec20'),
+              ('Deloppgave c)', 3, None, '___sec21')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="lf_u8.html">Løsningsforslag til Fourier-transform i Python</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;"><b>Modul brukt til å lage basisbildene</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;"><b>Oppgave 1</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Resultater</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave a)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave b)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec5" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave c)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec6" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave d)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec7" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave e)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 14px; padding: 4px 15px;"><b>Oppgave 2</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec9" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Resultater</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec10" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave a)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec11" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave b)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec12" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave c)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec13" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave d)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec14" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave e)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec15" style="font-size: 14px; padding: 4px 15px;"><b>Oppgave 3</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec16" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Resultater</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec17" style="font-size: 14px; padding: 4px 15px;"><b>Oppgave 4</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec18" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;Resultater</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec19" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave a)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec20" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave b)</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec21" style="font-size: 14px; padding: 4px 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deloppgave c)</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>L&#248;sningsforslag til Fourier-transform i Python</h1></center>  <!-- document title -->
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#___sec0"> Modul brukt til &#229; lage basisbildene </a><br>
+<a href="#___sec1"> Oppgave 1 </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec2"> Resultater </a><br>
+<a href="#___sec8"> Oppgave 2 </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec9"> Resultater </a><br>
+<a href="#___sec15"> Oppgave 3 </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec16"> Resultater </a><br>
+<a href="#___sec17"> Oppgave 4 </a><br>
+&nbsp; &nbsp; &nbsp; <a href="#___sec18"> Resultater </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Modul brukt til &#229; lage basisbildene </h1>
+L&#248;sningsforslagene til oppgave 1 og 2 importerer en funksjon fra basisbilder.py:
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">lag_basis</span>(u,v,M,N,sinus<span style="color: #666666">=</span><span style="color: #007020">True</span>):
+    y <span style="color: #666666">=</span> np<span style="color: #666666">.</span>tile(np<span style="color: #666666">.</span>arange(<span style="color: #40a070">0</span>,N),(M,<span style="color: #40a070">1</span>)) <span style="color: #60a0b0; font-style: italic"># np.tile tilsvarer matlabs repmat</span>
+    x <span style="color: #666666">=</span> np<span style="color: #666666">.</span>tile(np<span style="color: #666666">.</span>reshape(np<span style="color: #666666">.</span>arange(<span style="color: #40a070">0</span>,M),(M,<span style="color: #40a070">1</span>)),(<span style="color: #40a070">1</span>,N))
+
+    <span style="color: #007020; font-weight: bold">if</span> sinus:
+        <span style="color: #007020; font-weight: bold">return</span> np<span style="color: #666666">.</span>sin(<span style="color: #666666">-</span><span style="color: #40a070">2</span><span style="color: #666666">*</span>np<span style="color: #666666">.</span>pi<span style="color: #666666">*</span>(u<span style="color: #666666">/</span>M<span style="color: #666666">*</span>x <span style="color: #666666">+</span> v<span style="color: #666666">/</span>N<span style="color: #666666">*</span>y))
+
+    <span style="color: #007020; font-weight: bold">return</span> np<span style="color: #666666">.</span>cos(<span style="color: #40a070">2</span><span style="color: #666666">*</span>np<span style="color: #666666">.</span>pi<span style="color: #666666">*</span>(u<span style="color: #666666">/</span>M<span style="color: #666666">*</span>x <span style="color: #666666">+</span> v<span style="color: #666666">/</span>N<span style="color: #666666">*</span>y))
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke8/basisbilder.py" target="_self">her</a>.
+
+<p>
+Denne funksjonen er ment for &#229; generere et sinus- eller cosinus- bilde med en spesifisert frekvens (u,v) og
+bildest&#248;rrelse \( M \times N \).
+
+<h1 id="___sec1" class="anchor">Oppgave 1 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">numpy.fft</span> <span style="color: #007020; font-weight: bold">import</span> fft2,ifft2,fftshift
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">basisbilder</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
+
+<span style="color: #60a0b0; font-style: italic"># a</span>
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;car.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+img_fft <span style="color: #666666">=</span> fft2(img)
+img_angle <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arctan2(np<span style="color: #666666">.</span>real(img_fft),np<span style="color: #666666">.</span>imag(img_fft))
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>log(np<span style="color: #666666">.</span>abs(img_fft) <span style="color: #666666">+</span> <span style="color: #40a070">1</span>),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Fourier spekter&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(img_angle<span style="color: #666666">*</span><span style="color: #40a070">180</span><span style="color: #666666">/</span>np<span style="color: #666666">.</span>pi,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Fase&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># b</span>
+img_dc <span style="color: #666666">=</span> img_fft[<span style="color: #40a070">0</span>,<span style="color: #40a070">0</span>]
+img_sum <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(img)
+
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;img[0,0] = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span><span style="color: #007020">abs</span>(img_dc)) <span style="color: #60a0b0; font-style: italic"># Merk at img_fft er kompleks.</span>
+                                   <span style="color: #60a0b0; font-style: italic"># Det gjør at det kommer en advarsel i terminalen</span>
+                                   <span style="color: #60a0b0; font-style: italic"># ved kjøring av programmet.</span>
+                                   <span style="color: #60a0b0; font-style: italic"># Imaginærdel skal være 0 (eller såpass lite at det tilnærmes lik 0).</span>
+                                   <span style="color: #60a0b0; font-style: italic"># Kan bruke abs for å fjerne advarsel.</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(img) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>img_sum)
+
+<span style="color: #60a0b0; font-style: italic"># c</span>
+u,v <span style="color: #666666">=</span> <span style="color: #40a070">5</span>,<span style="color: #40a070">7</span>
+N <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape[<span style="color: #40a070">0</span>] <span style="color: #60a0b0; font-style: italic"># siden vi får vite at bildet er kvadratisk</span>
+
+<span style="color: #60a0b0; font-style: italic"># lage sinus-bilde:</span>
+sin_img <span style="color: #666666">=</span> lag_basis(u,v,N,N)
+
+<span style="color: #60a0b0; font-style: italic"># plott resultatene:</span>
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>imshow(sin_img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Sinus med frekvens (u,v) = (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&#39;</span><span style="color: #666666">%</span>(u,v))
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Bildet langs horisontal akse&#39;</span>)
+plt<span style="color: #666666">.</span>plot(sin_img[<span style="color: #40a070">0</span>,:])
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Bildet langs vertikal akse&#39;</span>)
+plt<span style="color: #666666">.</span>plot(sin_img[:,<span style="color: #40a070">0</span>])
+
+<span style="color: #60a0b0; font-style: italic"># d</span>
+img_mult <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(img<span style="color: #666666">*</span>sin_img)
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(img*sin_img) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>img_mult)
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;imag(F(5,7)) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>imag(img_fft[u,v]))
+
+<span style="color: #60a0b0; font-style: italic"># e</span>
+
+<span style="color: #60a0b0; font-style: italic"># lage cosinus-bilde:</span>
+cos_img <span style="color: #666666">=</span> lag_basis(u,v,N,N,<span style="color: #007020">False</span>)
+
+img_mult <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(img<span style="color: #666666">*</span>cos_img)
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(img*cos_img) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>img_mult)
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;real(F(5,7)) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>real(img_fft[u,v]))
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave1.py" target="_self">her</a>.
+
+<h2 id="___sec2" class="anchor">Resultater </h2>
+
+<h3 id="___sec3" class="anchor">Deloppgave a) </h3>
+
+<br /><br /><center><p><img src="1a.svg" align="bottom" width=800></p></center><br /><br />
+
+<h3 id="___sec4" class="anchor">Deloppgave b) </h3>
+
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img[0,0] = 7.12076e+06
+sum(img) = 7.12076e+06
+</pre></div>
+
+<h3 id="___sec5" class="anchor">Deloppgave c) </h3>
+
+<br /><br /><center><p><img src="1c.svg" align="bottom" width=500></p></center><br /><br />
+
+<p>
+&#201;n mulig m&#229;te &#229; verifisere at sinus-bildet har de &#248;nskede frekvensene langs aksene, er &#229;
+plotte et "tverrsnitt" av bildet langs den vertikale og horisontale aksen. Da kan en
+se frekvensen til bildet ved &#229; telle antall topper eller bunner.
+
+<p>
+En annen mulig m&#229;te er &#229; telle antall ganger hvit/sort strek forekommer langs
+aksene til &#229; ansl&#229; hvilke frekvenser sinus-en har langs aksene.
+
+<h3 id="___sec6" class="anchor">Deloppgave d) </h3>
+
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>sum(img*sin_img) = 3962.86
+imag(F(5,7)) = 3962.86
+</pre></div>
+
+<h3 id="___sec7" class="anchor">Deloppgave e) </h3>
+
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>sum(img*cos_img) = -35160.4
+real(F(5,7)) = -35160.4
+</pre></div>
+
+<h1 id="___sec8" class="anchor">Oppgave 2 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">basisbilder</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
+
+M <span style="color: #666666">=</span> <span style="color: #40a070">256</span>; N <span style="color: #666666">=</span> <span style="color: #40a070">512</span>
+
+<span style="color: #60a0b0; font-style: italic"># a</span>
+u <span style="color: #666666">=</span> <span style="color: #40a070">10</span>; v <span style="color: #666666">=</span> <span style="color: #40a070">10</span>
+
+sin_img <span style="color: #666666">=</span> lag_basis(u,v,M,N)
+
+plt<span style="color: #666666">.</span>figure()
+plt<span style="color: #666666">.</span>imshow(sin_img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Sinus med frekvens (u,v) = (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&#39;</span><span style="color: #666666">%</span>(u,v))
+
+<span style="color: #60a0b0; font-style: italic"># b</span>
+cos_img <span style="color: #666666">=</span> lag_basis(u,v,M,N,<span style="color: #007020">False</span>)
+
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos*sin) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin_img<span style="color: #666666">*</span>cos_img))
+
+<span style="color: #60a0b0; font-style: italic"># c</span>
+u2,v2 <span style="color: #666666">=</span> <span style="color: #40a070">86</span>,<span style="color: #40a070">45</span>
+
+sin2_img <span style="color: #666666">=</span> lag_basis(u2,v2,M,N)
+cos2_img <span style="color: #666666">=</span> lag_basis(u2,v2,M,N,<span style="color: #007020">False</span>)
+
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos2*sin2) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin2_img<span style="color: #666666">*</span>cos2_img))
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos*sin2) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin2_img<span style="color: #666666">*</span>cos_img))
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos*sin2) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin2_img<span style="color: #666666">*</span>cos_img))
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos2*sin) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin_img<span style="color: #666666">*</span>cos2_img))
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos2*sin) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin_img<span style="color: #666666">*</span>cos2_img))
+
+<span style="color: #60a0b0; font-style: italic"># d</span>
+u3,v3 <span style="color: #666666">=</span> <span style="color: #40a070">246</span>,<span style="color: #40a070">502</span>
+
+sin3_img <span style="color: #666666">=</span> lag_basis(u3,v3,M,N)
+cos3_img <span style="color: #666666">=</span> lag_basis(u3,v3,M,N,<span style="color: #007020">False</span>)
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>imshow(cos_img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Cosinus med frekvens (u,v) = (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&#39;</span><span style="color: #666666">%</span>(u,v))
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(sin_img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Sinus med frekvens (u,v) = (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&#39;</span><span style="color: #666666">%</span>(u,v))
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>)
+plt<span style="color: #666666">.</span>imshow(cos3_img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Cosinus med frekvens (u,v) = (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&#39;</span><span style="color: #666666">%</span>(u3,v3))
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">4</span>)
+plt<span style="color: #666666">.</span>imshow(sin3_img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Sinus med frekvens (u,v) = (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&#39;</span><span style="color: #666666">%</span>(u3,v3))
+
+<span style="color: #007020; font-weight: bold">if</span> np<span style="color: #666666">.</span>all(np<span style="color: #666666">.</span>abs(sin3_img <span style="color: #666666">-</span> (<span style="color: #666666">-</span>sin_img)) <span style="color: #666666">&lt;</span> <span style="color: #40a070">1e-10</span>):
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sinus med frekvens (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">) = - sinus med frekvens (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)&quot;</span><span style="color: #666666">%</span>(u,v,u3,v3))
+<span style="color: #007020; font-weight: bold">if</span> np<span style="color: #666666">.</span>all(np<span style="color: #666666">.</span>abs(cos3_img <span style="color: #666666">-</span> cos_img) <span style="color: #666666">&lt;</span> <span style="color: #40a070">1e-10</span>):
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;cosinus med frekvens (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">) = cosinus med frekvens (</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">,</span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">)</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>(u,v,u3,v3))
+
+<span style="color: #60a0b0; font-style: italic"># e</span>
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(sin*sin) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(sin_img<span style="color: #666666">*</span>sin_img))
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;sum(cos*cos) = </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>np<span style="color: #666666">.</span>sum(cos_img<span style="color: #666666">*</span>cos_img))
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave2.py" target="_self">her</a>.
+
+<h2 id="___sec9" class="anchor">Resultater </h2>
+
+<h3 id="___sec10" class="anchor">Deloppgave a) </h3>
+
+<br /><br /><center><p><img src="2a.svg" align="bottom" width=800></p></center><br /><br />
+
+<h3 id="___sec11" class="anchor">Deloppgave b) </h3>
+
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>sum(cos*sin) = 7.77227e-13
+</pre></div>
+
+<h3 id="___sec12" class="anchor">Deloppgave c) </h3>
+
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>sum(cos2*sin2) = 7.66165e-13
+sum(cos*sin2) = -1.50413e-12
+sum(cos*sin2) = -1.50413e-12
+sum(cos2*sin) = 6.57252e-13
+sum(cos2*sin) = 6.57252e-13
+</pre></div>
+
+<h3 id="___sec13" class="anchor">Deloppgave d) </h3>
+
+<br /><br /><center><p><img src="2d.svg" align="bottom" width=900></p></center><br /><br />
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>sinus med frekvens (10,10) = - sinus med frekvens (246,502)
+cosinus med frekvens (10,10) = cosinus med frekvens (246,502)
+</pre></div>
+
+<h3 id="___sec14" class="anchor">Deloppgave e) </h3>
+
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>sum(sin*sin) = 65536
+sum(cos*cos) = 65536
+</pre></div>
+
+<h1 id="___sec15" class="anchor">Oppgave 3 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">numpy.fft</span> <span style="color: #007020; font-weight: bold">import</span> fft2,ifft2,fftshift
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;car.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+img_fft <span style="color: #666666">=</span> fft2(img)
+
+thr <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
+<span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,<span style="color: #40a070">7</span>):
+    img_thr <span style="color: #666666">=</span> img_fft<span style="color: #666666">.</span>copy()
+    img_thr[np<span style="color: #666666">.</span>abs(img_fft) <span style="color: #666666">&lt;</span> thr] <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+    img_recon <span style="color: #666666">=</span> ifft2(img_thr)
+
+    plt<span style="color: #666666">.</span>figure()
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>)
+    plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>log(np<span style="color: #666666">.</span>abs(img_thr)<span style="color: #666666">+</span><span style="color: #40a070">1</span>),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Bevarte koeffsienter: </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0"> </span><span style="color: #70a0d0; font-style: italic">%%</span><span style="color: #4070a0">&#39;</span><span style="color: #666666">%</span>(np<span style="color: #666666">.</span>sum(img_thr <span style="color: #666666">!=</span> <span style="color: #40a070">0</span>)<span style="color: #666666">/</span>img<span style="color: #666666">.</span>size<span style="color: #666666">*</span><span style="color: #40a070">100</span>))
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+    plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>abs(img_recon),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Rekonstruert bilde ved terskel: </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&#39;</span><span style="color: #666666">%</span>thr)
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">3</span>)
+    plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Originalbilde&#39;</span>)
+
+    thr <span style="color: #666666">*=</span> <span style="color: #40a070">10</span>
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave3.py" target="_self">her</a>.
+
+<h2 id="___sec16" class="anchor">Resultater </h2>
+Programmet generer seks resultatbilder. Siden det blir ganske mange bilder, vises
+kun tre av dem:
+
+<p>
+<br /><br /><center><p><img src="3-1.svg" align="bottom" width=1000></p></center><br /><br />
+
+<p>
+<br /><br /><center><p><img src="3-2.svg" align="bottom" width=1000></p></center><br /><br />
+
+<p>
+<br /><br /><center><p><img src="3-3.svg" align="bottom" width=1000></p></center><br /><br />
+
+<h1 id="___sec17" class="anchor">Oppgave 4 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">numpy.fft</span> <span style="color: #007020; font-weight: bold">import</span> fft2,ifft2,fftshift
+
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;lena_periodicNoise.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+<span style="color: #60a0b0; font-style: italic"># a</span>
+img_fft <span style="color: #666666">=</span> fft2(img)
+
+plt<span style="color: #666666">.</span>figure()
+plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>log(np<span style="color: #666666">.</span>abs(img_fft) <span style="color: #666666">+</span> <span style="color: #40a070">1</span>),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Fourier spekter til lena_periodicNoise&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># b</span>
+N,M <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape
+
+u1,v1 <span style="color: #666666">=</span> <span style="color: #40a070">40</span>,<span style="color: #40a070">100</span>
+u2,v2 <span style="color: #666666">=</span> <span style="color: #40a070">60</span>,<span style="color: #40a070">196</span>
+
+u1_,v1_ <span style="color: #666666">=</span> N<span style="color: #666666">-</span>u1,M<span style="color: #666666">-</span>v1 <span style="color: #60a0b0; font-style: italic"># bruker at fourier-bildet er konjugert symmetrisk</span>
+u2_,v2_ <span style="color: #666666">=</span> N<span style="color: #666666">-</span>u2,M<span style="color: #666666">-</span>v2
+
+img_fft[[u1,u1_,u2,u2_],[v1,v1_,v2,v2_]] <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+img_recon <span style="color: #666666">=</span> np<span style="color: #666666">.</span>abs(ifft2(img_fft))
+
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>log(np<span style="color: #666666">.</span>abs(img_fft) <span style="color: #666666">+</span> <span style="color: #40a070">1</span>),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Fourier spekter&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(img_recon,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Rekonstruert bilde&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">3</span>)
+plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Originalbilde: lena_periodicNoise&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># c</span>
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;lena_periodicNoise2.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+N,M <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape
+
+img_fft <span style="color: #666666">=</span> fft2(img)
+
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>log(np<span style="color: #666666">.</span>abs(img_fft) <span style="color: #666666">+</span> <span style="color: #40a070">1</span>),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Fourier spekter til lena_periodicNoise2&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Originalbilde&#39;</span>)
+
+u,v <span style="color: #666666">=</span> <span style="color: #40a070">40</span>,<span style="color: #40a070">100</span>
+u_,v_ <span style="color: #666666">=</span> N<span style="color: #666666">-</span>u,M<span style="color: #666666">-</span>v
+
+img_fft[[u,u_],[v,v_]] <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>imshow(np<span style="color: #666666">.</span>log(np<span style="color: #666666">.</span>abs(img_fft) <span style="color: #666666">+</span> <span style="color: #40a070">1</span>),cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Fourier spekter&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(img_recon,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Rekonstruert bilde&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">3</span>)
+plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Originalbilde: lena_periodicNoise2&#39;</span>)
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke8/oppgave4.py" target="_self">her</a>.
+
+<p>
+Dette l&#248;sningsforslaget avviker litt fra l&#248;sningsforslaget til Matlab-versjonen med tanke p&#229; utnulling av
+Fourierkoeffsienter. Tanken er derimot den samme, og kan utvides til &#229; nulle ut de samme koeffsientene som
+l&#248;sningsforslaget i matlab.
+
+<h2 id="___sec18" class="anchor">Resultater </h2>
+
+<h3 id="___sec19" class="anchor">Deloppgave a) </h3>
+
+<br /><br /><center><p><img src="4a.svg" align="bottom" width=500></p></center><br /><br />
+
+<h3 id="___sec20" class="anchor">Deloppgave b) </h3>
+
+<br /><br /><center><p><img src="4bb.svg" align="bottom" width=1000></p></center><br /><br />
+
+<h3 id="___sec21" class="anchor">Deloppgave c) </h3>
+
+<br /><br /><center><p><img src="4cc.svg" align="bottom" width=1000></p></center><br /><br />
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+
