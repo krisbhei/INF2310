@@ -3,7 +3,7 @@ from numpy.fft import fft2,ifft2,fftshift
 import matplotlib.pyplot as plt
 from scipy.misc import imread
 
-# Lager 2D vindue med størrelse win_size[0] x win_size[1]:
+# Lager 2D vindu med størrelse win_size[0] x win_size[1]:
 def tukeywin(win_size,alpha):
 
     h = np.zeros((2,max(win_size)))
