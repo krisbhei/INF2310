@@ -6,7 +6,9 @@ from scipy.misc import imread
 # Lager 2D vindu med størrelse win_size[0] x win_size[1]:
 def tukeywin(win_size,alpha):
 
-    h = np.zeros((2,max(win_size)))
+    N,M = win_size
+
+    h = np.zeros((2,max(N,M)))
 
     for i in range(2):
         sz = win_size[i]
@@ -22,11 +24,10 @@ def tukeywin(win_size,alpha):
         h[i,n1:n2] = 1
         h[i,n2:] = 0.5*(1 + np.cos(np.pi*(2*n3_coor/(alpha*(sz-1)) - 2/alpha + 1)))
 
-    return np.outer(h[0],h[1])
+    return np.outer(h[0,:N],h[1,:M])
 
 
 img = imread('lena.png',flatten=True)
-N = img.shape[0]
 
 w = tukeywin(img.shape,0.5)
 img_w = img*w

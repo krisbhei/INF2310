@@ -265,10 +265,12 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/mast
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
 
-<span style="color: #60a0b0; font-style: italic"># Lager 2D vindue med størrelse win_size[0] x win_size[1]:</span>
+<span style="color: #60a0b0; font-style: italic"># Lager 2D vindu med størrelse win_size[0] x win_size[1]:</span>
 <span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">tukeywin</span>(win_size,alpha):
 
-    h <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((<span style="color: #40a070">2</span>,<span style="color: #007020">max</span>(win_size)))
+    N,M <span style="color: #666666">=</span> win_size
+
+    h <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((<span style="color: #40a070">2</span>,<span style="color: #007020">max</span>(N,M)))
 
     <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">2</span>):
         sz <span style="color: #666666">=</span> win_size[i]
@@ -284,11 +286,10 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/mast
         h[i,n1:n2] <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
         h[i,n2:] <span style="color: #666666">=</span> <span style="color: #40a070">0.5</span><span style="color: #666666">*</span>(<span style="color: #40a070">1</span> <span style="color: #666666">+</span> np<span style="color: #666666">.</span>cos(np<span style="color: #666666">.</span>pi<span style="color: #666666">*</span>(<span style="color: #40a070">2</span><span style="color: #666666">*</span>n3_coor<span style="color: #666666">/</span>(alpha<span style="color: #666666">*</span>(sz<span style="color: #666666">-</span><span style="color: #40a070">1</span>)) <span style="color: #666666">-</span> <span style="color: #40a070">2</span><span style="color: #666666">/</span>alpha <span style="color: #666666">+</span> <span style="color: #40a070">1</span>)))
 
-    <span style="color: #007020; font-weight: bold">return</span> np<span style="color: #666666">.</span>outer(h[<span style="color: #40a070">0</span>],h[<span style="color: #40a070">1</span>])
+    <span style="color: #007020; font-weight: bold">return</span> np<span style="color: #666666">.</span>outer(h[<span style="color: #40a070">0</span>,:N],h[<span style="color: #40a070">1</span>,:M])
 
 
 img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;lena.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
-N <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape[<span style="color: #40a070">0</span>]
 
 w <span style="color: #666666">=</span> tukeywin(img<span style="color: #666666">.</span>shape,<span style="color: #40a070">0.5</span>)
 img_w <span style="color: #666666">=</span> img<span style="color: #666666">*</span>w
