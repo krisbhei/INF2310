@@ -1,0 +1,430 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Løsningsforslag til oppgavene om segmentering">
+
+<title>Løsningsforslag til oppgavene om segmentering</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Histogram til et 8-bits bilde', 1, None, '___sec0'),
+              ('Oppgave 1', 1, None, '___sec1'),
+              ('Oppgave 2', 1, None, '___sec2'),
+              ('Oppgave 3', 1, None, '___sec3')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="lf_u10.html">Løsningsforslag til oppgavene om segmentering</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;">Table of contents</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Histogram til et 8-bits bilde</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">Oppgave 1</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;">Oppgave 2</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">Oppgave 3</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>L&#248;sningsforslag til oppgavene om segmentering</h1></center>  <!-- document title -->
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#___sec0"> Histogram til et 8-bits bilde </a><br>
+<a href="#___sec1"> Oppgave 1 </a><br>
+<a href="#___sec2"> Oppgave 2 </a><br>
+<a href="#___sec3"> Oppgave 3 </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Histogram til et 8-bits bilde </h1>
+Alle programmene benytter seg av en egendefinert histogram-metode og gr&#229;toneskalering
+som kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke10/histogram_image.py" target="_self">her</a>.
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+
+<span style="color: #60a0b0; font-style: italic"># Fra løsningsforslag til uke3 - oppgave 2</span>
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">hist</span>(img):
+    bins <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arange(<span style="color: #40a070">256</span>)
+    p <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([np<span style="color: #666666">.</span>sum(img <span style="color: #666666">==</span> i) <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> bins])<span style="color: #666666">/</span>img<span style="color: #666666">.</span>size
+    <span style="color: #007020; font-weight: bold">return</span> p,bins
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">from0to255</span>(img):
+    <span style="color: #007020; font-weight: bold">return</span> ((img<span style="color: #666666">-</span> np<span style="color: #666666">.</span>min(img))<span style="color: #666666">*</span><span style="color: #40a070">255</span>)<span style="color: #666666">/</span>(np<span style="color: #666666">.</span>max(img) <span style="color: #666666">-</span> np<span style="color: #666666">.</span>min(img))
+</pre></div>
+
+<h1 id="___sec1" class="anchor">Oppgave 1 </h1>
+L&#248;sningsforslaget bruker en mulig oversettelse av Matlab-koden gitt i ukeoppgavene:
+<p>
+
+<!-- code=python (!bc python) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+
+<span style="color: #60a0b0; font-style: italic"># Load a &quot;clean&quot; image:</span>
+im_clean <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;textImage_clean.png&#39;</span>);
+N,M <span style="color: #666666">=</span> img_clean<span style="color: #666666">.</span>shape
+
+<span style="color: #60a0b0; font-style: italic"># Add some noise:</span>
+noise_std <span style="color: #666666">=</span> <span style="color: #40a070">30</span> <span style="color: #60a0b0; font-style: italic"># How much white noise to add</span>
+img_noisy <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> noise_std<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
+
+
+<span style="color: #60a0b0; font-style: italic"># Add varying light-intesity model</span>
+light_factor <span style="color: #666666">=</span> <span style="color: #40a070">10</span> <span style="color: #60a0b0; font-style: italic"># Increasing this increases effect of our varying-light model</span>
+light_mask <span style="color: #666666">=</span> np<span style="color: #666666">.</span>tile((np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">1</span>,M,M)<span style="color: #666666">-</span>M<span style="color: #666666">/</span><span style="color: #40a070">2</span>)<span style="color: #666666">/</span>M,(N,<span style="color: #40a070">1</span>))
+img_light <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> light_factor<span style="color: #666666">*</span>light_mask
+
+<span style="color: #60a0b0; font-style: italic"># Separate background and foreground pixels using our &quot;clean&quot; image</span>
+background_pixels <span style="color: #666666">=</span> img_noisy[img_clean <span style="color: #666666">&lt;</span> <span style="color: #40a070">150</span>]
+foreground_pixels <span style="color: #666666">=</span> img_noisy[img_clean <span style="color: #666666">&gt;</span> <span style="color: #40a070">150</span>]
+</pre></div>
+<p>
+De ulike delene av oversettelsen ligger spredt i programmet under:
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">histogram_image</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
+
+img_clean <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;textImage_clean.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+N,M <span style="color: #666666">=</span> img_clean<span style="color: #666666">.</span>shape
+
+light_factor <span style="color: #666666">=</span> <span style="color: #40a070">50</span>
+light_mask <span style="color: #666666">=</span> np<span style="color: #666666">.</span>tile((np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">1</span>,M,M)<span style="color: #666666">-</span>M<span style="color: #666666">/</span><span style="color: #40a070">2</span>)<span style="color: #666666">/</span>M,(N,<span style="color: #40a070">1</span>))
+img_light <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> light_factor<span style="color: #666666">*</span>light_mask
+
+<span style="color: #60a0b0; font-style: italic"># a</span>
+h_img,ax <span style="color: #666666">=</span> hist(img_clean)
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">1</span>)
+plt<span style="color: #666666">.</span>bar(ax,h_img)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Normalisert histogram&#39;</span>)
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>imshow(img_clean,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;img_clean.png&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># b</span>
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>bar(ax,h_img)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Det originale bildets normaliserte histogram&#39;</span>)
+
+<span style="color: #007020; font-weight: bold">for</span> c,noise_std <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">enumerate</span>([<span style="color: #40a070">10</span>,<span style="color: #40a070">30</span>,<span style="color: #40a070">90</span>]):
+    img_noisy <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> noise_std<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
+    h <span style="color: #666666">=</span> hist(np<span style="color: #666666">.</span>round(img_noisy))[<span style="color: #40a070">0</span>]
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>,c<span style="color: #666666">+</span><span style="color: #40a070">4</span>)
+    plt<span style="color: #666666">.</span>bar(ax,h)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Det normaliserte histogrammet</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">til bildet med noise_std = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&#39;</span><span style="color: #666666">%</span>noise_std)
+
+<span style="color: #60a0b0; font-style: italic"># c og d</span>
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+plt<span style="color: #666666">.</span>bar(ax,h_img)
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Det originale bildets normaliserte histogram&#39;</span>)
+
+<span style="color: #007020; font-weight: bold">for</span> c,light_factor <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">enumerate</span>([<span style="color: #40a070">50</span>,<span style="color: #40a070">75</span>,<span style="color: #40a070">100</span>]):
+    img_light <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> light_factor<span style="color: #666666">*</span>light_mask
+    h <span style="color: #666666">=</span> hist(np<span style="color: #666666">.</span>round(img_light))[<span style="color: #40a070">0</span>]
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>,c<span style="color: #666666">+</span><span style="color: #40a070">4</span>)
+    plt<span style="color: #666666">.</span>bar(ax,h)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Det normaliserte histogrammet</span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0">til bildet med light_factor = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&#39;</span><span style="color: #666666">%</span>light_factor)
+
+
+<span style="color: #60a0b0; font-style: italic"># e</span>
+
+<span style="color: #60a0b0; font-style: italic"># ser på det gitte eksemepelet  fra oppgaven</span>
+noise_std <span style="color: #666666">=</span> <span style="color: #40a070">30</span>
+img_noisy <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> noise_std<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
+background_pixels <span style="color: #666666">=</span> img_noisy[img_clean <span style="color: #666666">&lt;</span> <span style="color: #40a070">150</span>]
+foreground_pixels <span style="color: #666666">=</span> img_noisy[img_clean <span style="color: #666666">&gt;</span> <span style="color: #40a070">150</span>]
+
+B <span style="color: #666666">=</span> background_pixels<span style="color: #666666">.</span>size<span style="color: #666666">/</span>(N<span style="color: #666666">*</span>M)
+F <span style="color: #666666">=</span> foreground_pixels<span style="color: #666666">.</span>size<span style="color: #666666">/</span>(N<span style="color: #666666">*</span>M)
+
+h_background <span style="color: #666666">=</span> hist(np<span style="color: #666666">.</span>round(background_pixels))[<span style="color: #40a070">0</span>]
+h_foreground <span style="color: #666666">=</span> hist(np<span style="color: #666666">.</span>round(foreground_pixels))[<span style="color: #40a070">0</span>]
+
+hist_background <span style="color: #666666">=</span> B<span style="color: #666666">*</span>h_background
+hist_foreground <span style="color: #666666">=</span> F<span style="color: #666666">*</span>h_foreground
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>plot(ax,hist_background)
+plt<span style="color: #666666">.</span>plot(ax,hist_foreground)
+
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Normaliserte histogram&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># f</span>
+<span style="color: #60a0b0; font-style: italic"># Fant skjæringspunkt ved intensitet omtrent lik 168</span>
+T <span style="color: #666666">=</span> <span style="color: #40a070">168</span>
+
+error_foreground <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(hist_background[T:])<span style="color: #666666">*</span>N<span style="color: #666666">*</span>M
+error_background <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(hist_foreground[:T])<span style="color: #666666">*</span>N<span style="color: #666666">*</span>M
+
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;Antall feilklassifiserte forgrunnspiksler: </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>error_foreground)
+<span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;Antall feilklassifiserte bakgrunnspiksler: </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>error_background)
+
+<span style="color: #60a0b0; font-style: italic"># g</span>
+h_noisy <span style="color: #666666">=</span> hist(np<span style="color: #666666">.</span>round(img_noisy))[<span style="color: #40a070">0</span>]
+
+plt<span style="color: #666666">.</span>figure()
+
+plt<span style="color: #666666">.</span>plot(ax,hist_foreground)
+plt<span style="color: #666666">.</span>plot(ax,hist_background)
+plt<span style="color: #666666">.</span>plot(ax,hist_background<span style="color: #666666">+</span>hist_foreground)
+plt<span style="color: #666666">.</span>plot(ax,h_noisy)
+
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Normaliserte histogram&#39;</span>)
+plt<span style="color: #666666">.</span>legend([<span style="color: #4070a0">&#39;foreground&#39;</span>,<span style="color: #4070a0">&#39;background&#39;</span>,<span style="color: #4070a0">&#39;foreground+background&#39;</span>,<span style="color: #4070a0">&#39;image&#39;</span>])
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave1.py" target="_self">her</a>.
+<br />
+Merk at mye av programmet er forslag til hvordan en kan eksperimentere med de ulike parameterene til de ulike deloppgavene,
+og er p&#229; ingen m&#229;te en fasit!
+
+<h1 id="___sec2" class="anchor">Oppgave 2 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">histogram_image</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">numpy.fft</span> <span style="color: #007020; font-weight: bold">import</span> fft2,ifft2,fftshift
+
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;discImage.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+img_fft <span style="color: #666666">=</span> fft2(img)
+
+N,M <span style="color: #666666">=</span> img<span style="color: #666666">.</span>shape
+
+h,ax <span style="color: #666666">=</span> hist(img)
+
+plt<span style="color: #666666">.</span>figure()
+
+<span style="color: #007020; font-weight: bold">for</span> counter,n <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">enumerate</span>([<span style="color: #40a070">3</span>,<span style="color: #40a070">5</span>,<span style="color: #40a070">7</span>,<span style="color: #40a070">9</span>]):
+    f <span style="color: #666666">=</span> np<span style="color: #666666">.</span>ones((n,n))<span style="color: #666666">/</span>(n<span style="color: #666666">*</span>n)
+    f_fft <span style="color: #666666">=</span> fft2(f,(N,M))
+
+    img_inv <span style="color: #666666">=</span> ifft2(f_fft<span style="color: #666666">*</span>img_fft)
+
+    h_filtered <span style="color: #666666">=</span> hist(np<span style="color: #666666">.</span>round(np<span style="color: #666666">.</span>real(img_inv)))[<span style="color: #40a070">0</span>]
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>,counter<span style="color: #666666">+</span><span style="color: #40a070">1</span>)
+    plt<span style="color: #666666">.</span>plot(ax,h_filtered)
+    plt<span style="color: #666666">.</span>plot(ax,h)
+    plt<span style="color: #666666">.</span>legend([<span style="color: #4070a0">&#39;filtrert&#39;</span>,<span style="color: #4070a0">&#39;opprinnelig&#39;</span>])
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Normaliserte histogram til opprinnelig bilde vs. bilde </span><span style="color: #4070a0; font-weight: bold">\n</span><span style="color: #4070a0"> filtrert med </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0"> x </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0"> middelverdifilter&#39;</span><span style="color: #666666">%</span>(n,n))
+
+plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave2.py" target="_self">her</a>.
+
+<h1 id="___sec3" class="anchor">Oppgave 3 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">histogram_image</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">skimage</span> <span style="color: #007020; font-weight: bold">import</span> filters
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">riddler_calvard</span>(img,mu_background,mu_foreground):
+    Tprev <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+    T <span style="color: #666666">=</span> (mu_background<span style="color: #666666">+</span>mu_foreground)<span style="color: #666666">/</span><span style="color: #40a070">2</span>
+
+    <span style="color: #007020; font-weight: bold">while</span> <span style="color: #007020">abs</span>(Tprev <span style="color: #666666">-</span> T) <span style="color: #666666">&gt;</span> <span style="color: #40a070">1e-14</span>:
+        mu_background <span style="color: #666666">=</span> (img[img <span style="color: #666666">&lt;=</span> T])<span style="color: #666666">.</span>mean()
+        mu_foreground <span style="color: #666666">=</span> (img[img <span style="color: #666666">&gt;</span> T])<span style="color: #666666">.</span>mean()
+
+        Tprev <span style="color: #666666">=</span> T
+        T <span style="color: #666666">=</span> (mu_background<span style="color: #666666">+</span>mu_foreground)<span style="color: #666666">/</span><span style="color: #40a070">2</span>
+
+    <span style="color: #007020; font-weight: bold">return</span> T
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">otsu</span>(img):
+    p <span style="color: #666666">=</span> hist(img)[<span style="color: #40a070">0</span>]
+
+    G <span style="color: #666666">=</span> <span style="color: #007020">len</span>(p)
+
+    c <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([np<span style="color: #666666">.</span>sum(p[:k]) <span style="color: #007020; font-weight: bold">for</span> k <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,G<span style="color: #666666">+</span><span style="color: #40a070">1</span>)])
+
+    mu_c <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([np<span style="color: #666666">.</span>sum((np<span style="color: #666666">.</span>arange(k))<span style="color: #666666">*</span>p[:k]) <span style="color: #007020; font-weight: bold">for</span> k <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,G<span style="color: #666666">+</span><span style="color: #40a070">1</span>)])
+    mu <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(np<span style="color: #666666">.</span>arange(G)<span style="color: #666666">*</span>p)
+
+    var_B <span style="color: #666666">=</span> (mu_c[:G<span style="color: #666666">-</span><span style="color: #40a070">1</span>] <span style="color: #666666">-</span> mu<span style="color: #666666">*</span>c[:G<span style="color: #666666">-</span><span style="color: #40a070">1</span>] )<span style="color: #666666">**</span><span style="color: #40a070">2</span><span style="color: #666666">/</span>(c[:G<span style="color: #666666">-</span><span style="color: #40a070">1</span>] <span style="color: #666666">*</span>(<span style="color: #40a070">1</span><span style="color: #666666">-</span>c[:G<span style="color: #666666">-</span><span style="color: #40a070">1</span>] ))
+
+    k <span style="color: #666666">=</span> np<span style="color: #666666">.</span>where(var_B <span style="color: #666666">==</span> np<span style="color: #666666">.</span>max(var_B))
+
+    <span style="color: #007020; font-weight: bold">return</span> k
+
+
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #bb60d5">__name__</span> <span style="color: #666666">==</span> <span style="color: #4070a0">&#39;__main__&#39;</span>:
+    img_clean <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;textImage_clean.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+    N,M <span style="color: #666666">=</span> img_clean<span style="color: #666666">.</span>shape
+
+    noise_std <span style="color: #666666">=</span> <span style="color: #40a070">50</span>
+    img_noisy <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> noise_std<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
+    img_noisy_255 <span style="color: #666666">=</span> from0to255(img_noisy)
+
+    T <span style="color: #666666">=</span> riddler_calvard(img_noisy,<span style="color: #40a070">125</span>,<span style="color: #40a070">150</span>)
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;R&amp;C: </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>T)
+
+    img_thr <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((N,M))
+    img_thr[img_noisy <span style="color: #666666">&gt;</span> T] <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
+
+    plt<span style="color: #666666">.</span>figure()
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
+    plt<span style="color: #666666">.</span>imshow(img_thr,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Tersklet bilde ved R&amp;C&#39;</span>)
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
+    plt<span style="color: #666666">.</span>imshow(img_noisy,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Det originale bildet&#39;</span>)
+
+    T <span style="color: #666666">=</span> otsu(np<span style="color: #666666">.</span>round(img_noisy_255))
+
+    img_thr <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((N,M))
+    img_thr[img_noisy_255 <span style="color: #666666">&gt;</span> T] <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
+
+    plt<span style="color: #666666">.</span>figure()
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>)
+    plt<span style="color: #666666">.</span>imshow(img_thr,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Tersklet bilde ved Otsu&#39;</span>)
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+    plt<span style="color: #666666">.</span>imshow(img_noisy,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Det originale bildet&#39;</span>)
+
+    T1 <span style="color: #666666">=</span> filters<span style="color: #666666">.</span>threshold_otsu(img_noisy_255)
+    img_thr <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((N,M))
+    img_thr[img_noisy_255 <span style="color: #666666">&gt;</span> T1] <span style="color: #666666">=</span> <span style="color: #40a070">1</span>
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">3</span>)
+    plt<span style="color: #666666">.</span>imshow(img_thr,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,aspect<span style="color: #666666">=</span><span style="color: #4070a0">&#39;auto&#39;</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Tersklet bilde ved Otsu - skipy&#39;</span>)
+
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;otsu: </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>T)
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&quot;otsu-scipy: </span><span style="color: #70a0d0; font-style: italic">%g</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>T1)
+    plt<span style="color: #666666">.</span>show()
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave3.py" target="_self">her</a>.
+
+<p>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+

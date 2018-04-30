@@ -1,0 +1,55 @@
+TITLE: Løsningsforslag til oppgavene om segmentering
+
+TOC: on
+
+!split
+======= Histogram til et 8-bits bilde =======
+Alle programmene benytter seg av en egendefinert histogram-metode og gråtoneskalering
+som kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/histogram_image.py".
+@@@CODE  histogram_image.py
+
+======= Oppgave 1 =======
+Løsningsforslaget bruker en mulig oversettelse av Matlab-koden gitt i ukeoppgavene:
+!bc python
+from scipy.misc import imread
+import numpy as np
+
+# Load a "clean" image:
+im_clean = imread('textImage_clean.png');
+N,M = img_clean.shape
+
+# Add some noise:
+noise_std = 30 # How much white noise to add
+img_noisy = img_clean + noise_std*np.random.randn(N,M)
+
+
+# Add varying light-intesity model
+light_factor = 10 # Increasing this increases effect of our varying-light model
+light_mask = np.tile((np.linspace(1,M,M)-M/2)/M,(N,1))
+img_light = img_clean + light_factor*light_mask
+
+# Separate background and foreground pixels using our "clean" image
+background_pixels = img_noisy[img_clean < 150]
+foreground_pixels = img_noisy[img_clean > 150]
+!ec
+
+De ulike delene av oversettelsen ligger spredt i programmet under:
+@@@CODE  oppgave1.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave1.py".
+<linebreak>
+Merk at mye av programmet er forslag til hvordan en kan eksperimentere med de ulike parameterene til de ulike deloppgavene,
+og er på ingen måte en fasit!
+
+
+======= Oppgave 2 =======
+@@@CODE  oppgave2.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave2.py".
+
+
+
+======= Oppgave 3 =======
+@@@CODE  oppgave3.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave3.py".
+
+
+##  doconce format html u10.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf_u10 --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
