@@ -52,7 +52,7 @@ Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave3.py".
 
 Programmet bruker mye vektorisering i implementasjonen av Otsu, som kan skjule idéen bak metoden mer enn nødvendig.
-Her er en kode som gjør det samme, dog uten vektorisering:
+Her er en kode som gjør det samme, dog uten vektorisering, og med variabelnavn som står bedre i tråd med forelesnings-slidsen som beskriver metoden:
 @@@CODE otsu.py
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/otsu.py".
 
