@@ -51,5 +51,11 @@ Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master
 @@@CODE  oppgave3.py
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave3.py".
 
+Programmet bruker mye vektorisering i implementasjonen av Otsu, som kan skjule idéen bak metoden mer enn nødvendig.
+Her er en kode som gjør det samme, dog uten vektorisering:
+@@@CODE otsu.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke10/otsu.py".
+
+
 
 ##  doconce format html u10.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf_u10 --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce

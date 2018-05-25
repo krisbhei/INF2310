@@ -404,6 +404,68 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/mast
 Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke10/oppgave3.py" target="_self">her</a>.
 
 <p>
+Programmet bruker mye vektorisering i implementasjonen av Otsu, som kan skjule id&#233;en bak metoden mer enn n&#248;dvendig.
+Her er en kode som gj&#248;r det samme, dog uten vektorisering:
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">histogram_image</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">skimage</span> <span style="color: #007020; font-weight: bold">import</span> filters
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">otsu</span>(img):
+    p <span style="color: #666666">=</span> hist(img)[<span style="color: #40a070">0</span>]
+
+    G <span style="color: #666666">=</span> <span style="color: #007020">len</span>(p)
+
+    P1 <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G) <span style="color: #60a0b0; font-style: italic"># Kumulativt sannsynlighet for klasse 1</span>
+    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
+        <span style="color: #007020; font-weight: bold">for</span> k <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(i<span style="color: #666666">+</span><span style="color: #40a070">1</span>): <span style="color: #60a0b0; font-style: italic"># i+1 for at siste verdi til k skal bli lik i</span>
+             P1[i] <span style="color: #666666">+=</span> p[k]
+
+    mu_k <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G) <span style="color: #60a0b0; font-style: italic"># Kumulativ middelverdi</span>
+    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
+        <span style="color: #007020; font-weight: bold">for</span> k <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(i<span style="color: #666666">+</span><span style="color: #40a070">1</span>):
+            mu_k[i] <span style="color: #666666">+=</span> k<span style="color: #666666">*</span>p[k]
+
+    mu <span style="color: #666666">=</span> <span style="color: #40a070">0</span> <span style="color: #60a0b0; font-style: italic"># Global middelverdi</span>
+    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
+        mu <span style="color: #666666">+=</span> i<span style="color: #666666">*</span>p[i]
+
+    <span style="color: #60a0b0; font-style: italic"># Gå gjennom hver mulige terksel, og finn maksimum.</span>
+    <span style="color: #60a0b0; font-style: italic"># Koden regner ut varians for hver mulige terksel i og sjekker om</span>
+    <span style="color: #60a0b0; font-style: italic"># det er den største. Hvis så, vil tilhørende terksel, i,</span>
+    <span style="color: #60a0b0; font-style: italic"># &#39;lagres&#39; i variabelen T.</span>
+    T <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+    stoerste_varians_B <span style="color: #666666">=</span> <span style="color: #40a070">0</span>
+    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
+        <span style="color: #007020; font-weight: bold">if</span> (P1[i] <span style="color: #666666">!=</span> <span style="color: #40a070">0</span> <span style="color: #007020; font-weight: bold">and</span> P1[i] <span style="color: #666666">!=</span> <span style="color: #40a070">1</span>): <span style="color: #60a0b0; font-style: italic"># Unngå å dele på null</span>
+            varians_B <span style="color: #666666">=</span> (mu_k[i] <span style="color: #666666">-</span> mu<span style="color: #666666">*</span>P1[i])<span style="color: #666666">**</span><span style="color: #40a070">2</span><span style="color: #666666">/</span>(P1[i]<span style="color: #666666">*</span>(<span style="color: #40a070">1</span><span style="color: #666666">-</span>P1[i]))
+            <span style="color: #007020; font-weight: bold">if</span> varians_B <span style="color: #666666">&gt;</span> stoerste_varians_B:
+                stoerste_varians_B <span style="color: #666666">=</span> varians_B
+                T <span style="color: #666666">=</span> i
+
+    <span style="color: #007020; font-weight: bold">return</span> T
+
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #bb60d5">__name__</span> <span style="color: #666666">==</span> <span style="color: #4070a0">&#39;__main__&#39;</span>:
+    img_clean <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;textImage_clean.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+    N,M <span style="color: #666666">=</span> img_clean<span style="color: #666666">.</span>shape
+
+    noise_std <span style="color: #666666">=</span> <span style="color: #40a070">50</span>
+    img_noisy <span style="color: #666666">=</span> img_clean <span style="color: #666666">+</span> noise_std<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
+    img_noisy_255 <span style="color: #666666">=</span> np<span style="color: #666666">.</span>round(from0to255(img_noisy))
+
+    T <span style="color: #666666">=</span> otsu(img_noisy_255)
+    T_skimage <span style="color: #666666">=</span> filters<span style="color: #666666">.</span>threshold_otsu(img_noisy_255)
+
+    <span style="color: #007020; font-weight: bold">print</span>(T,T_skimage)
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke10/otsu.py" target="_self">her</a>.
+
+<p>
 
 <!-- ------------------- end of main content --------------- -->
 
