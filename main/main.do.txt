@@ -6,7 +6,7 @@ TOC: on
 ======= Om siden =======
 Her kan du finne diverse materiale som har blitt gjennomgått i gruppetimene.
 
-Gruppetimene vil foregå i _Fortress_ (3.etg og ganske nærme T-banen) kl. _08:15 - 10:00_.
+Gruppetimene vil foregå i _Assembler_ (3.etg) kl. _10:15 - 12:00_.
 
 Siden vil bli oppdatert gjennom semesteret.
 
@@ -19,41 +19,41 @@ Du kan gjerne programmere i et annet språk, om du vil, men det kan hende at det
 
 
 Her kan du finne en introduksjon til programmering i
-* _Python:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Python/programmering_python.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Python/programmering_python.pdf". Det er også skrevet en god introduksjon til Python "fra i fjor":"https://ojskrede.github.io/inf2310/notes/python_intro/" (engelsk).
-* _Matlab:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Matlab/programmering_matlab.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Matlab/programmering_matlab.pdf". Det er mange gode ressurser der ute, og spesielt er "dette heftet som brukes i MAT1110":"http://www.uio.no/studier/emner/matnat/math/MAT1110/v16/fvlabokkort.pdf" godt skrevet.
+* _Python:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Python/programmering_python.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Python/programmering_python.pdf". Det er også skrevet en god introduksjon til Python "fra 2017":"https://ojskrede.github.io/inf2310/notes/python_intro/" (engelsk).
+* _Matlab:_ "Her":"https://krisbhei.github.io/INF2310/Programmering/Matlab/programmering_matlab.html" eller "som PDF":"https://github.com/krisbhei/INF2310/blob/master/Programmering/Matlab/programmering_matlab.pdf". Det er mange gode ressurser der ute, og spesielt er "dette heftet som brukes i MAT1110":"http://www.uio.no/studier/emner/matnat/math/MAT1110/v16/fvlabokkort.pdf" godt skrevet om programmering i Matlab generelt.
 
 <linebreak>
-======= Uke 1 - Sampling og kvantisering =======
+## ======= Uke 1 - Sampling og kvantisering =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke1/kode_ukeoppgaver.html" kan du finne kode fra "ukeoppgavene":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/ukeoppgaver/ukeoppgaver_1.html" oversatt til Python.
-* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i Python.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke1/kode_ukeoppgaver.html" kan du finne kode fra "ukeoppgavene":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/ukeoppgaver/ukeoppgaver_1.html" oversatt til Python.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i Python.
 
-<linebreak>
-======= Uke 2 - Geometriske operasjoner =======
+## <linebreak>
+## ======= Uke 2 - Geometriske operasjoner =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke2/lf.html" kan du finne løsningsforslag til programmeringsoppgavenen 3, samt oppgave 1 demonstrert i Python. Det er også skrevet en forklaring hvorfor "den praktiske algoritmen" fra slide 19 i "lysarket om geometriske operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf" ser ut som den gjør.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke2/lf.html" kan du finne løsningsforslag til programmeringsoppgavenen 3, samt oppgave 1 demonstrert i Python. Det er også skrevet en forklaring hvorfor "den praktiske algoritmen" fra slide 19 i "lysarket om geometriske operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf" ser ut som den gjør.
 
-<linebreak>
-======= Uke 4 - Histogrambaserte operasjoner =======
+## <linebreak>
+## ======= Uke 4 - Histogrambaserte operasjoner =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke4/Python/lf_Python.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Python_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
-* "Her":"https://krisbhei.github.io/INF2310/Uke4/Matlab/lf_Matlab.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Matlab_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke4/Python/lf_Python.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Python_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke4/Matlab/lf_Matlab.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Matlab_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
 
-<linebreak>
-======= Uke 8 - Fourier-transform I =======
+## <linebreak>
+## ======= Uke 8 - Fourier-transform I =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke8/lf_u8.html" kan du finne løsningsforslag til oppgavene som handler om Fourier-transformasjon.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke8/lf_u8.html" kan du finne løsningsforslag til oppgavene som handler om Fourier-transformasjon.
 
-<linebreak>
-======= Uke 9 - Fourier-transform II =======
+## <linebreak>
+## ======= Uke 9 - Fourier-transform II =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke9/lf_u9.html" kan du finne løsningsforslag til oppgavene som handler om Fourier-transformasjon.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke9/lf_u9.html" kan du finne løsningsforslag til oppgavene som handler om Fourier-transformasjon.
 
 
-<linebreak>
-======= Uke 10 - Segmentering =======
+## <linebreak>
+## ======= Uke 10 - Segmentering =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke10/lf_u10.html" kan du finne løsningsforslag til oppgavene som handler om segmentering.
+## * "Her":"https://krisbhei.github.io/INF2310/Uke10/lf_u10.html" kan du finne løsningsforslag til oppgavene som handler om segmentering.
 
 ## doconce format html main.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=main  --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
 
