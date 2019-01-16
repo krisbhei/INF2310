@@ -6,6 +6,7 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Introduksjon til Python">
 
 <title>Introduksjon til Python</title>
@@ -120,7 +121,19 @@ end of tocinfo -->
 <center><h1>Introduksjon til Python</h1></center>  <!-- document title -->
 
 <p>
+<!-- author(s): Kristine B. Hein -->
 
+<center>
+<b>Kristine B. Hein</b> 
+</center>
+
+<p>
+<!-- institution(s) -->
+
+<br>
+<p>
+<center><h4>Jan 16, 2019</h4></center> <!-- date -->
+<br>
 <em>En kort innf&#248;ring i installasjon og programmering i bildebehandling.</em>
 
 <p>
@@ -149,7 +162,8 @@ Installering av nye pakker er ogs&#229; lettere ved &#229; bruke Anaconda.
 Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: <a href="https://www.anaconda.com/download/#linux" target="_self">Installasjon av Anaconda</a>
 
 <p>
-Alle programmene p&#229; siden er skrevet i Python 3.6, s&#229; det anbefales &#229; laste ned Python 3.6 - versjonen.
+Alle programmene p&#229; siden er skrevet i Python 3.6, men det skal ogs&#229; g&#229; fint &#229; bruke 3.7.
+Si gjerne i fra hvis noen programmer ikke kan kj&#248;res p&#229; grunn av forskjellige versjoner!
 
 <p>
 Her kan du finne installasjonsguide til det operativsystemet du bruker: <a href="https://docs.anaconda.com/anaconda/install/" target="_self">Installasjonsguide</a>
@@ -180,10 +194,10 @@ Da er det ofte behjelpelig &#229; bruke Python shell-et. Den aktiveres i kommand
 </pre></div>
 <p>
 Shell-et gj&#248;r det mulig &#229; utf&#248;re all kode som skrives inn <em>med &#233;n gang</em> etter &#229; ha trykket p&#229; Enter-tasten. Det er ogs&#229; mulig &#229; se direkte verdien til variabler ved &#229; simpelthen skrive inn variabelnavnet som skal vises frem.
-Det er alts&#229; rom for testing av funksjoner og se direkte konsekvenser av dem uten &#229; skrive en egen fil - lagre - s&#229; kj&#248;re. Fra egen erfaring, har bruk av shellet for &#229; teste funksjoner/ideer o.l redusert betraktelig antallet lumske bugs!
+Det er alts&#229; rom for testing av funksjoner og se direkte konsekvenser av dem uten &#229; skrive en egen fil, lagre, s&#229; kj&#248;re. Fra egen erfaring, har bruk av shellet til &#229; teste funksjoner/ideer o.l redusert betraktelig antallet lumske bugs!
 
 <p>
-For &#229; komme ut av shell-et, kan man utf&#248;re <em>exit()</em>. Det er ogs&#229; viktig &#229; huske p&#229; at ingenting av deklarasjoner, definisjoner o.l blir lagret.
+For &#229; komme ut av shell-et, kan man skrive <em>exit()</em>. Det er ogs&#229; viktig &#229; huske p&#229; at ingenting av deklarasjoner, definisjoner o.l blir lagret.
 
 <h2 id="___sec4" class="anchor">Grunnleggende </h2>
 Python er et h&#248;ytniv&#229;spr&#229;k - hvilket som betyr at Python er ment for &#229; v&#230;re lett &#229; lese.
@@ -379,7 +393,7 @@ En while-l&#248;kke er konstruert slik:
     <span style="color: #60a0b0; font-style: italic"># kodesnutt som skal utføres</span>
 </pre></div>
 <p>
-En betingelse kan v&#230;re en sjekk p&#229; om ett tall er st&#248;rre enn en gitt verdi, om en variabel har endret seg osv.
+En betingelse kan v&#230;re en sjekk p&#229; om et tall er st&#248;rre enn en gitt verdi, om en variabel har endret seg osv.
 
 <h2 id="___sec8" class="anchor">Numpymodulen og arrays </h2>
 
@@ -474,24 +488,24 @@ du st&#229;r selvf&#248;gelig fritt til &#229; bruke teknikkene og modulene du &
 
 <h3 id="___sec12" class="anchor">Innlesing og lagring av bilde </h3>
 
-Innlesing av bilde er ikke implementert i numpy. Men det finnes heldigvis andre moduler som har innlesing av bilde implementert, som f.eks OpenCV, scikit, PIL og scipy(som vil brukes her).
+Innlesing av bilde er ikke implementert i numpy. Men det finnes heldigvis andre moduler som har innlesing av bilde implementert, som f.eks OpenCV, scikit, PIL og imageio(som vil brukes her).
 
 <p>
-Det g&#229;r ogs&#229; an &#229; lese inn bilde fra matplotlib.pyplot, som ofte brukes ved plotting og framvising av bilde, men den har ingen metode implementert som kan konvertere et fargebilde til gr&#229;tonebilde.
-Det er hovedsakelig gr&#229;tonebilder det blir fokusert p&#229; i emnet, og derav er det kjekt &#229; kunne konvertere et fargebilde.
+Det g&#229;r ogs&#229; an &#229; lese inn bilde fra matplotlib.pyplot, som ofte brukes ved plotting og framvising av bilde, men den har ingen metode implementert, pr. n&#229;r denne siden ble skrevet, som kan konvertere et fargebilde til gr&#229;tonebilde.
+Det er hovedsakelig gr&#229;tonebilder det blir fokusert p&#229; i emnet, og derav er det kjekt &#229; kunne konvertere et fargebilde til et gr&#229;tonebilde.
 
 <p>
 <br />
-En modul som har implementert funksojner for innlesing og gr&#229;tonekonvertering av bilder, er <em>scipy.misc</em>.
+En modul som har implementert funksjoner for innlesing og gr&#229;tonekonvertering av bilder, er <em>imageio</em>.
 Funksjonen for innlesing heter <em>imread</em>. For &#229; lese inn et bilde, f.eks <a href="https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/houses.png" target="_self">houses.png</a>, kan man bruke <em>imread</em> slik:
 <p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
-img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,as_gray <span style="color: #666666">=</span> <span style="color: #007020">True</span>)
 </pre></div>
 <p>
-Argumentet <em>flatten=True</em> i <em>imread</em> s&#248;rger for at bildet er konvertert til gr&#229;tone. Et fargebilde har tre dimensjoner, mens et gr&#229;tonebilde har to.
+Argumentet <em>as_gray = True</em> i <em>imread</em> s&#248;rger for at bildet er konvertert til gr&#229;tone. Et fargebilde har ofte tre dimensjoner, mens et gr&#229;tonebilde har to.
 For &#229; se om et innlest bilde faktisk er gr&#229;tone, kan man f.eks bruke
 <p>
 
@@ -513,10 +527,10 @@ Programmet under demonstrer hvordan et program kan lese inn et bilde og vise det
 <p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 
-img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>) <span style="color: #60a0b0; font-style: italic"># flatten=True gjør et fargebilde til gråtonebilde</span>
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,as_gray <span style="color: #666666">=</span> <span style="color: #007020">True</span>) <span style="color: #60a0b0; font-style: italic"># as_gray=True gjør et fargebilde til gråtonebilde</span>
 
 plt<span style="color: #666666">.</span>imshow(img)
 plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Et gråtonebilde?&quot;</span>)
@@ -526,7 +540,7 @@ plt<span style="color: #666666">.</span>figure() <span style="color: #60a0b0; fo
 plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
 plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Et gråtonebilde&quot;</span>)
 
-plt<span style="color: #666666">.</span>show() <span style="color: #60a0b0; font-style: italic"># Husk dette for å faktisk se visualiseringene!</span>
+plt<span style="color: #666666">.</span>show() <span style="color: #60a0b0; font-style: italic"># Husk dette for å faktisk kunne se visualiseringene!</span>
 </pre></div>
 <p>
 Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Programmering/Python/fremvising.py" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
@@ -549,8 +563,8 @@ som gir disse bildene:
 </center>
 
 <p>
-Her kan du se at det f&#248;rste bilde ikke er gr&#229;tone - selvom det er tenkt et gr&#229;tonebilde. Dette skjer fordi <em>matplotlib.pyplot</em> har en standard, predefinert m&#229;te &#229; fremvise tallverdier som farger p&#229;.
-Det m&#229; spesifiseres at en &#248;nsker &#229; framvise bildet som faktisk gr&#229;tone. Dette gj&#248;res med &#229; spesifisere et <em>colormap</em> ved &#229; sende inn som argument <em>cmap=<&#248;nsket colormap></em>. Det finnes flere colormaps, hvis en &#248;nsker &#229; bruke det.
+Her kan du se at det f&#248;rste bilde ikke er gr&#229;tone - selvom det er tenkt til &#229; v&#230;re et gr&#229;tonebilde. Dette skjer fordi <em>matplotlib.pyplot</em> har en standard, predefinert m&#229;te &#229; fremvise tallverdier som farger p&#229;.
+Det m&#229; spesifiseres at en &#248;nsker &#229; framvise bildet som gr&#229;tone. Dette gj&#248;res med &#229; spesifisere et <em>colormap</em> ved &#229; sende inn som argument <em>cmap=<&#248;nsket colormap></em>. Det finnes flere colormaps, hvis en &#248;nsker &#229; bruke det.
 
 <p>
 Dette er ogs&#229; viktig &#229; bruke <b>figure()</b> hvis man ikke &#248;nsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til <em>imshow</em>.
@@ -559,7 +573,7 @@ Dette er ogs&#229; viktig &#229; bruke <b>figure()</b> hvis man ikke &#248;nsker
 <br />
 Det kan ogs&#229; hende at etter noen operasjoner at de matrisene en jobber med, har verdier som er st&#248;rre enn det et bilde b&#248;r ha. Et 8-bit bilde har verdier fra 0 til og med 255.
 Ved fremvising, tilpasser matplotlib seg etter de verdiene som den innsendte matrisen har. Dette kan f&#248;re til at vi ikke ser resultatene etter &#229; ha utf&#248;rt noen operasjoner.
-For &#229; s&#248;rge for at matplotlib viser bildet som om den har verdier mellom 0 og 255, m&#229; en bruke <em>vmin</em> og <em>vmax</em>:
+For &#229; s&#248;rge for at matplotlib viser bildet som om der vi kan forvente &#229; ha verdier mellom 0 og 255, m&#229; en bruke <em>vmin</em> og <em>vmax</em>:
 <p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "friendly" -->
@@ -567,7 +581,7 @@ For &#229; s&#248;rge for at matplotlib viser bildet som om den har verdier mell
 </pre></div>
 <p>
 <br />
-Noen ganger kan bildet se lite ut i vinduet. Det er mulig at matplotlib skalerer bildet slik at det fyller hele vinduet. Det gj&#248;res slik:
+Noen ganger kan bildet se lite ut i vinduet. Det er mulig &#229; s&#248;rge for at matplotlib skalerer bildet slik at det fyller hele vinduet. Det kan gj&#248;res slik:
 <p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "friendly" -->
@@ -585,11 +599,11 @@ Bildebehandling er et fag der eksperimentering er viktig, og da er det nyttig &#
 <p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
 
-img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&quot;houses.png&quot;</span>, as_gray <span style="color: #666666">=</span> <span style="color: #007020">True</span>)
 
 plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
 plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;Originalbilde&quot;</span>)
@@ -630,11 +644,6 @@ God programmering!
 <a href="http://..."><img width="250" align=right src="http://..."></a>
 </footer>
 -->
-
-
-<center style="font-size:80%">
-<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
-</center>
 
 
 </body>

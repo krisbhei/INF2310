@@ -1,8 +1,8 @@
-from scipy.misc import imread
+from imageio import imread
 import matplotlib.pyplot as plt
 import numpy as np
 
-img = imread("houses.png",flatten=True)
+img = imread("houses.png", as_gray = True)
 
 plt.imshow(img,cmap='gray')
 plt.title("Originalbilde")
