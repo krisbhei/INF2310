@@ -209,7 +209,8 @@ Enkelte funksjoner er også skrevet slik at man reduserer linjer i koden - og de
 Noen metoder som, av erfaring, har vært til nytte i bildebehandling:
 * _np.array:_ Konverterer en liste til array
 * _np.dot:_ Matematisk matrisemultiplikasjon
-* _np.where:_ Lager en boolsk array (en array av True og False) av *hvor* i en matrise en gitt betingelse er oppfylt
+* _np.where:_ Lager en array som viser *hvor* i en array en gitt betingelse er oppfylt. Det som funksjonen gir tilbake, er arrays som inneholder hvilken rad og kolonne betingelsen er oppfylt.
+Hvis den innsendte array-et er to-dimensjonal, vil funksjonen gi to arrays; en array som beskriver hvilken rad betingelsen er oppfylt og hvilken kolonne betingelsen er oppfylt. 
 * _np.loadtxt:_ Leser inn og konverterer en fil med verdier til en array i programmet
 * _np.savetxt:_ Skriver en array til fil
 Dokumentasjonen ligger "her":"https://docs.scipy.org/doc/numpy/reference/" med en oversikt over alle metodene fra numpymodulen, og hvordan de brukes.
