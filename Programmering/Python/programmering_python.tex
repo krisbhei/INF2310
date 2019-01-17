@@ -278,10 +278,11 @@ For å komme ut av shell-et, kan man skrive \emph{exit()}. Det er også viktig �
 \subsection{Grunnleggende}
 Python er et høytnivåspråk - hvilket som betyr at Python er ment for å være lett å lese.
 
-Et program i Python har filendingen .py, og kjøres i kommandovinduet ved å skrive
+Et program i Python har filendingen .py, og kjøres i kommandovinduet ved å skrive 
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
-python <navn på programmet ditt>.py
+python3 <navn på programmet ditt>.py
 \end{minted}
+Hvis du har kun en Python versjon på din maskin, vil det holde å skrive bare \texttt{python}. 
 
 For at programmet skal skrive ut noe til skjerm, brukes funksjonen print.
 Et eksempel på hvordan print kan brukes, er:
@@ -562,7 +563,7 @@ img = imread("houses.png",as_gray = True)
 Argumentet \emph{as\_gray = True} i \emph{imread} sørger for at bildet er konvertert til gråtone. Et fargebilde har ofte tre dimensjoner, mens et gråtonebilde har to.
 For å se om et innlest bilde faktisk er gråtone, kan man f.eks bruke
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
-print(length(img.shape))
+print(len(img.shape))
 \end{minted}
 der \emph{shape} returnerer en liste med verdier som forteller hvor stor matrisen \emph{img} er. Er matrisen 3-dimensjonal vil listen være 3 elementer lang, og er den 2-dimensjonal vil listen være 2 elementer lang.
 

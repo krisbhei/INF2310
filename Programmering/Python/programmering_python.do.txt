@@ -1,6 +1,6 @@
 TITLE: Introduksjon til Python
-## AUTHOR: Kristine B. Hein
-## DATE: today
+AUTHOR: Kristine B. Hein
+DATE: today
 *En kort innføring i installasjon og programmering i bildebehandling.*
 
 
@@ -236,7 +236,7 @@ img = imread("houses.png",as_gray = True)
 Argumentet *as_gray = True* i *imread* sørger for at bildet er konvertert til gråtone. Et fargebilde har ofte tre dimensjoner, mens et gråtonebilde har to.
 For å se om et innlest bilde faktisk er gråtone, kan man f.eks bruke
 !bc
-print(length(img.shape))
+print(len(img.shape))
 !ec
 der *shape* returnerer en liste med verdier som forteller hvor stor matrisen *img* er. Er matrisen 3-dimensjonal vil listen være 3 elementer lang, og er den 2-dimensjonal vil listen være 2 elementer lang.
 
