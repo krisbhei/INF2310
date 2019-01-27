@@ -1,0 +1,282 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Løsningsforslag til Uke 1">
+
+<title>Løsningsforslag til Uke 1</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Oppgave 1', 1, None, '___sec0'),
+              ('Oppgave 2', 1, None, '___sec1'),
+              ('Oppgave 4', 1, None, '___sec2'),
+              ('Oppgave 5', 1, None, '___sec3'),
+              ('Oppgave 8', 1, None, '___sec4')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="lf_u1_matlab.html">Løsningsforslag til Uke 1</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Oppgave 1</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 14px; padding: 4px 15px;">Oppgave 2</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 14px; padding: 4px 15px;">Oppgave 4</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 14px; padding: 4px 15px;">Oppgave 5</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 14px; padding: 4px 15px;">Oppgave 8</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>L&#248;sningsforslag til Uke 1</h1></center>  <!-- document title -->
+
+<em>Her legges det ut l&#248;sningsforslag, hovedsakelig til programmeringsoppgavene i Matlab. Merk at p&#229; emnesiden legges det ut l&#248;sningsforslag til de andre oppgavene, sammen med fagl&#230;rernes forslag i Matlab - kode.</em>
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#___sec0"> Oppgave 1 </a><br>
+<a href="#___sec1"> Oppgave 2 </a><br>
+<a href="#___sec2"> Oppgave 4 </a><br>
+<a href="#___sec3"> Oppgave 5 </a><br>
+<a href="#___sec4"> Oppgave 8 </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Oppgave 1 </h1>
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>);
+[N,M] = <span style="color: #007020">size</span>(img); 
+
+f_out = <span style="color: #007020">zeros</span>(N,M);
+<span style="color: #007020; font-weight: bold">for</span> <span style="color: #007020">i</span> = <span style="color: #40a070">2</span>:N 
+    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #007020">j</span> = <span style="color: #40a070">1</span>:M 
+        f_out(<span style="color: #007020">i</span>,<span style="color: #007020">j</span>) = f(<span style="color: #007020">i</span>,<span style="color: #007020">j</span>) <span style="color: #666666">-</span> f(<span style="color: #007020">i</span><span style="color: #666666">-</span><span style="color: #40a070">1</span>, <span style="color: #007020">j</span>);
+    <span style="color: #007020; font-weight: bold">end</span>
+<span style="color: #007020; font-weight: bold">end</span>
+
+<span style="color: #60a0b0; font-style: italic">% Bilde med bias (merk at dette er noedvendig _kun_ hvis du bruker image</span>
+bias = <span style="color: #40a070">128</span>;
+
+figure()
+imshow(f_out <span style="color: #666666">+</span> bias, [])
+colormap(gray(<span style="color: #40a070">256</span>))
+
+<span style="color: #60a0b0; font-style: italic">% Bilde uten bias, fremvist ved bruk av imagesc (ikke noedvendig med bias)</span>
+figure()
+imagesc(f_out)
+colormap(<span style="color: #4070a0">&#39;gray&#39;</span>)
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke1/l%C3%B8sningsforslag/oppgave1.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<h1 id="___sec1" class="anchor">Oppgave 2 </h1>
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>D = <span style="color: #40a070">10</span><span style="color: #666666">*</span><span style="color: #40a070">1e-3</span>;    <span style="color: #60a0b0; font-style: italic">% m</span>
+f = <span style="color: #40a070">50</span><span style="color: #666666">*</span><span style="color: #40a070">1e-3</span>;    <span style="color: #60a0b0; font-style: italic">% m</span>
+s = <span style="color: #40a070">5</span>;          <span style="color: #60a0b0; font-style: italic">% m</span>
+lmb = <span style="color: #40a070">500</span><span style="color: #666666">*</span><span style="color: #40a070">1e-9</span>; <span style="color: #60a0b0; font-style: italic">% m</span>
+
+<span style="color: #60a0b0; font-style: italic">% a)</span>
+y = s<span style="color: #666666">*</span><span style="color: #40a070">1.22</span><span style="color: #666666">*</span>lmb<span style="color: #666666">/</span>D;
+fprintf(<span style="color: #4070a0">&#39;deloppgave a: y = %g \n&#39;</span>,y);
+
+<span style="color: #60a0b0; font-style: italic">% b)</span>
+y_ = y<span style="color: #666666">*</span>f<span style="color: #666666">/</span>(s<span style="color: #666666">-</span>f);
+fprintf(<span style="color: #4070a0">&#39;deloppgave b: y = %g \n&#39;</span>,y_)
+
+<span style="color: #60a0b0; font-style: italic">% c)</span>
+T_o = y_;
+f_o = <span style="color: #40a070">1</span><span style="color: #666666">/</span>T_o;
+fprintf(<span style="color: #4070a0">&#39;deloppgave c: T_o = %g, f_o = 1/T_o = %g \n&#39;</span>,T_o,f_o)
+
+<span style="color: #60a0b0; font-style: italic">% d)</span>
+grense = T_o<span style="color: #666666">/</span><span style="color: #40a070">2</span>;
+fprintf(<span style="color: #4070a0">&#39;deloppgave d: minste avstand mellom samplingselementer: %g\n&#39;</span>, grense)
+
+<span style="color: #60a0b0; font-style: italic">% e)</span>
+b = <span style="color: #40a070">16</span><span style="color: #666666">*</span><span style="color: #40a070">1e-3</span>; <span style="color: #60a0b0; font-style: italic">% m</span>
+l = <span style="color: #40a070">24</span><span style="color: #666666">*</span><span style="color: #40a070">1e-3</span>; <span style="color: #60a0b0; font-style: italic">% m</span>
+fprintf(<span style="color: #4070a0">&#39;deloppgave e: antall elementer for aa oppfylle samplingsteoremet: %g x %g \n&#39;</span>,b<span style="color: #666666">/</span>grense,l<span style="color: #666666">/</span>grense)
+
+<span style="color: #60a0b0; font-style: italic">% f)</span>
+fprintf(<span style="color: #4070a0">&#39;deloppgave f: \nb): y&#39;&#39; doblet\nc): T_o doblet, f_o halvparten\nd): doblet minste avstand\n&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic">% g)</span>
+fprintf(<span style="color: #4070a0">&#39;deloppgave g: bedre fordi minste avstand for aa skille to punkter vil bli mindre\n&#39;</span>)
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke1/l%C3%B8sningsforslag/oppgave2.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<p>
+Her var det ikke et krav om &#229; skrive et program. Det har blitt gjort her bare for &#229; vise et eksempel p&#229; hvordan verdiene kan regnes ut.
+Verdiene programmet gir, er
+<p>
+
+<!-- code=text typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>deloppgave a: y = 0.000305
+deloppgave b: y = 3.08081e-06
+deloppgave c: T_o = 3.08081e-06, f_o = 1/T_o = 324590
+deloppgave d: minste avstand mellom samplingselementer: 1.5404e-06
+deloppgave e: antall elementer for aa oppfylle samplingsteoremet: 10386.9 x 15580.3
+deloppgave f:
+b): y&#39; doblet
+c): T_o doblet, f_o halvparten
+d): doblet minste avstand
+deloppgave g: bedre fordi minste avstand for aa skille to punkter vil bli mindre
+</pre></div>
+
+<h1 id="___sec2" class="anchor">Oppgave 4 </h1>
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>f = double(imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>)); <span style="color: #60a0b0; font-style: italic">% double for at divisjon ikke avrunder verdier </span>
+
+<span style="color: #007020; font-weight: bold">for</span> ii = <span style="color: #40a070">1</span>:<span style="color: #40a070">2</span>:<span style="color: #40a070">8</span>
+    bit = ii; 
+    f_requantized = <span style="color: #007020">floor</span>(f<span style="color: #666666">./</span>(<span style="color: #40a070">2</span>^(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit))); <span style="color: #60a0b0; font-style: italic">% floor kan brukes her til aa </span>
+                                           <span style="color: #60a0b0; font-style: italic">% avrunde verdiene som om </span>
+                                           <span style="color: #60a0b0; font-style: italic">% heltallsdivisjon har blitt utfoert </span>
+                                           <span style="color: #60a0b0; font-style: italic">% paa dette bildet. </span>
+
+    figure()
+    imagesc(f_requantized); colormap(<span style="color: #4070a0">&#39;gray&#39;</span>);
+    title(sprintf(<span style="color: #4070a0">&#39;bit = %d, antall verdier = %d&#39;</span>, bit, max(f_requantized(:))<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke1/l%C3%B8sningsforslag/oppgave4.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<h1 id="___sec3" class="anchor">Oppgave 5 </h1>
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>tid = <span style="color: #40a070">2</span><span style="color: #666666">*</span><span style="color: #40a070">60</span><span style="color: #666666">*</span><span style="color: #40a070">60</span>; <span style="color: #60a0b0; font-style: italic">% sekunder </span>
+bits = <span style="color: #40a070">24</span>; 
+byte = bits<span style="color: #666666">/</span><span style="color: #40a070">8</span>;
+fprintf(<span style="color: #4070a0">&#39;%g bytes\n&#39;</span>, <span style="color: #40a070">50</span><span style="color: #666666">*</span><span style="color: #40a070">1080</span><span style="color: #666666">*</span><span style="color: #40a070">1920</span><span style="color: #666666">*</span>byte<span style="color: #666666">*</span>tid)
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke1/l%C3%B8sningsforslag/oppgave5.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<h1 id="___sec4" class="anchor">Oppgave 8 </h1>
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>f = imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>);
+
+noiseFactor = <span style="color: #40a070">10</span>;
+[N,M] = <span style="color: #007020">size</span>(f);
+fNoisy = double(f) <span style="color: #666666">+</span> noiseFactor <span style="color: #666666">.*</span> <span style="color: #007020">randn</span>(N,M); 
+
+<span style="color: #007020; font-weight: bold">for</span> ii = <span style="color: #40a070">1</span>:<span style="color: #40a070">2</span>:<span style="color: #40a070">8</span>
+    bit = ii; 
+    f_requantized = <span style="color: #007020">floor</span>(fNoisy<span style="color: #666666">./</span>(<span style="color: #40a070">2</span>^(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit))); 
+    
+    <span style="color: #60a0b0; font-style: italic">% Vis resultat:</span>
+    figure()
+    imagesc(f_requantized); colormap(<span style="color: #4070a0">&#39;gray&#39;</span>);
+    title(sprintf(<span style="color: #4070a0">&#39;bit = %d, antall verdier = %d&#39;</span>, bit, max(f_requantized(:))<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke1/l%C3%B8sningsforslag/oppgave8.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<p>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+
