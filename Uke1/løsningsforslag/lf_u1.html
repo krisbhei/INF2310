@@ -6,6 +6,7 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Løsningsforslag til Uke 1">
 
 <title>Løsningsforslag til Uke 1</title>
@@ -94,7 +95,7 @@ end of tocinfo -->
 <div class="jumbotron">
 <center><h1>L&#248;sningsforslag til Uke 1</h1></center>  <!-- document title -->
 
-<em>Her legges det ut l&#248;sningsforslag, hovedsakelig til programmeringsoppgavene. Merk at l&#248;sningsforslaget til de resterende oppgavene, samt Matlab kode, legges ut p&#229; den offisielle emnesiden.</em>
+<em>Her legges det ut l&#248;sningsforslag, hovedsakelig til programmeringsoppgavene i Python. Merk at p&#229; emnesiden legges det ut l&#248;sningsforslag til de andre oppgavene.</em>
 
 <p>
 </div> <!-- end jumbotron -->
@@ -115,12 +116,12 @@ end of tocinfo -->
 <p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
 
 filename <span style="color: #666666">=</span> <span style="color: #4070a0">&#39;mona.png&#39;</span>
-f <span style="color: #666666">=</span> imread(filename,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+f <span style="color: #666666">=</span> imread(filename,as_gray<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
 <span style="color: #60a0b0; font-style: italic"># N: antall rader i bildet (matrise), M: antall kolonner i bildet</span>
 N,M <span style="color: #666666">=</span> f<span style="color: #666666">.</span>shape
@@ -139,13 +140,28 @@ f_out[<span style="color: #40a070">0</span>,:] <span style="color: #666666">=</s
     <span style="color: #007020; font-weight: bold">for</span> j <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(M):
         f_out[i,j] <span style="color: #666666">=</span> f[i,j] <span style="color: #666666">-</span> f[i<span style="color: #666666">-</span><span style="color: #40a070">1</span>,j]
 
-bias <span style="color: #666666">=</span> <span style="color: #40a070">128</span> <span style="color: #60a0b0; font-style: italic"># brukt bare for fremvising av bildet </span>
+bias <span style="color: #666666">=</span> <span style="color: #40a070">128</span> <span style="color: #60a0b0; font-style: italic"># brukt bare for fremvising av bildet</span>
 
 plt<span style="color: #666666">.</span>figure()
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;med bias, uten endring av kontrast&quot;</span>)
 plt<span style="color: #666666">.</span>imshow(f_out <span style="color: #666666">+</span> bias,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
 
 plt<span style="color: #666666">.</span>figure()
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;med bias, med endring av kontrast&quot;</span>)
 plt<span style="color: #666666">.</span>imshow(f_out<span style="color: #666666">*</span><span style="color: #40a070">1.5</span> <span style="color: #666666">+</span> bias,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">255</span>)
+
+<span style="color: #60a0b0; font-style: italic"># Bilde uten bias . trenger strengt tatt ikke dette da matplotlib kan tilpasse seg bildets verdier</span>
+plt<span style="color: #666666">.</span>figure()
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;uten bias, uten endring av kontrast&quot;</span>)
+plt<span style="color: #666666">.</span>imshow(f_out, cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic"># For å kunne se at vi gjør en kontrastendring, kan vi spesifisere i matplotlib at</span>
+<span style="color: #60a0b0; font-style: italic"># vi ønsker å fremvise bildet innenfor f_out sine verdiers range til sammenligning.</span>
+<span style="color: #60a0b0; font-style: italic"># Hvis vi ikke hadde gjort dette, ville matplotlib mappet gråtone instensitetene</span>
+<span style="color: #60a0b0; font-style: italic"># i forhold til det konstrastendrete bildet sine verdier, og derav ville vi ikke kunne se noen endring.</span>
+plt<span style="color: #666666">.</span>figure()
+plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;uten bias, med endring av kontrast&quot;</span>)
+plt<span style="color: #666666">.</span>imshow(f_out<span style="color: #666666">*</span><span style="color: #40a070">1.5</span>,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span>np<span style="color: #666666">.</span>min(f_out), vmax<span style="color: #666666">=</span>np<span style="color: #666666">.</span>max(f_out))
 
 plt<span style="color: #666666">.</span>show()
 </pre></div>
@@ -220,17 +236,21 @@ deloppgave g: bedre fordi minste avstand for å skille to punkter vil bli mindre
 <p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
 
-f <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;lena.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+f <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,as_gray<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
-bit <span style="color: #666666">=</span> <span style="color: #40a070">2</span>
+<span style="color: #007020; font-weight: bold">for</span> ii <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,<span style="color: #40a070">8</span>,<span style="color: #40a070">2</span>):
+    bit <span style="color: #666666">=</span> ii
 
-quantized <span style="color: #666666">=</span> f<span style="color: #666666">//</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit)
+    quantized <span style="color: #666666">=</span> f<span style="color: #666666">//</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit) <span style="color: #60a0b0; font-style: italic"># Operasjonen // betyr at vi gjør heltallsdivisjon.</span>
 
-plt<span style="color: #666666">.</span>imshow(quantized,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>bit)
+    plt<span style="color: #666666">.</span>figure() <span style="color: #60a0b0; font-style: italic"># lag nytt vindu</span>
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;bit = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">, antall verdier = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>(bit, np<span style="color: #666666">.</span>max(quantized) <span style="color: #666666">+</span> <span style="color: #40a070">1</span>))
+    plt<span style="color: #666666">.</span>imshow(quantized,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+
 plt<span style="color: #666666">.</span>show()
 </pre></div>
 <p>
@@ -256,16 +276,21 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/maste
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
 
-f <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;lena.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+f <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
-bit <span style="color: #666666">=</span> <span style="color: #40a070">2</span>
-quantized <span style="color: #666666">=</span> f<span style="color: #666666">//</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit)
 
 noiseFactor <span style="color: #666666">=</span> <span style="color: #40a070">10</span>
 N,M <span style="color: #666666">=</span> f<span style="color: #666666">.</span>shape
 fNoisy <span style="color: #666666">=</span> f <span style="color: #666666">+</span> noiseFactor<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
 
-plt<span style="color: #666666">.</span>imshow(quantized,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>,vmin<span style="color: #666666">=</span><span style="color: #40a070">0</span>,vmax<span style="color: #666666">=</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>bit)
+<span style="color: #007020; font-weight: bold">for</span> ii <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,<span style="color: #40a070">8</span>,<span style="color: #40a070">2</span>):
+    bit <span style="color: #666666">=</span> ii
+    quantized <span style="color: #666666">=</span> f<span style="color: #666666">//</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit)
+
+    plt<span style="color: #666666">.</span>figure()
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;bit = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">, antall verdier = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>(bit, np<span style="color: #666666">.</span>max(quantized)<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
+    plt<span style="color: #666666">.</span>imshow(quantized,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+
 plt<span style="color: #666666">.</span>show()
 </pre></div>
 <p>
