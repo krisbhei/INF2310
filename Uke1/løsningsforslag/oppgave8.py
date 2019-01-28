@@ -2,7 +2,7 @@ from imageio import imread
 import matplotlib.pyplot as plt
 import numpy as np
 
-f = imread('mona.png',flatten=True)
+f = imread('mona.png',as_gray=True)
 
 
 noiseFactor = 10
