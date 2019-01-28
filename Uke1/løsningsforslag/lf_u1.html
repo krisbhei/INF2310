@@ -272,11 +272,11 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/maste
 <p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
 
-f <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+f <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,as_gray<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
 
 noiseFactor <span style="color: #666666">=</span> <span style="color: #40a070">10</span>
