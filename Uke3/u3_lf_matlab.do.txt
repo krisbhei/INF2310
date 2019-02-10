@@ -1,0 +1,19 @@
+TITLE: Løsningsforslag i Matlab til ukeoppgave om gråtonemapping
+
+TOC: on
+
+!split
+======= Oppgave 2 =======
+@@@CODE oppgave2.m
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Uke3/oppgave2.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
+
+@@@CODE oppgave2_hist.m
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Uke3/oppgave2_hist.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
+
+
+Programmet viser et forslag til hvordan en kan programmere en histogram funksjon i Matlab.
+Det gjøres også en kort sammenligning om det funksjonen returnerer, faktisk stemmer med *imhist*.
+Å teste sine egne metoder er en fin måte å utelukke bugs som kan komme senere i programmet ditt, og en fin mulighet til å bli kjent med hvilke funksjoner som allerede finnes!
+
+
+## doconce format html u3_lf_matlab.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=u3_lf_matlab --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce

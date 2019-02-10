@@ -1,0 +1,204 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Løsningsforslag i Python til ukeoppgave om gråtonemapping">
+
+<title>Løsningsforslag i Python til ukeoppgave om gråtonemapping</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Oppgave 2', 1, None, '___sec0')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="u3_lf_python.html">Løsningsforslag i Python til ukeoppgave om gråtonemapping</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;">Table of contents</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Oppgave 2</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>L&#248;sningsforslag i Python til ukeoppgave om gr&#229;tonemapping</h1></center>  <!-- document title -->
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#___sec0"> Oppgave 2 </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Oppgave 2 </h1>
+<p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+<span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">hist1</span>(img):
+    <span style="color: #60a0b0; font-style: italic"># Anta at bildet img har verdier mellom 0 og 255</span>
+    G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
+
+    intensities <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arange(G)
+    p <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([np<span style="color: #666666">.</span>sum(img <span style="color: #666666">==</span> i) <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> intensities])<span style="color: #666666">/</span>img<span style="color: #666666">.</span>size
+    <span style="color: #007020; font-weight: bold">return</span> p, intensities
+
+<span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">hist2</span>(img):
+    <span style="color: #60a0b0; font-style: italic"># Denne funksjonen gjør det samme som hist1.</span>
+    <span style="color: #60a0b0; font-style: italic"># Forskjellen er at denne funksjonen gjør ikke vektorisering, og er ment for å vise</span>
+    <span style="color: #60a0b0; font-style: italic"># mer detaljert hva som faktisk skjer i hist1-metoden for å regne ut p.</span>
+    G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
+
+    intensities <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arange(G)
+
+    p <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G)
+    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
+        p[i] <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sum(img <span style="color: #666666">==</span> intensities[i])
+
+    p <span style="color: #666666">/=</span> img<span style="color: #666666">.</span>size
+
+    <span style="color: #007020; font-weight: bold">return</span> p, intensities
+
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #bb60d5">__name__</span> <span style="color: #666666">==</span> <span style="color: #4070a0">&#39;__main__&#39;</span>:
+
+    img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,as_gray<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+
+    p1, bins1 <span style="color: #666666">=</span> hist1(img)
+    p2, bins2 <span style="color: #666666">=</span> hist2(img)
+    p_np, bins_np <span style="color: #666666">=</span> np<span style="color: #666666">.</span>histogram(img, bins <span style="color: #666666">=</span> <span style="color: #40a070">256</span>, <span style="color: #007020">range</span> <span style="color: #666666">=</span> (<span style="color: #40a070">0</span>, <span style="color: #40a070">256</span>), density <span style="color: #666666">=</span> <span style="color: #007020">True</span>) <span style="color: #60a0b0; font-style: italic"># for å sammenligne med numpy</span>
+
+    <span style="color: #60a0b0; font-style: italic"># Visualiser histogrammene</span>
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">1</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;hist1&#39;</span>)
+    plt<span style="color: #666666">.</span>bar(bins1, p1)
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;hist2&#39;</span>)
+    plt<span style="color: #666666">.</span>bar(bins2, p2)
+
+    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">3</span>,<span style="color: #40a070">3</span>)
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;np.histogram&#39;</span>)
+    plt<span style="color: #666666">.</span>bar(bins_np[:<span style="color: #666666">-</span><span style="color: #40a070">1</span>], p_np)
+
+    plt<span style="color: #666666">.</span>show()
+
+    <span style="color: #60a0b0; font-style: italic"># En måte å teste om funksjonene gjør det samme som fra numpy:</span>
+    thr <span style="color: #666666">=</span> <span style="color: #40a070">1e-8</span>
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&#39;Gjør hist1 det samme som np.histgram?:&#39;</span>, np<span style="color: #666666">.</span>all(np<span style="color: #666666">.</span>abs(p1 <span style="color: #666666">-</span> p_np) <span style="color: #666666">&lt;</span> thr))
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&#39;Gjør hist2 det samme som np.histogram?:&#39;</span>, np<span style="color: #666666">.</span>all(np<span style="color: #666666">.</span>abs(p2 <span style="color: #666666">-</span> p_np) <span style="color: #666666">&lt;</span> thr))
+    <span style="color: #007020; font-weight: bold">print</span>(<span style="color: #4070a0">&#39;Gjør hist1 det samme som hist2?:&#39;</span>, np<span style="color: #666666">.</span>all(np<span style="color: #666666">.</span>abs(p2 <span style="color: #666666">-</span> p1) <span style="color: #666666">&lt;</span> thr))
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke3/oppgave2.py" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<p>
+Programmet viser to forslag til hvordan en kan programmere en histogram metode i Python.
+Metoden <em>hist1</em> utnytter list comprehension for &#229; gi noen kortere kodelinjer.
+Det som egentlig skjer i dens utregnelse av variabelen <em>p</em>, er egentlig det samme som loopen i <em>hist2</em>, som ogs&#229; teller antall forekomster av de mulige gr&#229;toneverdiene.
+Det er opp til deg hva du synes er greiest &#229; jobbe med!
+
+<p>
+Programmet gj&#248;r ogs&#229; en kort sammenligning om det metodene returnerer, faktisk stemmer med numpy sin <em>histogram</em> metode.
+&#197; teste sine egne metoder er en fin m&#229;te &#229; utelukke bugs som kan komme senere i programmet ditt, og en fin mulighet til &#229; bli kjent med hvilke funksjoner som allerede finnes!
+
+<p>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+

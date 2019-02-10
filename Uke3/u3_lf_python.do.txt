@@ -1,0 +1,19 @@
+TITLE: Løsningsforslag i Python til ukeoppgave om gråtonemapping
+
+TOC: on
+
+!split
+======= Oppgave 2 =======
+@@@CODE oppgave2.py
+Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Uke3/oppgave2.py" (høyreklikk og trykk "lagre lenke som"/"save link as")
+
+Programmet viser to forslag til hvordan en kan programmere en histogram metode i Python.
+Metoden *hist1* utnytter list comprehension for å gi noen kortere kodelinjer.
+Det som egentlig skjer i dens utregnelse av variabelen *p*, er egentlig det samme som loopen i *hist2*, som også teller antall forekomster av de mulige gråtoneverdiene.
+Det er opp til deg hva du synes er greiest å jobbe med!
+
+Programmet gjør også en kort sammenligning om det metodene returnerer, faktisk stemmer med numpy sin *histogram* metode.
+Å teste sine egne metoder er en fin måte å utelukke bugs som kan komme senere i programmet ditt, og en fin mulighet til å bli kjent med hvilke funksjoner som allerede finnes!
+
+
+## doconce format html u3_lf_python.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=u3_lf_python --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce

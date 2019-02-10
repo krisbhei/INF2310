@@ -1,0 +1,191 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Løsningsforslag i Matlab til ukeoppgave om gråtonemapping">
+
+<title>Løsningsforslag i Matlab til ukeoppgave om gråtonemapping</title>
+
+<!-- Bootstrap style: bootswatch_yeti -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:45px;      /* fixed header height for style bootswatch_yeti */
+  margin:-45px 0 0; /* negative fixed header height */
+}
+
+body { font-size:16px; }
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Oppgave 2', 1, None, '___sec0')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="u3_lf_matlab.html">Løsningsforslag i Matlab til ukeoppgave om gråtonemapping</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 14px; padding: 4px 15px;">Table of contents</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 14px; padding: 4px 15px;">Oppgave 2</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<!-- ------------------- main content ---------------------- -->
+
+
+
+<div class="jumbotron">
+<center><h1>L&#248;sningsforslag i Matlab til ukeoppgave om gr&#229;tonemapping</h1></center>  <!-- document title -->
+
+<p>
+</div> <!-- end jumbotron -->
+
+<h1 id="table_of_contents">Table of contents</h2>
+
+<p>
+<a href="#___sec0"> Oppgave 2 </a><br>
+</p>
+<p>
+<!-- !split -->
+
+<h1 id="___sec0" class="anchor">Oppgave 2 </h1>
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>);
+<span style="color: #007020; font-weight: bold">if</span> <span style="color: #007020">ndims</span>(img) <span style="color: #666666">&gt;</span> <span style="color: #40a070">2</span>
+    img = rgb2gray(img);
+<span style="color: #007020; font-weight: bold">end</span>
+
+[p, bins] = oppgave2_hist(img);
+
+<span style="color: #60a0b0; font-style: italic">% For aa sammenligne med imhist fra Mathworks:</span>
+[h1, bins1] = imhist(img);
+p1 = h1 <span style="color: #666666">./</span> <span style="color: #007020">numel</span>(img);
+
+figure()
+
+subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
+bar(bins1, p1)
+title(<span style="color: #4070a0">&#39;imhist (normalisert)&#39;</span>)
+
+subplot(<span style="color: #40a070">1</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
+bar(bins, p1)
+title(<span style="color: #4070a0">&#39;oppgave2\_hist&#39;</span>)
+
+<span style="color: #60a0b0; font-style: italic">% Sjekker om oppgave2_hist og imhist gjoer det samme:</span>
+thr = <span style="color: #40a070">1e-10</span>;
+test = all(<span style="color: #007020">abs</span>(p1 <span style="color: #666666">-</span> p) <span style="color: #666666">&lt;</span> thr);
+<span style="color: #007020; font-weight: bold">if</span> test <span style="color: #666666">==</span> false
+    error(<span style="color: #4070a0">&#39;oppgave2\_hist og imhist gjoer ikke det samme&#39;</span>)
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke3/oppgave2.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<p>
+
+<!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>[p, intensities] =<span style="color: #bbbbbb"> </span><span style="color: #06287e">oppgave2_hist</span>(img)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">    </span><span style="color: #60a0b0; font-style: italic">% Anta at bildet har heltallige verdier mellom 0 og 255 </span>
+    G = <span style="color: #40a070">256</span>;
+    
+    intensities = <span style="color: #40a070">0</span>:(G<span style="color: #666666">-</span><span style="color: #40a070">1</span>);
+    
+    p = <span style="color: #007020">zeros</span>(G, <span style="color: #40a070">1</span>);
+    <span style="color: #007020; font-weight: bold">for</span> <span style="color: #007020">i</span> = <span style="color: #40a070">1</span>:G
+        p(<span style="color: #007020">i</span>) = sum(sum(img <span style="color: #666666">==</span> intensities(<span style="color: #007020">i</span>))); 
+    <span style="color: #007020; font-weight: bold">end</span>
+    
+    p = p <span style="color: #666666">./</span> <span style="color: #007020">numel</span>(img);
+
+<span style="color: #007020; font-weight: bold">end</span>
+</pre></div>
+<p>
+Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/master/Uke3/oppgave2_hist.m" target="_self">her</a> (h&#248;yreklikk og trykk "lagre lenke som"/"save link as")
+
+<p>
+Programmet viser et forslag til hvordan en kan programmere en histogram funksjon i Matlab.
+Det gj&#248;res ogs&#229; en kort sammenligning om det funksjonen returnerer, faktisk stemmer med <em>imhist</em>.
+&#197; teste sine egne metoder er en fin m&#229;te &#229; utelukke bugs som kan komme senere i programmet ditt, og en fin mulighet til &#229; bli kjent med hvilke funksjoner som allerede finnes!
+
+<p>
+
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="http://..."><img width="250" align=right src="http://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright -->  Made with <a href="https://github.com/hplgit/doconce">DocOnce</a>
+</center>
+
+
+</body>
+</html>
+    
+
