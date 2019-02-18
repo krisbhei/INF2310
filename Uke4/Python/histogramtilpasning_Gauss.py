@@ -10,7 +10,7 @@ def gauss(x,mu,std):
 G = 256
 intensiteter = np.linspace(0,G-1,G)
 
-img = imread('mona.png',flatten=True)
+img = imread('mona.png',as_gray=True)
 
 # Spesifisér ønsket middelverdi og standardavvik til Gauss-en:
 mu = float(input('Middelverdi = '))

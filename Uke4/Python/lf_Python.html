@@ -6,6 +6,7 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Løsningsforslag til implementering av histogramtilpasning i Python">
 
 <title>Løsningsforslag til implementering av histogramtilpasning i Python</title>
@@ -125,113 +126,120 @@ MathJax.Hub.Config({
 <p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">matplotlib.pyplot</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">plt</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
 
-<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #4070a0; font-style: italic">histogramtilpasning(img,q)</span>
-<span style="color: #4070a0; font-style: italic">Histogramtilpasser et 8-bits innbilde img til histogram q</span>
-
-<span style="color: #4070a0; font-style: italic">Argumenter:</span>
-<span style="color: #4070a0; font-style: italic">    * img: innbildet</span>
-<span style="color: #4070a0; font-style: italic">    * q: histogram innbildet (ideelt) skal få</span>
-<span style="color: #4070a0; font-style: italic">Returnerer:</span>
-<span style="color: #4070a0; font-style: italic">    * Innbildet med histogram tilnærmet lik q</span>
-<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
 <span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">histogramtilpasning</span>(img,q):
-    <span style="color: #60a0b0; font-style: italic"># Antar 8-bit</span>
-    G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>;
 
-    <span style="color: #60a0b0; font-style: italic"># Finn innbildets histogram og deretter dets kumulative histogram:</span>
-    c <span style="color: #666666">=</span> finn_histogram_bilde(img)[<span style="color: #40a070">1</span>]
+	<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #4070a0; font-style: italic">	histogramtilpasning(img,q)</span>
+<span style="color: #4070a0; font-style: italic">	Histogramtilpasser et 8-bits innbilde img til histogram q</span>
+
+<span style="color: #4070a0; font-style: italic">	Argumenter:</span>
+<span style="color: #4070a0; font-style: italic">		* img: innbildet</span>
+<span style="color: #4070a0; font-style: italic">		* q: histogram innbildet (ideelt) skal få</span>
+<span style="color: #4070a0; font-style: italic">	Returnerer:</span>
+<span style="color: #4070a0; font-style: italic">		* Innbildet med histogram tilnærmet lik q</span>
+<span style="color: #4070a0; font-style: italic">	&quot;&quot;&quot;</span>
+
+	<span style="color: #60a0b0; font-style: italic"># Antar 8-bit</span>
+	G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
+
+	<span style="color: #60a0b0; font-style: italic"># Finn innbildets histogram og deretter dets kumulative histogram:</span>
+	c <span style="color: #666666">=</span> finn_histogram_bilde(img)[<span style="color: #40a070">1</span>]
 
     <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogrammet til q:</span>
-    cq <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
+	cq <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
 
     <span style="color: #60a0b0; font-style: italic"># Transformér innbildet img:</span>
-    T <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G)
+	T <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G)
 
-    <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
-        T[i] <span style="color: #666666">=</span> np<span style="color: #666666">.</span>argmin(np<span style="color: #666666">.</span>abs(c[i] <span style="color: #666666">-</span> cq))
+	<span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
+		T[i] <span style="color: #666666">=</span> np<span style="color: #666666">.</span>argmin(np<span style="color: #666666">.</span>abs(c[i] <span style="color: #666666">-</span> cq))
 
-    <span style="color: #007020; font-weight: bold">return</span> T[img<span style="color: #666666">.</span>astype(<span style="color: #007020">int</span>)] <span style="color: #60a0b0; font-style: italic"># T anvendes på hvert element i bildet img</span>
+	<span style="color: #007020; font-weight: bold">return</span> T[img<span style="color: #666666">.</span>astype(<span style="color: #007020">int</span>)] <span style="color: #60a0b0; font-style: italic"># T anvendes på hvert element i bildet img</span>
 
 
-<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #4070a0; font-style: italic">plot_histogramtilpasning(img,img_T,q)</span>
-<span style="color: #4070a0; font-style: italic">Plotter innbildet img og det histogramtilpassede bildet img_T med bildenes histogram</span>
-<span style="color: #4070a0; font-style: italic">og kumulative histogram.</span>
-
-<span style="color: #4070a0; font-style: italic">Argumenter:</span>
-<span style="color: #4070a0; font-style: italic">    * img: Innbildet</span>
-<span style="color: #4070a0; font-style: italic">    * img_T: Det histogramtilpassede bildet</span>
-<span style="color: #4070a0; font-style: italic">    * q: Histogrammet som img er tilpasset til.</span>
-<span style="color: #4070a0; font-style: italic">Returnerer:</span>
-<span style="color: #4070a0; font-style: italic">    Ingenting. Skal vise frem ett vindu.</span>
-<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
 <span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">plot_histogramtilpasning</span>(img,img_T,q,save<span style="color: #666666">=</span><span style="color: #007020">False</span>):
-    G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
-    intensiteter <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">0</span>,G<span style="color: #666666">-</span><span style="color: #40a070">1</span>,G)
+
+	<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #4070a0; font-style: italic">	plot_histogramtilpasning(img,img_T,q)</span>
+<span style="color: #4070a0; font-style: italic">	Plotter innbildet img og det histogramtilpassede bildet img_T med bildenes histogram</span>
+<span style="color: #4070a0; font-style: italic">	og kumulative histogram.</span>
+
+<span style="color: #4070a0; font-style: italic">	Argumenter:</span>
+<span style="color: #4070a0; font-style: italic">		* img: Innbildet</span>
+<span style="color: #4070a0; font-style: italic">		* img_T: Det histogramtilpassede bildet</span>
+<span style="color: #4070a0; font-style: italic">		* q: Histogrammet som img er tilpasset til.</span>
+<span style="color: #4070a0; font-style: italic">	Returnerer:</span>
+<span style="color: #4070a0; font-style: italic">		Ingenting. Skal vise frem ett vindu.</span>
+<span style="color: #4070a0; font-style: italic">	&quot;&quot;&quot;</span>
+
+	G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
+	intensiteter <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">0</span>,G<span style="color: #666666">-</span><span style="color: #40a070">1</span>,G)
 
     <span style="color: #60a0b0; font-style: italic"># Finn histogrammene til innbildet:</span>
-    p,c <span style="color: #666666">=</span> finn_histogram_bilde(img)
+	p,c <span style="color: #666666">=</span> finn_histogram_bilde(img)
 
     <span style="color: #60a0b0; font-style: italic"># Finn histogrammene til det histogramtilpassede bildet:</span>
-    p_T,c_T <span style="color: #666666">=</span> finn_histogram_bilde(img_T)
+	p_T,c_T <span style="color: #666666">=</span> finn_histogram_bilde(img_T)
 
     <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogramet til q for plottingen sin del:</span>
-    c_q <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
+	c_q <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
 
-    plt<span style="color: #666666">.</span>figure()
+	plt<span style="color: #666666">.</span>figure()
 
-    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
-    plt<span style="color: #666666">.</span>imshow(img_T,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Transformert bilde&#39;</span>)
-    plt<span style="color: #666666">.</span>axis(<span style="color: #4070a0">&#39;off&#39;</span>)
+	plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">1</span>)
+	plt<span style="color: #666666">.</span>imshow(img_T,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+	plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Transformert bilde&#39;</span>)
+	plt<span style="color: #666666">.</span>axis(<span style="color: #4070a0">&#39;off&#39;</span>)
 
-    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
-    plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Original bilde&#39;</span>)
-    plt<span style="color: #666666">.</span>axis(<span style="color: #4070a0">&#39;off&#39;</span>)
+	plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">2</span>)
+	plt<span style="color: #666666">.</span>imshow(img,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
+	plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Original bilde&#39;</span>)
+	plt<span style="color: #666666">.</span>axis(<span style="color: #4070a0">&#39;off&#39;</span>)
 
-    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>)
-    plt<span style="color: #666666">.</span>bar(intensiteter,p_T,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Histogram til det transformerte bildet&#39;</span>)
-    plt<span style="color: #666666">.</span>plot(intensiteter,q,<span style="color: #4070a0">&#39;r&#39;</span>,linewidth<span style="color: #666666">=</span><span style="color: #40a070">2</span>)
-    plt<span style="color: #666666">.</span>legend([<span style="color: #4070a0">&#39;ønsket&#39;</span>,<span style="color: #4070a0">&#39;bildets&#39;</span>])
+	plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">3</span>)
+	plt<span style="color: #666666">.</span>bar(intensiteter,p_T,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
+	plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Histogram til det transformerte bildet&#39;</span>)
+	plt<span style="color: #666666">.</span>plot(intensiteter,q,<span style="color: #4070a0">&#39;r&#39;</span>,linewidth<span style="color: #666666">=</span><span style="color: #40a070">2</span>)
+	plt<span style="color: #666666">.</span>legend([<span style="color: #4070a0">&#39;ønsket&#39;</span>,<span style="color: #4070a0">&#39;bildets&#39;</span>])
 
-    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">4</span>)
-    plt<span style="color: #666666">.</span>bar(intensiteter,p,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Histogram til det originale bildet&#39;</span>)
+	plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">4</span>)
+	plt<span style="color: #666666">.</span>bar(intensiteter,p,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
+	plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Histogram til det originale bildet&#39;</span>)
 
-    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">5</span>)
-    plt<span style="color: #666666">.</span>bar(intensiteter,c_T,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Kumulativ histogram til det transformerte bildet&#39;</span>)
-    plt<span style="color: #666666">.</span>plot(intensiteter,c_q,<span style="color: #4070a0">&#39;r&#39;</span>)
-    plt<span style="color: #666666">.</span>legend([<span style="color: #4070a0">&#39;ønsket&#39;</span>,<span style="color: #4070a0">&#39;bildets&#39;</span>])
+	plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">5</span>)
+	plt<span style="color: #666666">.</span>bar(intensiteter,c_T,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
+	plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Kumulativ histogram til det transformerte bildet&#39;</span>)
+	plt<span style="color: #666666">.</span>plot(intensiteter,c_q,<span style="color: #4070a0">&#39;r&#39;</span>)
+	plt<span style="color: #666666">.</span>legend([<span style="color: #4070a0">&#39;ønsket&#39;</span>,<span style="color: #4070a0">&#39;bildets&#39;</span>])
 
-    plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">6</span>)
-    plt<span style="color: #666666">.</span>bar(intensiteter,c,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Kumulativ histogram til det originale bildet&#39;</span>)
+	plt<span style="color: #666666">.</span>subplot(<span style="color: #40a070">3</span>,<span style="color: #40a070">2</span>,<span style="color: #40a070">6</span>)
+	plt<span style="color: #666666">.</span>bar(intensiteter,c,edgecolor<span style="color: #666666">=</span><span style="color: #4070a0">&#39;none&#39;</span>)
+	plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&#39;Kumulativ histogram til det originale bildet&#39;</span>)
 
-    plt<span style="color: #666666">.</span>show()
+	plt<span style="color: #666666">.</span>show()
 
 
-<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #4070a0; font-style: italic">finn_histogram_bilde(img)</span>
-<span style="color: #4070a0; font-style: italic">Finner det det normaliserte og kumulative histogrammet til bildet img</span>
-
-<span style="color: #4070a0; font-style: italic">Argumenter:</span>
-<span style="color: #4070a0; font-style: italic">    * img: Bildet som funksjonen skal finne histogrammene til.</span>
-<span style="color: #4070a0; font-style: italic">Returnerer:</span>
-<span style="color: #4070a0; font-style: italic">    * p: Det normaliserte histogrammet.</span>
-<span style="color: #4070a0; font-style: italic">    * c: Det kumulative histogrammet.</span>
-<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
 <span style="color: #007020; font-weight: bold">def</span> <span style="color: #06287e">finn_histogram_bilde</span>(img):
-    p <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([np<span style="color: #666666">.</span>sum(img<span style="color: #666666">.</span>astype(<span style="color: #007020">int</span>) <span style="color: #666666">==</span> i) <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">256</span>)])<span style="color: #666666">/</span>img<span style="color: #666666">.</span>size
-    c <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(p)
-    <span style="color: #007020; font-weight: bold">return</span> p,c
+
+	<span style="color: #4070a0; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #4070a0; font-style: italic">	finn_histogram_bilde(img)</span>
+<span style="color: #4070a0; font-style: italic">	Finner det det normaliserte og kumulative histogrammet til bildet img</span>
+
+<span style="color: #4070a0; font-style: italic">	Argumenter:</span>
+<span style="color: #4070a0; font-style: italic">		* img: Bildet som funksjonen skal finne histogrammene til.</span>
+<span style="color: #4070a0; font-style: italic">	Returnerer:</span>
+<span style="color: #4070a0; font-style: italic">		* p: Det normaliserte histogrammet.</span>
+<span style="color: #4070a0; font-style: italic">		* c: Det kumulative histogrammet.</span>
+<span style="color: #4070a0; font-style: italic">	&quot;&quot;&quot;</span>
+
+	p <span style="color: #666666">=</span> np<span style="color: #666666">.</span>array([np<span style="color: #666666">.</span>sum(img<span style="color: #666666">.</span>astype(<span style="color: #007020">int</span>) <span style="color: #666666">==</span> i) <span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">256</span>)])<span style="color: #666666">/</span>img<span style="color: #666666">.</span>size
+	c <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(p)
+
+	<span style="color: #007020; font-weight: bold">return</span> p,c
 </pre></div>
 <p>
 Koden kan lastes ned <a href="https://github.com/krisbhei/INF2310/blob/master/Uke4/Python/oppgave6.py" target="_self">her</a>.
@@ -255,7 +263,7 @@ For &#229; sjekke om programmet faktisk utf&#248;rer en histogramtilpasning, har
 G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
 intensiteter <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">0</span>,G<span style="color: #666666">-</span><span style="color: #40a070">1</span>,G)
 
-img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,as_gray<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
 <span style="color: #60a0b0; font-style: italic"># Spesifisér ønsket middelverdi og standardavvik til Gauss-en:</span>
 mu <span style="color: #666666">=</span> <span style="color: #007020">float</span>(<span style="color: #007020">input</span>(<span style="color: #4070a0">&#39;Middelverdi = &#39;</span>))
@@ -311,7 +319,7 @@ N&#229; som en funksjon som generell histogramtilpasning har blitt definert i op
 <!-- code=python (!bc pypro) typeset with pygments style "friendly" -->
 <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">oppgave6</span> <span style="color: #007020; font-weight: bold">import</span> <span style="color: #666666">*</span>
 <span style="color: #007020; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #007020; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
-<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">scipy.misc</span> <span style="color: #007020; font-weight: bold">import</span> imread
+<span style="color: #007020; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">imageio</span> <span style="color: #007020; font-weight: bold">import</span> imread
 
 <span style="color: #60a0b0; font-style: italic"># Definerer et uniformt histogram over G intensiteter.</span>
 <span style="color: #60a0b0; font-style: italic"># Mulig å også bruke:</span>
@@ -320,9 +328,9 @@ N&#229; som en funksjon som generell histogramtilpasning har blitt definert i op
     <span style="color: #007020; font-weight: bold">return</span> np<span style="color: #666666">.</span>ones(G)<span style="color: #666666">/</span>G
 
 G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
-intensiteter <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">0</span>,G<span style="color: #666666">-</span><span style="color: #40a070">1</span>,G)
+intensiteter <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arange(G)
 
-img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,flatten<span style="color: #666666">=</span><span style="color: #007020">True</span>)
+img <span style="color: #666666">=</span> imread(<span style="color: #4070a0">&#39;mona.png&#39;</span>,as_gray<span style="color: #666666">=</span><span style="color: #007020">True</span>)
 
 q <span style="color: #666666">=</span> uniform(G)
 
