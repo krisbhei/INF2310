@@ -149,10 +149,10 @@ MathJax.Hub.Config({
 	<span style="color: #60a0b0; font-style: italic"># Finn innbildets histogram og deretter dets kumulative histogram:</span>
 	c <span style="color: #666666">=</span> finn_histogram_bilde(img)[<span style="color: #40a070">1</span>]
 
-    <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogrammet til q:</span>
+	<span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogrammet til q:</span>
 	cq <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
 
-    <span style="color: #60a0b0; font-style: italic"># Transformér innbildet img:</span>
+	<span style="color: #60a0b0; font-style: italic"># Transformér innbildet img:</span>
 	T <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(G)
 
 	<span style="color: #007020; font-weight: bold">for</span> i <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(G):
@@ -179,13 +179,13 @@ MathJax.Hub.Config({
 	G <span style="color: #666666">=</span> <span style="color: #40a070">256</span>
 	intensiteter <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #40a070">0</span>,G<span style="color: #666666">-</span><span style="color: #40a070">1</span>,G)
 
-    <span style="color: #60a0b0; font-style: italic"># Finn histogrammene til innbildet:</span>
+	<span style="color: #60a0b0; font-style: italic"># Finn histogrammene til innbildet:</span>
 	p,c <span style="color: #666666">=</span> finn_histogram_bilde(img)
 
-    <span style="color: #60a0b0; font-style: italic"># Finn histogrammene til det histogramtilpassede bildet:</span>
+	<span style="color: #60a0b0; font-style: italic"># Finn histogrammene til det histogramtilpassede bildet:</span>
 	p_T,c_T <span style="color: #666666">=</span> finn_histogram_bilde(img_T)
 
-    <span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogramet til q for plottingen sin del:</span>
+	<span style="color: #60a0b0; font-style: italic"># Finn det kumulative histogramet til q for plottingen sin del:</span>
 	c_q <span style="color: #666666">=</span> np<span style="color: #666666">.</span>cumsum(q)
 
 	plt<span style="color: #666666">.</span>figure()

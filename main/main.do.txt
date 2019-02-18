@@ -26,8 +26,8 @@ Her kan du finne en introduksjon til programmering i
 ======= Uke 1 - Sampling og kvantisering =======
 
 * "Her":"https://krisbhei.github.io/INF2310/Uke1/kode_ukeoppgaver.html" kan du finne kode fra "ukeoppgavene":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/ukeoppgaver/ukeoppgaver_1.html" oversatt til Python.
-* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i Python.
-* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i Matlab.
+* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i _Python_.
+* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i _Matlab_.
 
 <linebreak>
 ## ======= Uke 2 - Geometriske operasjoner =======
@@ -39,8 +39,8 @@ Her kan du finne en introduksjon til programmering i
 <linebreak>
 ======= Uke 3 - Gråtonemapping =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke3/u3_lf_python.html" kan du finne løsningsforslag til oppgave 2 i Python.
-* "Her":"https://krisbhei.github.io/INF2310/Uke3/u3_lf_matlab.html" kan du finne løsningsforslag til oppgave 2 i Matlab.
+* "Her":"https://krisbhei.github.io/INF2310/Uke3/u3_lf_python.html" kan du finne løsningsforslag til oppgave 2 i _Python_.
+* "Her":"https://krisbhei.github.io/INF2310/Uke3/u3_lf_matlab.html" kan du finne løsningsforslag til oppgave 2 i _Matlab_.
 
 <linebreak>
 

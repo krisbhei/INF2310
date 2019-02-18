@@ -21,10 +21,10 @@ def histogramtilpasning(img,q):
 	# Finn innbildets histogram og deretter dets kumulative histogram:
 	c = finn_histogram_bilde(img)[1]
 
-    # Finn det kumulative histogrammet til q:
+	# Finn det kumulative histogrammet til q:
 	cq = np.cumsum(q)
 
-    # Transformér innbildet img:
+	# Transformér innbildet img:
 	T = np.zeros(G)
 
 	for i in range(G):
@@ -51,13 +51,13 @@ def plot_histogramtilpasning(img,img_T,q,save=False):
 	G = 256
 	intensiteter = np.linspace(0,G-1,G)
 
-    # Finn histogrammene til innbildet:
+	# Finn histogrammene til innbildet:
 	p,c = finn_histogram_bilde(img)
 
-    # Finn histogrammene til det histogramtilpassede bildet:
+	# Finn histogrammene til det histogramtilpassede bildet:
 	p_T,c_T = finn_histogram_bilde(img_T)
 
-    # Finn det kumulative histogramet til q for plottingen sin del:
+	# Finn det kumulative histogramet til q for plottingen sin del:
 	c_q = np.cumsum(q)
 
 	plt.figure()
