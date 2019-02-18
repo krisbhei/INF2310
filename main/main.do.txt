@@ -35,6 +35,15 @@ Her kan du finne en introduksjon til programmering i
 ## * "Her":"https://krisbhei.github.io/INF2310/Uke2/lf.html" kan du finne løsningsforslag til programmeringsoppgavenen 3, samt oppgave 1 demonstrert i Python. Det er også skrevet en forklaring hvorfor "den praktiske algoritmen" fra slide 19 i "lysarket om geometriske operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180131_geometriskeoperasjoner.pdf" ser ut som den gjør.
 
 ## <linebreak>
+
+<linebreak>
+======= Uke 3 - Gråtonemapping =======
+
+* "Her":"https://krisbhei.github.io/INF2310/Uke3/u3_lf_python.html" kan du finne løsningsforslag til oppgave 2 i Python.
+* "Her":"https://krisbhei.github.io/INF2310/Uke3/u3_lf_matlab.html" kan du finne løsningsforslag til oppgave 2 i Matlab.
+
+<linebreak>
+
 ## ======= Uke 4 - Histogrambaserte operasjoner =======
 
 ## * "Her":"https://krisbhei.github.io/INF2310/Uke4/Python/lf_Python.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Python_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
