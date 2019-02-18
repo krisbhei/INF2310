@@ -6,6 +6,7 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Løsningsforslag til implementering av histogramtilpasning i Matlab">
 
 <title>Løsningsforslag til implementering av histogramtilpasning i Matlab</title>
@@ -125,17 +126,19 @@ MathJax.Hub.Config({
 <p>
 
 <!-- code=matlab (!bc mpro) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #60a0b0; font-style: italic">% histogramtilpasning(img,q)</span>
-<span style="color: #60a0b0; font-style: italic">% Histogramtilpasser et innbilde img til et gitt histogram q.</span>
-<span style="color: #60a0b0; font-style: italic">%</span>
-<span style="color: #60a0b0; font-style: italic">% Argumenter:</span>
-<span style="color: #60a0b0; font-style: italic">%   * img: Bildet som skal histogramtilpasses.</span>
-<span style="color: #60a0b0; font-style: italic">%   * q: Det normaliserte histogrammet img skal tilpasses til.</span>
-<span style="color: #60a0b0; font-style: italic">% Returnerer:</span>
-<span style="color: #60a0b0; font-style: italic">%   * img_T: Det histogramtilpassede bildet. </span>
-<span style="color: #007020; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>img_T =<span style="color: #bbbbbb"> </span><span style="color: #06287e">histogramtilpasning</span>(img,q)<span style="color: #bbbbbb"></span>
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span><span style="color: #007020; font-weight: bold">function</span><span style="color: #bbbbbb"> </span>img_T =<span style="color: #bbbbbb"> </span><span style="color: #06287e">histogramtilpasning</span>(img,q)<span style="color: #bbbbbb"></span>
+<span style="color: #bbbbbb">	</span>
+<span style="color: #bbbbbb">	</span><span style="color: #60a0b0; font-style: italic">% histogramtilpasning(img,q)</span>
+	<span style="color: #60a0b0; font-style: italic">% Histogramtilpasser et innbilde img til et gitt histogram q.</span>
+	<span style="color: #60a0b0; font-style: italic">%</span>
+	<span style="color: #60a0b0; font-style: italic">% Argumenter:</span>
+	<span style="color: #60a0b0; font-style: italic">%   * img: Bildet som skal histogramtilpasses.</span>
+	<span style="color: #60a0b0; font-style: italic">%   * q: Det normaliserte histogrammet img skal tilpasses til.</span>
+	<span style="color: #60a0b0; font-style: italic">% Returnerer:</span>
+	<span style="color: #60a0b0; font-style: italic">%   * img_T: Det histogramtilpassede bildet. </span>
 
-<span style="color: #bbbbbb">    </span><span style="color: #60a0b0; font-style: italic">% Antar 8-bit</span>
+
+    <span style="color: #60a0b0; font-style: italic">% Antar 8-bits bilde </span>
     G = <span style="color: #40a070">256</span>;
 
     <span style="color: #60a0b0; font-style: italic">% Finn innbildets histogram og deretter dets kumulative histogram:</span>
