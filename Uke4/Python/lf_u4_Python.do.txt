@@ -7,7 +7,7 @@ TOC: on
 @@@CODE  oppgave6.py
 Koden kan lastes ned "her":"https://github.com/krisbhei/INF2310/blob/master/Uke4/Python/oppgave6.py".
 <linebreak>
-Her er idéen bak algoritmen tatt direkte fra slide 14 i "lysarket om histogrambaserte operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180214_histogrambaserteoperasjoner.pdf".
+Her er store deler av algoritmen tatt direkte fra slide 15 i "lysarket om histogrambaserte operasjoner":"https://www.uio.no/studier/emner/matnat/ifi/INF2310/v19/undervisningsmateriale/forelesning/20190213_histogrambaserteoperasjoner_6pp.pdf".
 
 
 For å sjekke om programmet faktisk utfører en histogramtilpasning, har det blitt skrevet et eksempelprogram:
@@ -55,7 +55,7 @@ Dette betyr at den diskrete transformasjonen blir
 T[j] = \text{round}((G-1)\cdot c[j])
 !et
 Da er det mulig å implementere dette uttrykket direkte for å finne transformasjonsarray-et til bildet. Idéen er fortsatt den samme som histogramtilpasning utført i oppgave 6, siden
-histogramutjevning er i bunn og grunn en histogramtilpasning. 
-Dette er beskrevet mer detaljert på slide 8 i "lysarket om histogrambaserte operasjoner":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/20180214_histogrambaserteoperasjoner.pdf".
+histogramutjevning er i bunn og grunn en histogramtilpasning.
+Dette er beskrevet mer detaljert om på slide 9 i "lysarket om histogrambaserte operasjoner":"https://www.uio.no/studier/emner/matnat/ifi/INF2310/v19/undervisningsmateriale/forelesning/20190213_histogrambaserteoperasjoner_6pp.pdf".
 
 ##  doconce format html lf_u4_Python.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=lf_Python --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
