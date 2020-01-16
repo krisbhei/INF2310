@@ -1,6 +1,6 @@
 TITLE: Introduksjon til Matlab
-# AUTHOR: Kristine B. Hein
-# DATE: today
+AUTHOR: Kristine Hein
+DATE: today
 *En kort innføring i installasjon og programmering i bildebehandling.*
 
 
@@ -26,9 +26,10 @@ For å endre denne keybindingen, går man på _Preferences_ -> _Keyboard_ -> _Sh
 Her kan du finne demonstrasjoner av syntaksen som brukes i Matlab, samt et eksempel på hvordan et program kan utføre operasjoner på et bilde.
 
 ===== Grunnleggende =====
-Matlab er et høytnivåspråk - hvilket som betyr at Matlab er ment for å være lett å lese.
+Matlab er et høynivåspråk, som betyr at Matlab er ment til å være lett å lese.
 
-Mye av semantikken i Matlab bygger også på at man jobber med matriser. Bilder er i bunn og grunn matriser - hvilket som gjør Matlab ganske naturlig egnet til å jobbe med bilder i.
+Mye av semantikken i Matlab bygger også på at man jobber med matriser.
+Bilder er i bunn og grunn matriser som gjør at Matlab er godt egnet til å jobbe med bilder.
 
 Et program i Matlab har filendingen .m, og kjøres i kommandovinduet ("Command Window") ved å skrive
 !bc
@@ -42,13 +43,13 @@ Det kan fort bli mye utskrift, spesielt ved store matriser. Er man uheldig og gl
 Vi kommer til å bruke en del aritmetiske operasjoner (dvs addering,subtrahering,divisjon og multiplikasjon) etterhvert, og da kan det være fint å kjenne til dem.
 Syntaksen for aritmetiske operasjoner er nokså lik som i Java/C/C++/Matlab.
 
-Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg nokså ut fra de nevnte språkene.
+Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg mye ut fra de nevnte språkene.
 
 @@@CODE aritmetikk.m
 Programmet kan lastes ned "her":"https://github.com/krisbhei/INF2310/raw/master/Programmering/Matlab/aritmetikk.m" (høyreklikk og trykk "lagre lenke som"/"save link as")
 
 === Cell arrays ===
-Cell arrays er en samling av elementer. Det som gjør cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at arrays-ene kan inneholde elementer av ulik type.
+Cell arrays er en samling av elementer. Det som gjør cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at array-ene kan inneholde elementer av ulik type.
 Det vil si at én og samme cell-array i Matlab kan inneholde datatyper som strings, ints og floats og andre ting som for eksempel funksjonspekere og andre objekter.
 
 For å lage en tom cell, brukes krøllparantes:
@@ -57,14 +58,14 @@ cell1 = {}
 !ec
 
 Man kan utvide *cell1* ved å spesifisere på hvilken plass et nytt element skal settes inn.
-Husk at Matlab begynner indekseringen fra 1, og bruker krøllparantes!
+Husk at Matlab begynner indekseringen fra 1. Når vi jobber med cell arrays bruker vi krøllparantes til å indeksere med.
 !bc matlab
 cell1{1} = 10; % Nå har liste kun ett element - nemlig 10
 cell1{2} = 12; % Elementet 12 er nå plassert bak 10
 !ec
 
 <linebreak>
-For å lage en cell arrays som inneholder gitte elementer, brukes krøllparantes rundt elementene separert med komma:
+For å lage en cell array som inneholder gitte elementer, brukes krøllparantes rundt elementene separert med komma:
 
 !bc matlab
 a = 1
@@ -82,7 +83,7 @@ cell2{3} % viser 'hei' i kommandovinduet
 !ec
 
 === Løkker ===
-Løkker har noenlunde lik syntaks som de typiske programmeringsspråkene.
+Løkker har noenlunde lik syntaks som de typiske høynivåspråkene.
 
 <linebreak>
 __For-løkker:__
@@ -90,17 +91,18 @@ __For-løkker:__
 Hensikten bak en for-løkke er å utføre en kodesnutt et bestemt antall ganger.
 
 For-løkker er kanskje én av de viktigste redskapene som kommer til å bli brukt i emnet.
-Derfor, er det viktig å ha god kjennskap til hvordan den kan brukes og *spesielt* indekseringen!
+Derfor er det viktig å ha god kjennskap til hvordan den kan brukes og *spesielt* indekseringen.
 
-Konstruksjonen av en for-løkke er:
+Konstruksjonen av en for-løkke gjøres slik:
 !bc matlab
 for <variabel> = <startverdi>:<steg>:<sluttverdi>
 % Kode som skal utføres
 end
 !ec
 
-Det som er viktig å huske på, er end. Den brukes også for å markere slutten av if-tester og funksjonsdefinisjoner.
-Det er også mulig å droppe å spesifisere *steg* hvis man ønsker at det skal være lik 1. Syntaksten blir da
+Det som er viktig å huske på å legge til i slutten av løkken, er end.
+Den brukes til å markere slutten av if-tester, samt funksjonsdefinisjoner.
+Det er mulig la være å spesifisere *steg* hvis man ønsker at det skal være lik 1. Syntaksten blir da
 !bc matlab
 for <variabel> = <startverdi>:<sluttverdi>
 % Kode som skal utføres
@@ -122,7 +124,8 @@ En betingelse kan være en sjekk på om ett tall er større enn en gitt verdi, o
 
 === Matriser ===
 
-En matrise konstrueres radvis, og inni klammeparanteser. En rad er definert som en rekke av verdier sperarert av mellomrom.
+En matrise konstrueres radvis, og inni klammeparenteser.
+En rad er definert som en rekke av verdier separert av mellomrom.
 For å indikere slutt av en rad, brukes semikolon. Et eksempel på konstruksjon av en 3 x 2 - matrise:
 !bc matlab
 matrise1 = [1 2 3; 4 5 6];
@@ -150,7 +153,7 @@ Innlesing av bilde,  f.eks "houses.png":"https://github.com/krisbhei/INF2310/raw
 img = imread('houses.png')
 !ec
 
-I emnet kommer vi til å jobbe hovedsakelig med gråtonebilder. Det hender at de bildene som gis, er farge eller leses av som om de har farge.
+I emnet kommer vi til å jobbe hovedsakelig med gråtonebilder. Det hender at de bildene som gis, er fargebilder eller leses av som om de har tre fargekanaler.
 For å være på den sikre siden, kan man inkludere dette i programmet før man jobber videre med det:
 !bc matlab
 img = imread(<filnavn til ditt bilde>)
@@ -160,8 +163,9 @@ end
 !ec
 If-testen sjekker om antall dimensjoner i det innleste bildet er 3. Fargebilder er 3-dimensjonale, mens gråtonebilder er 2-dimensjonale. Vet programmet at bildet har 3 dimensjoner, så betyr det altså at bildet er et fargebilde.
 
-Det er også *veldig* viktig å passe på at bildet programmet jobber med, er av riktig datatype. De innleste bildene er av typen *uint8*, som betyr at verdiene er alltids heltall.
-Det kan gi store numeriske feilberegninger siden verdiene blir rundet til heltall mellom 0 og 255. Derfor er det en god vane i å konvertere det til f.eks *double* før man utfører matematiske operasjoner på bildet:
+Det er også *veldig* viktig å passe på at bildet programmet jobber med, er av riktig datatype. De innleste bildene er av typen *uint8*, som betyr at verdiene er heltall.
+Dette kan gi store numeriske feilberegninger hvis man utfører transformasjoner på bildet siden verdiene blir rundet til heltall mellom 0 og 255.
+Derfor er det en god vane i å konvertere det til f.eks *double* før man utfører matematiske operasjoner på bildet,
 !bc matlab
 img = double(img)
 !ec
@@ -172,17 +176,17 @@ Nå som et bilde har blitt innlest, er det fint å få se det også. Dette komme
 
 Det finnes ulike funksjoner i Matlab for fremvising av bilde. En funksjon som kan brukes er *imshow*:
 !bc matlab
-imshowc(img,[])
+imshow(img,[])
 !ec
 
 De tomme klammeparantesene forteller at Matlabs fremvising av verdier er begrenset av innbildets minste og største verdi.
-Etter noen operasjoner på bildet (og gitt at bildet er konvertert til double), kan det hende den har erdier større enn 255 (som et typisk bilde har). For at resultatet av operasjonen skal vises tydelig frem, kan en bruke
+Etter noen operasjoner på bildet (og gitt at bildet er konvertert til double), kan det hende den har verdier større enn 255 (som et typisk bilde har). For at resultatet av operasjonen skal vises tydelig frem, kan en bruke
 !bc matlab
 imshow(img,[0 255])
 !ec
 for at Matlab framviser bildet som om det har verdier mellom 0 og 255.
 
-Noen ganger kan det hende at det framviste bildet er liten i forhold til vinduet. Da kan man bruke et ekstra argument, *InitialMagnification* slik:
+Noen ganger kan det hende at det framviste bildet er lite i forhold til vinduet. Da kan man bruke et ekstra argument, *InitialMagnification* slik:
 !bc matlab
 imshow(img,[0 255],'InitialMagnification','fit')
 !ec
@@ -215,7 +219,4 @@ God programmering!
 ## doconce format html programmering_matlab.do.txt --html_style=bootswatch_yeti --pygments_html_style=friendly --html_admon=bootstrap_panel --html_output=programmering_matlab  --html_code_style=inherit --html_body_style=font-size:16px --cite_doconce
 ## doconce replace 'Table of contents' 'Oversikt' programmering_python.html
 ## doconce replace 'Contents' 'Innhold' programmering_python.html
-## doconce format pdflatex programmering_matlab --latex_font=palatino --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue
-##        --latex_admon=yellowicon '--latex_admon_color=yellow!5'
-##        --latex_fancy_header --latex_code_style=pyg
-##        --latex_section_headings=blue --latex_colored_table_rows=blue
+## doconce format pdflatex programmering_matlab --latex_font=palatino --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue  --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue

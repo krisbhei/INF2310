@@ -1,10 +1,10 @@
 A = [1 2 3; 4 5 6];
 a = 3;
 
-% Addér hvert element i A med a
+% Legge a til hvert element i A
 A + a
 
-% Subtrahér hvert element i A med a
+% Trekke a fra hvert element i A 
 A - a
 
 % Multiplisér hvert element i A med a

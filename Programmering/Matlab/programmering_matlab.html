@@ -6,6 +6,7 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Introduksjon til Matlab">
 
 <title>Introduksjon til Matlab</title>
@@ -113,8 +114,20 @@ end of tocinfo -->
 <div class="jumbotron">
 <center><h1>Introduksjon til Matlab</h1></center>  <!-- document title -->
 
-<!-- AUTHOR: Kristine B. Hein -->
-<!-- DATE: today -->
+<p>
+<!-- author(s): Kristine Hein -->
+
+<center>
+<b>Kristine Hein</b> 
+</center>
+
+<p>
+<!-- institution(s) -->
+
+<br>
+<p>
+<center><h4>Jan 16, 2020</h4></center> <!-- date -->
+<br>
 <em>En kort innf&#248;ring i installasjon og programmering i bildebehandling.</em>
 
 <p>
@@ -152,10 +165,11 @@ For &#229; endre denne keybindingen, g&#229;r man p&#229; <b>Preferences</b> -> 
 Her kan du finne demonstrasjoner av syntaksen som brukes i Matlab, samt et eksempel p&#229; hvordan et program kan utf&#248;re operasjoner p&#229; et bilde.
 
 <h2 id="___sec3" class="anchor">Grunnleggende </h2>
-Matlab er et h&#248;ytniv&#229;spr&#229;k - hvilket som betyr at Matlab er ment for &#229; v&#230;re lett &#229; lese.
+Matlab er et h&#248;yniv&#229;spr&#229;k, som betyr at Matlab er ment til &#229; v&#230;re lett &#229; lese.
 
 <p>
-Mye av semantikken i Matlab bygger ogs&#229; p&#229; at man jobber med matriser. Bilder er i bunn og grunn matriser - hvilket som gj&#248;r Matlab ganske naturlig egnet til &#229; jobbe med bilder i.
+Mye av semantikken i Matlab bygger ogs&#229; p&#229; at man jobber med matriser.
+Bilder er i bunn og grunn matriser som gj&#248;r at Matlab er godt egnet til &#229; jobbe med bilder.
 
 <p>
 Et program i Matlab har filendingen .m, og kj&#248;res i kommandovinduet ("Command Window") ved &#229; skrive
@@ -174,7 +188,7 @@ Vi kommer til &#229; bruke en del aritmetiske operasjoner (dvs addering,subtrahe
 Syntaksen for aritmetiske operasjoner er noks&#229; lik som i Java/C/C++/Matlab.
 
 <p>
-Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg noks&#229; ut fra de nevnte spr&#229;kene.
+Programmet under demonsterer aritmetiske operasjoner, samt potens siden den skiller seg mye ut fra de nevnte spr&#229;kene.
 
 <p>
 
@@ -202,7 +216,7 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/maste
 
 <h3 id="___sec5" class="anchor">Cell arrays </h3>
 
-Cell arrays er en samling av elementer. Det som gj&#248;r cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at arrays-ene kan inneholde elementer av ulik type.
+Cell arrays er en samling av elementer. Det som gj&#248;r cell arrays spesielt i Matlab sammenlignet med Java eller C/C++, er at array-ene kan inneholde elementer av ulik type.
 Det vil si at &#233;n og samme cell-array i Matlab kan inneholde datatyper som strings, ints og floats og andre ting som for eksempel funksjonspekere og andre objekter.
 
 <p>
@@ -214,7 +228,7 @@ For &#229; lage en tom cell, brukes kr&#248;llparantes:
 </pre></div>
 <p>
 Man kan utvide <em>cell1</em> ved &#229; spesifisere p&#229; hvilken plass et nytt element skal settes inn.
-Husk at Matlab begynner indekseringen fra 1, og bruker kr&#248;llparantes!
+Husk at Matlab begynner indekseringen fra 1. N&#229;r vi jobber med cell arrays bruker vi kr&#248;llparantes til &#229; indeksere med.
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
@@ -223,7 +237,7 @@ cell1{<span style="color: #40a070">2</span>} = <span style="color: #40a070">12</
 </pre></div>
 <p>
 <br />
-For &#229; lage en cell arrays som inneholder gitte elementer, brukes kr&#248;llparantes rundt elementene separert med komma:
+For &#229; lage en cell array som inneholder gitte elementer, brukes kr&#248;llparantes rundt elementene separert med komma:
 
 <p>
 
@@ -246,7 +260,7 @@ cell2{<span style="color: #40a070">3</span>} <span style="color: #60a0b0; font-s
 
 <h3 id="___sec6" class="anchor">L&#248;kker </h3>
 
-L&#248;kker har noenlunde lik syntaks som de typiske programmeringsspr&#229;kene.
+L&#248;kker har noenlunde lik syntaks som de typiske h&#248;yniv&#229;spr&#229;kene.
 
 <p>
 <br />
@@ -256,10 +270,10 @@ Hensikten bak en for-l&#248;kke er &#229; utf&#248;re en kodesnutt et bestemt an
 
 <p>
 For-l&#248;kker er kanskje &#233;n av de viktigste redskapene som kommer til &#229; bli brukt i emnet.
-Derfor, er det viktig &#229; ha god kjennskap til hvordan den kan brukes og <em>spesielt</em> indekseringen!
+Derfor er det viktig &#229; ha god kjennskap til hvordan den kan brukes og <em>spesielt</em> indekseringen.
 
 <p>
-Konstruksjonen av en for-l&#248;kke er:
+Konstruksjonen av en for-l&#248;kke gj&#248;res slik:
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
@@ -268,8 +282,9 @@ Konstruksjonen av en for-l&#248;kke er:
 <span style="color: #007020; font-weight: bold">end</span>
 </pre></div>
 <p>
-Det som er viktig &#229; huske p&#229;, er end. Den brukes ogs&#229; for &#229; markere slutten av if-tester og funksjonsdefinisjoner.
-Det er ogs&#229; mulig &#229; droppe &#229; spesifisere <em>steg</em> hvis man &#248;nsker at det skal v&#230;re lik 1. Syntaksten blir da
+Det som er viktig &#229; huske p&#229; &#229; legge til i slutten av l&#248;kken, er end.
+Den brukes til &#229; markere slutten av if-tester, samt funksjonsdefinisjoner.
+Det er mulig la v&#230;re &#229; spesifisere <em>steg</em> hvis man &#248;nsker at det skal v&#230;re lik 1. Syntaksten blir da
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
@@ -297,7 +312,8 @@ En betingelse kan v&#230;re en sjekk p&#229; om ett tall er st&#248;rre enn en g
 <h3 id="___sec7" class="anchor">Matriser </h3>
 
 <p>
-En matrise konstrueres radvis, og inni klammeparanteser. En rad er definert som en rekke av verdier sperarert av mellomrom.
+En matrise konstrueres radvis, og inni klammeparenteser.
+En rad er definert som en rekke av verdier separert av mellomrom.
 For &#229; indikere slutt av en rad, brukes semikolon. Et eksempel p&#229; konstruksjon av en 3 x 2 - matrise:
 <p>
 
@@ -325,10 +341,10 @@ Programmet under viser grunnleggende operasjoner man kan gj&#248;re med en matri
 <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>A = [<span style="color: #40a070">1</span> <span style="color: #40a070">2</span> <span style="color: #40a070">3</span>; <span style="color: #40a070">4</span> <span style="color: #40a070">5</span> <span style="color: #40a070">6</span>];
 a = <span style="color: #40a070">3</span>;
 
-<span style="color: #60a0b0; font-style: italic">% Addér hvert element i A med a</span>
+<span style="color: #60a0b0; font-style: italic">% Legge a til hvert element i A</span>
 A <span style="color: #666666">+</span> a
 
-<span style="color: #60a0b0; font-style: italic">% Subtrahér hvert element i A med a</span>
+<span style="color: #60a0b0; font-style: italic">% Trekke a fra hvert element i A </span>
 A <span style="color: #666666">-</span> a
 
 <span style="color: #60a0b0; font-style: italic">% Multiplisér hvert element i A med a</span>
@@ -364,7 +380,7 @@ Innlesing av bilde,  f.eks <a href="https://github.com/krisbhei/INF2310/raw/mast
 <div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>img = imread(<span style="color: #4070a0">&#39;houses.png&#39;</span>)
 </pre></div>
 <p>
-I emnet kommer vi til &#229; jobbe hovedsakelig med gr&#229;tonebilder. Det hender at de bildene som gis, er farge eller leses av som om de har farge.
+I emnet kommer vi til &#229; jobbe hovedsakelig med gr&#229;tonebilder. Det hender at de bildene som gis, er fargebilder eller leses av som om de har tre fargekanaler.
 For &#229; v&#230;re p&#229; den sikre siden, kan man inkludere dette i programmet f&#248;r man jobber videre med det:
 <p>
 
@@ -378,8 +394,9 @@ For &#229; v&#230;re p&#229; den sikre siden, kan man inkludere dette i programm
 If-testen sjekker om antall dimensjoner i det innleste bildet er 3. Fargebilder er 3-dimensjonale, mens gr&#229;tonebilder er 2-dimensjonale. Vet programmet at bildet har 3 dimensjoner, s&#229; betyr det alts&#229; at bildet er et fargebilde.
 
 <p>
-Det er ogs&#229; <em>veldig</em> viktig &#229; passe p&#229; at bildet programmet jobber med, er av riktig datatype. De innleste bildene er av typen <em>uint8</em>, som betyr at verdiene er alltids heltall.
-Det kan gi store numeriske feilberegninger siden verdiene blir rundet til heltall mellom 0 og 255. Derfor er det en god vane i &#229; konvertere det til f.eks <em>double</em> f&#248;r man utf&#248;rer matematiske operasjoner p&#229; bildet:
+Det er ogs&#229; <em>veldig</em> viktig &#229; passe p&#229; at bildet programmet jobber med, er av riktig datatype. De innleste bildene er av typen <em>uint8</em>, som betyr at verdiene er heltall.
+Dette kan gi store numeriske feilberegninger hvis man utf&#248;rer transformasjoner p&#229; bildet siden verdiene blir rundet til heltall mellom 0 og 255.
+Derfor er det en god vane i &#229; konvertere det til f.eks <em>double</em> f&#248;r man utf&#248;rer matematiske operasjoner p&#229; bildet,
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
@@ -395,11 +412,11 @@ Det finnes ulike funksjoner i Matlab for fremvising av bilde. En funksjon som ka
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
-<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>imshowc(img,[])
+<div class="highlight" style="background: #f0f0f0"><pre style="line-height: 125%"><span></span>imshow(img,[])
 </pre></div>
 <p>
 De tomme klammeparantesene forteller at Matlabs fremvising av verdier er begrenset av innbildets minste og st&#248;rste verdi.
-Etter noen operasjoner p&#229; bildet (og gitt at bildet er konvertert til double), kan det hende den har erdier st&#248;rre enn 255 (som et typisk bilde har). For at resultatet av operasjonen skal vises tydelig frem, kan en bruke
+Etter noen operasjoner p&#229; bildet (og gitt at bildet er konvertert til double), kan det hende den har verdier st&#248;rre enn 255 (som et typisk bilde har). For at resultatet av operasjonen skal vises tydelig frem, kan en bruke
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
@@ -409,7 +426,7 @@ Etter noen operasjoner p&#229; bildet (og gitt at bildet er konvertert til doubl
 for at Matlab framviser bildet som om det har verdier mellom 0 og 255.
 
 <p>
-Noen ganger kan det hende at det framviste bildet er liten i forhold til vinduet. Da kan man bruke et ekstra argument, <em>InitialMagnification</em> slik:
+Noen ganger kan det hende at det framviste bildet er lite i forhold til vinduet. Da kan man bruke et ekstra argument, <em>InitialMagnification</em> slik:
 <p>
 
 <!-- code=matlab (!bc matlab) typeset with pygments style "friendly" -->
@@ -498,6 +515,9 @@ Programmet kan lastes ned <a href="https://github.com/krisbhei/INF2310/raw/maste
 
 <p>
 God programmering!
+
+<p>
+ doconce format pdflatex programmering_matlab --latex_font=palatino --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue  --latex_admon=yellowicon '--latex_admon_color=yellow!5' --latex_fancy_header --latex_code_style=pyg --latex_section_headings=blue --latex_colored_table_rows=blue
 
 <!-- ------------------- end of main content --------------- -->
 
