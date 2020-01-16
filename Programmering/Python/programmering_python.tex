@@ -19,6 +19,7 @@ final,                   % draft: marks overfull hboxes, figures with paths
 \usepackage[table]{xcolor}
 \usepackage{bm,ltablex,microtype}
 
+\usepackage{parskip}
 \usepackage[pdftex]{graphicx}
 
 % Packages for typesetting blocks of computer code
@@ -176,8 +177,6 @@ final,                   % draft: marks overfull hboxes, figures with paths
 \usepackage[totoc]{idxlayout}   % for index in the toc
 \usepackage[nottoc]{tocbibind}  % for references/bibliography in the toc
 
-\usepackage{parskip}
-
 %-------------------- end preamble ----------------------
 
 \begin{document}
@@ -207,7 +206,7 @@ final,                   % draft: marks overfull hboxes, figures with paths
 % ----------------- author(s) -------------------------
 
 \begin{center}
-{\bf Kristine B. Hein${}^{}$} \\ [0mm]
+{\bf Kristine Hein${}^{}$} \\ [0mm]
 \end{center}
 
 \begin{center}
@@ -218,7 +217,7 @@ final,                   % draft: marks overfull hboxes, figures with paths
 
 % --- begin date ---
 \begin{center}
-Jan 16, 2019
+Jan 17, 2020
 \end{center}
 % --- end date ---
 
@@ -240,15 +239,18 @@ Jan 16, 2019
 
 % !split
 \section{Installasjon}
-Det er vanlig at Python er allerede inkludert på de fleste MacOS og Linux systemene.
-Men det er anbefalt å installere Anaconda. Anaconda er gratis å laste ned. Ved å installere Anaconda, får man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til å ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan være til nytte i andre emner eller annen programmering.
-Installering av nye pakker er også lettere ved å bruke Anaconda.
+Det er vanlig at Python allerede er inkludert på de fleste MacOS og Linux systemer.
+Men ofte må man installere bibliotek, også kalt \emph{moduler}, og holde orden på hvilke versjoner man bruker av modulene.
+Anaconda er et fint verktøy til å laste ned modulene.
+Anaconda er gratis å laste ned. Ved å installere Anaconda, får man inkludert omtrent 150 pakker som brukes til vitenskapelig programmering. Vi kommer til å ha bruk for kun et lite utvalg av pakkene, men de andre pakkene kan være til nytte i andre emner eller annen programmering.
+Installering av nye pakker er også lettere ved å bruke Anaconda og det er mulig å sette opp \emph{virtual environments} med de.
+Virtual environments er fine å bruke hvis du ønsker å jobbe med ulike oppsett og installasjoner av bl.a Python.
 
 \subsection{Anaconda}
 Det finnes versjoner av Anaconda til Mac, Linux og Windows. Her kan du finne nedlastingssiden: \href{{https://www.anaconda.com/download/#linux}}{Installasjon av Anaconda}
 
 Alle programmene på siden er skrevet i Python 3.6, men det skal også gå fint å bruke 3.7.
-Gjerne si i fra hvis noen programmer ikke kan kjøres på grunn av forskjellige versjoner! 
+Si gjerne i fra hvis noen programmer ikke kan kjøres på grunn av forskjellige versjoner!
 
 Her kan du finne installasjonsguide til det operativsystemet du bruker: \href{{https://docs.anaconda.com/anaconda/install/}}{Installasjonsguide}
 
@@ -259,11 +261,18 @@ conda list
 i kommandovinduet.
 Ved en suksessful installasjon vil en liste over diverse pakker som har blitt installert dukke opp i kommandovinduet.
 
+\subsection{Installering av moduler på UiO-maskin}
+Det kan hende at noen moduler ikke er tilgjengelig på din UiO-bruker. For å installere en modul lokalt på din bruker, kan
+\begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
+pip3 install --user <navn-på-modul>
+\end{minted}
+brukes.
+
 \section{Programmering}
 Her kan du finne demonstrasjoner av syntaksen som brukes i Python, samt et eksempel på hvordan et program i Python kan utføre operasjoner på et bilde.
 
 \subsection{Testing underveis}
-En måte for å redusere sannsyneligheten for lumske bugs i programmet, er å teste funksjoner/semantikken til Python underveis.
+En måte for å redusere sannsynligheten for lumske bugs i programmet, er å teste funksjoner/semantikken til Python underveis.
 
 Da er det ofte behjelpelig å bruke Python shell-et. Den aktiveres i kommandovinduet ved å skrive inn
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
@@ -276,15 +285,18 @@ Det er altså rom for testing av funksjoner og se direkte konsekvenser av dem ut
 For å komme ut av shell-et, kan man skrive \emph{exit()}. Det er også viktig å huske på at ingenting av deklarasjoner, definisjoner o.l blir lagret.
 
 \subsection{Grunnleggende}
-Python er et høytnivåspråk - hvilket som betyr at Python er ment for å være lett å lese.
+Python er et høynivåspråk, hvilket som betyr at Python er ment for å være lett å lese.
 
-Et program i Python har filendingen .py, og kjøres i kommandovinduet ved å skrive 
+Et program i Python 3 har filendingen .py, og kjøres i kommandovinduet ved å skrive
+\begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
+python <navn på programmet ditt>.py
+\end{minted}
+Hvis maskinen du jobber på har to versjoner av Python, altså Python 2 og Python 3, kan det hende du må spesifisere at Python 3 skal brukes,
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
 python3 <navn på programmet ditt>.py
 \end{minted}
-Hvis du har kun en Python versjon på din maskin, vil det holde å skrive bare \texttt{python}. 
 
-For at programmet skal skrive ut noe til skjerm, brukes funksjonen print.
+For at programmet skal skrive ut noe til skjerm, brukes funksjonen \emph{print}.
 Et eksempel på hvordan print kan brukes, er:
 
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
@@ -340,7 +352,7 @@ Programmet kan lastes ned \href{{https://github.com/krisbhei/INF2310/raw/master/
 Lister er en samling av elementer. Det som gjør lister spesielt i Python sammenlignet med Java eller C/C++, er at listene kan inneholde elementer av ulik type.
 Det vil si at én og samme liste i Python kan inneholde datatyper som strings, ints og floats og andre ting som for eksempel funksjonspekere og andre objekter.
 
-For å lage en tom liste, brukes klammeparantes:
+For å lage en tom liste, brukes klammeparentes:
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 liste1 = []
 \end{minted}
@@ -358,7 +370,7 @@ Kjører men programmet, vil man se at det skriver ut \emph{[10,12]}.
 \vspace{3mm}
 
 
-For å lage en liste med noen elementer, brukes klammeparantes rundt elementene som er separert med komma:
+For å lage en liste med noen elementer, brukes klammeparentes rundt elementene som er separert med komma:
 
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 a = 1
@@ -369,7 +381,7 @@ liste2 = [a,b,c]
 \end{minted}
 
 Når man skal hente ut elementer fra en liste, er det viktig å huske at første element ligger på 0-te plass (i motsetning til Matlab der første element ligger på 1-te plass).
-For å hente ut et element fra en liste, skriver vi først navnet til variabelen knyttet til listen, og deretter klammeparantes med et tall inni som forteller fra hvilken plass programmet skal hente elementet fra.
+For å hente ut et element fra en liste, skriver vi først navnet til variabelen knyttet til listen, og deretter klammeparentes med et tall inni som forteller fra hvilken plass programmet skal hente elementet fra.
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 print(liste1[0]) # skriver ut 10
 print(liste2[2]) # skriver ut "hei"
@@ -391,7 +403,7 @@ Løkker har noenlunde lik syntaks som de typiske programmeringsspråkene.
 
 Hensikten bak en for-løkke er å utføre en kodesnutt et bestemt antall ganger.
 
-For-løkker er kanskje én av de viktigste redskapene som kommer til å bli brukt i emnet.
+For-løkker er kanskje ett av de viktigste redskapene som kommer til å bli brukt i emnet.
 Derfor, er det viktig å ha god kjennskap til hvordan den kan brukes og \emph{spesielt} indekseringen!
 
 Konstruksjonen av en for-løkke er:
@@ -401,13 +413,13 @@ for <element-navn> in <liste over verdier>:
 \end{minted}
 
 I \emph{<element-navn>} bestemmer du hvilket variabelnavn som skal tilordnes hvert element som hentes ut fra listen spesifisert i \emph{<liste over verdier>}.
-Det er viktig å passe på å ha et inntrykk etter for-linjen er skrevet.
+Det er viktig å passe på å ha et inntrykk etter for-linjen.
 
 
 \vspace{3mm}
 
 
-En svært nyttig konstruksjon av en liste-lignende objekt er range, og ofte viser seg til å være svært nyttig i for-løkker,
+En svært nyttig konstruksjon av en liste-lignende objekt er range, og ofte viser det seg å være svært nyttig i for-løkker,
 Funksjonen range gjøre det mulig at man kan hente heltall fra et gitt intervall ved en gitt steglengde:
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 for <element-navn> in range(start,stopp,steg)
@@ -461,8 +473,8 @@ Det er også vanlig at bilder som leses inn i Python-programmer
 er av typen array siden bilder er i bunn og grunn matriser.
 
 \paragraph{Bruke numpy.}
-For å ha kunne bruke arrays fra numpy, må numpy-modulen importeres først.
-Det er mange måter å importere en modul på.
+For å bruke arrays fra numpy, må numpy-modulen importeres først.
+Det er ulike måter å importere en modul på.
 Den som kommer til å brukes mest på denne siden, er
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 import numpy as np
@@ -470,7 +482,8 @@ import numpy as np
 Her importeres numpy, men med navnet \emph{np}. For å bruke funksjoner fra numpy ved denne formen for importering, må vi
 skrive foran hver funksjon fra numpy dets ''navn'' for at programmet skal forstå fra hvilken modul funksjonen hentes fra.
 
-Det som gjør numpy spesielt nyttig å bruke, er at \emph{elementvis} aritmetikk er implementert hos vektorer (en vektor sees på som en 1 x n - matrise) og :
+Det som gjør numpy spesielt nyttig å bruke, er at \emph{elementvis} aritmetikk er implementert hos vektorer (en vektor sees på som en 1 x n - matrise).
+Programmet under demonstrerer hvilke elementvise operasjoner man kan gjøre på vektorer.
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 import numpy as np
 
@@ -527,8 +540,7 @@ Noen metoder som, av erfaring, har vært til nytte i bildebehandling:
 
 \item \textbf{np.dot:} Matematisk matrisemultiplikasjon
 
-\item \textbf{np.where:} 
-Hvis den innsendte array-et er to-dimensjonal, vil funksjonen gi to arrays; en array som beskriver hvilken rad betingelsen er oppfylt og hvilken kolonne betingelsen er oppfylt. 
+\item \textbf{np.where:} Lager en array som viser \emph{hvor} i en array en gitt betingelse er oppfylt. Det som funksjonen gir tilbake, er arrays som inneholder hvilken rad og kolonne betingelsen er oppfylt. Hvis det innsendte array-et er to-dimensjonal, vil funksjonen gi to arrays; ett array som beskriver hvilken rad betingelsen er oppfylt i og ett som beskriver hvilken kolonne betingelsen er oppfylt i.
 
 \item \textbf{np.loadtxt:} Leser inn og konverterer en fil med verdier til en array i programmet
 
@@ -536,12 +548,12 @@ Hvis den innsendte array-et er to-dimensjonal, vil funksjonen gi to arrays; en a
 \end{itemize}
 
 \noindent
-Dokumentasjonen ligger \href{{https://docs.scipy.org/doc/numpy/reference/}}{her} med en oversikt over alle metodene fra numpymodulen, og hvordan de brukes.
+Dokumentasjonen er tilgjengelig \href{{https://docs.scipy.org/doc/numpy/reference/}}{her} med en oversikt over alle metodene fra numpymodulen, og hvordan de brukes.
 
 
 \subsection{Bildebehandling}
 Det er mange ulike teknikker (og moduler!) en kan bruke for å arbeide med bilder i Python. Her vil det presenteres én metode å arbeide med bilder på, men
-du står selvføgelig fritt til å bruke teknikkene og modulene du øsnker å jobber med.
+du står selvføgelig fritt til å bruke teknikkene og modulene du ønsker å jobber med.
 
 \paragraph{Innlesing og lagring av bilde.}
 Innlesing av bilde er ikke implementert i numpy. Men det finnes heldigvis andre moduler som har innlesing av bilde implementert, som f.eks OpenCV, scikit, PIL og imageio(som vil brukes her).
@@ -573,7 +585,7 @@ Nå som et bilde har blitt innlest, er det fint å få se det også. Dette komme
 
 Modulen \emph{matplotlib.pyplot} har metoder som egner seg godt til all form for visualisering av data - også for bilder. For å vise fram et bilde bruken en \emph{imshow}.
 
-Programmet under demonstrer hvordan et program kan lese inn et bilde og vise det fram i egne vindu.
+Programmet under demonstrerer hvordan et program kan lese inn et bilde og vise det fram i egne vindu.
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 from imageio import imread
 import matplotlib.pyplot as plt
@@ -595,7 +607,7 @@ Programmet kan lastes ned \href{{https://github.com/krisbhei/INF2310/raw/master/
 som gir disse bildene:
 
 
-\begin{figure}[H]  % 
+\begin{figure}[!ht]  % 
   \centerline{\includegraphics[width=0.9\linewidth]{Figure_1.pdf}}
   \caption{
   Bilde av det første vinduet.
@@ -605,7 +617,7 @@ som gir disse bildene:
 
 
 
-\begin{figure}[H]  % 
+\begin{figure}[!ht]  % 
   \centerline{\includegraphics[width=0.9\linewidth]{Figure_2.pdf}}
   \caption{
   Bilde av det andre vinduet.
@@ -617,16 +629,16 @@ som gir disse bildene:
 Her kan du se at det første bilde ikke er gråtone - selvom det er tenkt til å være et gråtonebilde. Dette skjer fordi \emph{matplotlib.pyplot} har en standard, predefinert måte å fremvise tallverdier som farger på.
 Det må spesifiseres at en ønsker å framvise bildet som gråtone. Dette gjøres med å spesifisere et \emph{colormap} ved å sende inn som argument \emph{cmap=<ønsket colormap>}. Det finnes flere colormaps, hvis en ønsker å bruke det.
 
-Dette er også viktig å bruke \textbf{figure()} hvis man ikke ønsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til \emph{imshow}.
+Det er også viktig å bruke \textbf{figure()} hvis man ikke ønsker at det nye bildet som fremvises overlapper bildet som tidligere har blitt sendt inn til \emph{imshow}.
 
 
 
 \vspace{3mm}
 
 
-Det kan også hende at etter noen operasjoner at de matrisene en jobber med, har verdier som er større enn det et bilde bør ha. Et 8-bit bilde har verdier fra 0 til og med 255.
-Ved fremvising, tilpasser matplotlib seg etter de verdiene som den innsendte matrisen har. Dette kan føre til at vi ikke ser resultatene etter å ha utført noen operasjoner.
-For å sørge for at matplotlib viser bildet som om der vi kan forvente å ha verdier mellom 0 og 255, må en bruke \emph{vmin} og \emph{vmax}:
+Etter noen operasjoner kan det hende matrisene en jobber med, har verdier som er større enn det et 8-bit bilde kan ha. Et 8-bit bilde har verdier fra 0 til og med 255.
+Ved fremvising tilpasser matplotlib seg til verdiene som den innsendte matrisen har. Dette kan føre til at vi ikke ser resultatene etter å ha utført noen operasjoner.
+For å sørge for at matplotlib viser bildet som om bildet har verdier mellom 0 og 255, kan en bruke \emph{vmin} og \emph{vmax}:
 \begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{python}
 plt.imshow(img,vmin=0,vmax=255)
 \end{minted}
