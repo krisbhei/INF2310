@@ -4,18 +4,16 @@ TOC: on
 
 !split
 ======= Om siden =======
-Her kan du finne diverse materiale som har blitt gjennomgått i gruppetimene.
+Her kan du finne diverse materiale som har blitt gjennomgått i gruppetimene tidligere år.
 
-Gruppetimene vil foregå i _Assembler_ (3.etg i OJD) om _torsdager_ kl. _10:15 - 12:00_.
+Gruppetimene i år vil foregå i _Assembler_ (3.etg i OJD) om _mandager_ kl. _10:15 - 12:00_.
 
-Siden vil bli oppdatert gjennom semesteret.
-
-Ta gjerne kontakt på _krisbhei@ifi.uio.no_  hvis du har noen spørsmål eller forslag til hvordan gruppetimene eller denne siden kan forbedres.
+Ta gjerne kontakt på _krisbhei@ifi.uio.no_  hvis du har noen spørsmål om materialet på denne siden.
 
 <linebreak>
 ======= Programmering =======
-I emnet vil du stå fritt til å velge mellom Matlab eller Python.
-Du kan gjerne programmere i et annet språk, om du vil, men det kan hende at det blir vanskelig å få hjelp.
+I emnet står du fritt til å velge mellom Matlab eller Python.
+Du kan gjerne programmere i et annet språk om du vil, men det kan hende at det blir vanskelig å få hjelp.
 
 
 Her kan du finne en introduksjon til programmering i
@@ -27,7 +25,7 @@ Her kan du finne en introduksjon til programmering i
 
 * "Her":"https://krisbhei.github.io/INF2310/Uke1/kode_ukeoppgaver.html" kan du finne kode fra "ukeoppgavene":"http://www.uio.no/studier/emner/matnat/ifi/INF2310/v18/undervisningsmateriale/ukeoppgaver/ukeoppgaver_1.html" oversatt til Python.
 * "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i _Python_.
-* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i _Matlab_.
+* "Her":"https://krisbhei.github.io/INF2310/Uke1/løsningsforslag/lf_u1_matlab.html" kan du finne løsningsforslag til programmeringsoppgavene skrevet i _Matlab_.
 
 <linebreak>
 ## ======= Uke 2 - Geometriske operasjoner =======
