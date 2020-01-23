@@ -242,6 +242,15 @@ noiseFactor = <span style="color: #40a070">10</span>;
 [N,M] = <span style="color: #007020">size</span>(f);
 fNoisy = double(f) <span style="color: #666666">+</span> noiseFactor <span style="color: #666666">.*</span> <span style="color: #007020">randn</span>(N,M); 
 
+<span style="color: #60a0b0; font-style: italic">% Nå kan fNoisy ha verdier over og under [0,255].</span>
+<span style="color: #60a0b0; font-style: italic">% Det er mulig å transformere fNoisy  slik at minste og største verdi til fNoisy</span>
+<span style="color: #60a0b0; font-style: italic">% blir henholdsvis 0 og 255.</span>
+<span style="color: #60a0b0; font-style: italic">% Transformasjonen kommer vi tilbake til senere i emnet:</span>
+fNoisy = (fNoisy <span style="color: #666666">-</span> min(fNoisy(:))) <span style="color: #666666">./</span> (max(fNoisy(:))<span style="color: #666666">-</span> min(fNoisy(:))) <span style="color: #666666">.*</span> <span style="color: #40a070">255</span>;
+
+<span style="color: #60a0b0; font-style: italic">% Merk at i denne oppgaven er det viktigste at du får til at bildet</span>
+<span style="color: #60a0b0; font-style: italic">% kan ha opp til 2**bit antall verdier</span>
+
 <span style="color: #007020; font-weight: bold">for</span> ii = <span style="color: #40a070">1</span>:<span style="color: #40a070">2</span>:<span style="color: #40a070">8</span>
     bit = ii; 
     f_requantized = <span style="color: #007020">floor</span>(fNoisy<span style="color: #666666">./</span>(<span style="color: #40a070">2</span>^(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit))); 
@@ -249,7 +258,7 @@ fNoisy = double(f) <span style="color: #666666">+</span> noiseFactor <span style
     <span style="color: #60a0b0; font-style: italic">% Vis resultat:</span>
     figure()
     imagesc(f_requantized); colormap(<span style="color: #4070a0">&#39;gray&#39;</span>);
-    title(sprintf(<span style="color: #4070a0">&#39;bit = %d, antall verdier = %d&#39;</span>, bit, max(f_requantized(:))<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
+    title(sprintf(<span style="color: #4070a0">&#39;bit = %d, antall mulige verdier = %d&#39;</span>, bit, max(f_requantized(:))<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
 <span style="color: #007020; font-weight: bold">end</span>
 </pre></div>
 <p>
