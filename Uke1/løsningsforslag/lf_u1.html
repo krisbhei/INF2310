@@ -283,12 +283,21 @@ noiseFactor <span style="color: #666666">=</span> <span style="color: #40a070">1
 N,M <span style="color: #666666">=</span> f<span style="color: #666666">.</span>shape
 fNoisy <span style="color: #666666">=</span> f <span style="color: #666666">+</span> noiseFactor<span style="color: #666666">*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>randn(N,M)
 
+<span style="color: #60a0b0; font-style: italic"># Nå kan fNoisy ha verdier over og under [0,255].</span>
+<span style="color: #60a0b0; font-style: italic"># Det er mulig å transformere fNoisy  slik at minste og største verdi til fNoisy</span>
+<span style="color: #60a0b0; font-style: italic"># blir henholdsvis 0 og 255.</span>
+<span style="color: #60a0b0; font-style: italic"># Transformasjonen kommer vi tilbake til senere i emnet:</span>
+fNoisy <span style="color: #666666">=</span> (fNoisy <span style="color: #666666">-</span> np<span style="color: #666666">.</span>min(fNoisy)) <span style="color: #666666">/</span> (np<span style="color: #666666">.</span>max(fNoisy)<span style="color: #666666">-</span> np<span style="color: #666666">.</span>min(fNoisy)) <span style="color: #666666">*</span> <span style="color: #40a070">255</span>
+
+<span style="color: #60a0b0; font-style: italic"># Merk at i denne oppgaven er det viktigste at du får til at bildet</span>
+<span style="color: #60a0b0; font-style: italic"># kan ha opp til 2**bit antall verdier</span>
+
 <span style="color: #007020; font-weight: bold">for</span> ii <span style="color: #007020; font-weight: bold">in</span> <span style="color: #007020">range</span>(<span style="color: #40a070">1</span>,<span style="color: #40a070">8</span>,<span style="color: #40a070">2</span>):
     bit <span style="color: #666666">=</span> ii
     quantized <span style="color: #666666">=</span> f<span style="color: #666666">//</span><span style="color: #40a070">2</span><span style="color: #666666">**</span>(<span style="color: #40a070">8</span><span style="color: #666666">-</span>bit)
 
     plt<span style="color: #666666">.</span>figure()
-    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;bit = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">, antall verdier = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>(bit, np<span style="color: #666666">.</span>max(quantized)<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
+    plt<span style="color: #666666">.</span>title(<span style="color: #4070a0">&quot;bit = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">, antall mulige verdier = </span><span style="color: #70a0d0; font-style: italic">%d</span><span style="color: #4070a0">&quot;</span><span style="color: #666666">%</span>(bit, np<span style="color: #666666">.</span>max(quantized)<span style="color: #666666">+</span><span style="color: #40a070">1</span>))
     plt<span style="color: #666666">.</span>imshow(quantized,cmap<span style="color: #666666">=</span><span style="color: #4070a0">&#39;gray&#39;</span>)
 
 plt<span style="color: #666666">.</span>show()
