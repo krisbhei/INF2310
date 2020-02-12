@@ -42,10 +42,10 @@ Her kan du finne en introduksjon til programmering i
 
 <linebreak>
 
-======= Uke 4 - Histogrambaserte operasjoner =======
+#======= Uke 4 - Histogrambaserte operasjoner =======
 
-* "Her":"https://krisbhei.github.io/INF2310/Uke4/Python/lf_Python.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Python_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
-* "Her":"https://krisbhei.github.io/INF2310/Uke4/Matlab/lf_Matlab.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Matlab_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
+#* "Her":"https://krisbhei.github.io/INF2310/Uke4/Python/lf_Python.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Python_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
+#* "Her":"https://krisbhei.github.io/INF2310/Uke4/Matlab/lf_Matlab.html" kan du finne løsningsforslag til hvordan histogramtilpasning kan implementeres i _Matlab_, som er også løsninger på oppgave 3 og oppgave 6 i ukeoppgavene.
 
 ## <linebreak>
 ## ======= Uke 8 - Fourier-transform I =======
